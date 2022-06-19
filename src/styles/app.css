@@ -1,0 +1,20 @@
+.link{
+    text-decoration: none;
+    font-family: 'Charis SIL', serif;
+    font-size: medium;
+    font-weight: bolder;
+    color: whitesmoke;
+}
+
+.link:hover{
+    color: white;
+    text-decoration: underline 2px white;
+}
+
+.frontPage:hover{
+    border: 2px solid white;
+}
+
+body{
+    color: whitesmoke;
+}
