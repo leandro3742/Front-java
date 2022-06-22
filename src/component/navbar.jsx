@@ -3,13 +3,14 @@ import search from "../images/searchIcon.svg";
 import series from "../images/series.png";
 import film from "../images/filmIcon.png";
 import add from "../images/addIcon.png";
+import mantel from "../images/MANTEL.png";
 
 function NavbarComponent(props) {
     return (
         <div className="m-0 p-0 row bg-dark d-flex justify-content-between">
             <div className="col-lg-3 col-2">
                 <Link className="link" to="/">
-                    <img style={{ width: "100px" }} className="rounded-pill" src="https://i0.wp.com/hipertextual.com/wp-content/uploads/2021/03/hipertextual-disney-llega-espana.jpeg?fit=2500%2C1559&ssl=1" alt="" />
+                    <img style={{ width: "180px" }} className="rounded-pill" src={mantel} alt="" />
                 </Link>
             </div>
             {!props.isLogged && (

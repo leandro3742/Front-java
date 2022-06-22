@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&family=Play&family=Sen&family=Source+Code+Pro&display=swap');
+
+.divGlobal{
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.divInputs{
+    text-align: left;
+    margin-left: 40%;
+}
+
+.divBotones{
+    margin-left: 70px;
+    margin-top: 3%;
+}
+
+.divlabel{
+    margin: 5px;
+    margin-bottom: 20px;
+    display: flex;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+.inputs{
+    background-color: transparent;
+    border-radius: 5px;
+    border-color: aqua;
+    margin-left: 5px;
+    color:aliceblue;
+}
+
+.btnConfirmar{
+    border-radius: 5px;
+    background-color: darkviolet;
+    color:aliceblue;
+    margin-right: 15px;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+.btnCancelar{
+    border-radius: 5px;
+    background-color: rgb(211, 0, 207);
+    color:aliceblue;
+    margin-left: 15px;
+    font-family: 'Chakra Petch', sans-serif;
+}
+
+.divTitle{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.title{
+    font-family: 'Chakra Petch', sans-serif;
+}

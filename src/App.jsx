@@ -12,6 +12,7 @@ import Series from "./views/series";
 import Films from "./views/films";
 import MyList from "./views/myList";
 import Profile from "./views/profile";
+import AltaGenerador from "./views/altaGenerador";
 
 function App() {
     const [isLogged, setIsLogged] = useState(true);
@@ -29,6 +30,7 @@ function App() {
                     <Route path="/films" element={<Films />} />
                     <Route path="/myList" element={<MyList />} />
                     <Route path="/profile" element={<Profile />} />
+                    <Route path="/admin" element={<AltaGenerador />} />
                 </Routes>
             </BrowserRouter>
         </>
