@@ -4,6 +4,7 @@ import series from "../images/series.png";
 import film from "../images/filmIcon.png";
 import add from "../images/addIcon.png";
 import mantel from "../images/MANTEL.png";
+import "../styles/navbar.css";
 
 function NavbarComponent(props) {
     return (

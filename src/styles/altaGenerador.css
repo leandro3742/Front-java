@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&family=Play&family=Sen&family=Source+Code+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&family=Play&family=Press+Start+2P&family=Source+Code+Pro&display=swap');
 
 .divGlobal{
     align-items: center;
@@ -9,11 +9,12 @@
 
 .divInputs{
     text-align: left;
-    margin-left: 40%;
+    margin-left: 30%;
 }
 
 .divBotones{
-    margin-left: 70px;
+    justify-content: space-between;
+    margin-left: 15%;
     margin-top: 3%;
 }
 
@@ -21,7 +22,7 @@
     margin: 5px;
     margin-bottom: 20px;
     display: flex;
-    font-family: 'Chakra Petch', sans-serif;
+    font-family: 'Press Start 2P', cursive;
 }
 
 .inputs{
@@ -37,22 +38,21 @@
     background-color: darkviolet;
     color:aliceblue;
     margin-right: 15px;
-    font-family: 'Chakra Petch', sans-serif;
+    font-family: 'Press Start 2P', cursive;
 }
 
 .btnCancelar{
     border-radius: 5px;
     background-color: rgb(211, 0, 207);
     color:aliceblue;
-    margin-left: 15px;
-    font-family: 'Chakra Petch', sans-serif;
+    font-family: 'Press Start 2P', cursive;
 }
 
 .divTitle{
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 80px;
 }
 
 .title{
-    font-family: 'Chakra Petch', sans-serif;
+    font-family: 'Press Start 2P', cursive;
 }

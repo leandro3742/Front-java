@@ -13,6 +13,8 @@ import Films from "./views/films";
 import MyList from "./views/myList";
 import Profile from "./views/profile";
 import AltaGenerador from "./views/altaGenerador";
+import ContenidosDisponibles from "./views/contenidosDisponibles";
+import ContenidosVistos from "./views/contenidosVistos";
 
 function App() {
     const [isLogged, setIsLogged] = useState(true);
@@ -30,7 +32,9 @@ function App() {
                     <Route path="/films" element={<Films />} />
                     <Route path="/myList" element={<MyList />} />
                     <Route path="/profile" element={<Profile />} />
-                    <Route path="/admin" element={<AltaGenerador />} />
+                    <Route path="/admin/nuevoGenerador" element={<AltaGenerador />} />
+                    <Route path="/admin/contenidosDisponibles" element={<ContenidosDisponibles />} />
+                    <Route path="/admin/contenidosVistos" element={<ContenidosVistos />} />
                 </Routes>
             </BrowserRouter>
         </>
