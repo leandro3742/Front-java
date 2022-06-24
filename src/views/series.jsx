@@ -4,13 +4,24 @@ import MenuItem from "@mui/material/MenuItem";
 import FormHelperText from "@mui/material/FormHelperText";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import { useState, useEffect } from 'react';
+
 function Series() {
-    const categories = ["Principales", "Todas las peliculas", "Animadas", "Comedia"];
+    var categories = [];
     const [age, setAge] = React.useState("");
 
     const handleChange = (event) => {
         setAge(event.target.value);
     };
+    // useEffect(() => {
+    //     fetch('http://localhost:8080/categoria/', {
+    //         method: "GET",
+    //         mode: 'no-cors',
+    //     }).then((response) => {
+    //         console.log(response)
+    //     })
+    // })
+
     return (
         <div className="mx-5 mt-3">
             <div className="d-flex align-items-center">
