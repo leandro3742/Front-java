@@ -17,7 +17,7 @@ import ContenidosDisponibles from "./views/contenidosDisponibles";
 import ContenidosVistos from "./views/contenidosVistos";
 
 function App() {
-    const [isLogged, setIsLogged] = useState(true);
+    const [isLogged, setIsLogged] = useState(false);
 
     return (
         <>
