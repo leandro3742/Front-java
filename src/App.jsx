@@ -19,7 +19,7 @@ import Details from "./views/details";
 
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 function App() {
-  const [isLogged, setIsLogged] = useState(false);
+  const [isLogged, setIsLogged] = useState(true);
   return (
     <>
       <PayPalScriptProvider

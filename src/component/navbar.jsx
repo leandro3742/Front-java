@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import search from "../images/searchIcon.svg";
-import series from "../images/series.png";
-import film from "../images/filmIcon.png";
-import add from "../images/addIcon.png";
+import search from "../images/load.png";
+import series from "../images/serielogo.png";
+import film from "../images/peliculalogo.png";
+import add from "../images/milista.png";
 import mantel from "../images/MANTEL.png";
+import icon from "../images/logo menu.png"
 import "../styles/navbar.css";
 
 function NavbarComponent(props) {
@@ -28,11 +29,11 @@ function NavbarComponent(props) {
                 <div className="col-9 row m-0">
                     <div className="col-10 d-flex align-items-center justify-content-around">
                         <Link className="link d-flex align-items-center" to="/series">
-                            <img className="mx-1" style={{ width: "25px" }} src={series} alt="" />
+                            <img className="mx-1" style={{ width: "30px"}} src={series} alt="" />
                             Series
                         </Link>
                         <Link className="link d-flex align-items-center" to="/films">
-                            <img className="mx-1" style={{ width: "25px" }} src={film} alt="" />
+                            <img className="mx-1" style={{ width: "40px" }} src={film} alt="" />
                             Peliculas
                         </Link>
                         <Link className="link d-flex align-items-center" to="/myList">
@@ -46,7 +47,7 @@ function NavbarComponent(props) {
                     </div>
                     <div className="col-2 m-auto ">
                         <Link className="link d-flex align-items-center" to="/profile">
-                            <img style={{ width: "50px" }} className="rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjak94qQLO299Y_05mEHWIB_S2mm3JGrYQkQ&usqp=CAU" alt="" />
+                            <img style={{ width: "80px" }} className="rounded-circle" src={icon} alt="" />
                         </Link>
                     </div>
                 </div>

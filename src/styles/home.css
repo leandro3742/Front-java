@@ -2,7 +2,7 @@
 
 }
 .back:hover, .next:hover{
-    background-color: rgba(75, 66, 664, .5);
+    background-color: transparent;
 }
 .next{
     

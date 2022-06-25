@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../styles/home.css";
-import arrow from "../images/arrow.png";
+import arrowright from "../images/arrowright.png";
+import arrowleft from "../images/arrowleft.png";
 import { Link } from "react-router-dom";
 import PaypalCheckoutButton from "../component/paypalCheckoutButton";
 
@@ -30,7 +31,7 @@ function Home() {
     return (
         <div className="m-0 row d-flex justify-content-center">
             <div onClick={getSeries} className="back col-1 d-flex align-items-center" style={{ zIndex: "1", cursor: "pointer" }}>
-                <img style={{ width: "32px", transform: "rotate(180deg)" }} src={arrow} alt="" />
+                <img style={{ width: "50px"}} src={arrowleft} alt="" />
             </div>
             <div className="col-10 d-flex my-3 justify-content-center">
                 {series.map((elem, index) => {
@@ -43,7 +44,7 @@ function Home() {
                 })}
             </div>
             <div onClick={getSeries} className="next col-1 d-flex align-items-center" style={{ zIndex: "1", cursor: "pointer" }}>
-                <img style={{ width: "32px" }} src={arrow} alt="" />
+                <img style={{ width: "50px" }} src={arrowright} alt="" />
             </div>
         </div>
     );
