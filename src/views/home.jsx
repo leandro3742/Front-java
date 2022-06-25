@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "../styles/home.css";
 import arrow from "../images/arrow.png";
+import { Link } from "react-router-dom";
+import PaypalCheckoutButton from "../component/paypalCheckoutButton";
 
 function Home() {
     let url = "https://dam.smashmexico.com.mx/wp-content/uploads/2018/12/marvel-legacy-portadas-smash-.jpg";
@@ -8,7 +10,10 @@ function Home() {
     const [series, setSeries] = useState([{}, {}]);
     const [showSeries, setShowSeries] = useState(url);
     const [imageSize, setImageSize] = useState({});
-
+    const product = {
+        description: "Bka bla v;a",
+        price: 15000
+    }
     const getSeries = () => {
         if (showSeries === url) setShowSeries(url1);
         else setShowSeries(url);
@@ -20,6 +25,7 @@ function Home() {
         } else {
             setImageSize({ maxHeight: "175px", maxWidth: "150px" });
         }
+        console.log("emtra")
     }, []);
     return (
         <div className="m-0 row d-flex justify-content-center">
@@ -31,6 +37,7 @@ function Home() {
                     return (
                         <div style={imageSize} key={index} className="m-2">
                             <img style={imageSize} className="frontPage rounded" src={showSeries} key={index} />
+                            <PaypalCheckoutButton product={product} />
                         </div>
                     );
                 })}
