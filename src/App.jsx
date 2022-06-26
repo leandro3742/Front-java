@@ -16,6 +16,10 @@ import AltaGenerador from "./views/altaGenerador";
 import ContenidosDisponibles from "./views/contenidosDisponibles";
 import ContenidosVistos from "./views/contenidosVistos";
 import Details from "./views/details";
+import HomeGenerador from "./views/Generador/homeGenetador";
+import MiContenido from "./views/Generador/micontenido";
+import AltaContenido from "./views/Generador/altaContenido";
+import Destacar from "./views/Generador/destacar";
 
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 function App() {
@@ -38,14 +42,12 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/detail/:id" element={<Details />} />
             <Route path="/admin/nuevoGenerador" element={<AltaGenerador />} />
-            <Route
-              path="/admin/contenidosDisponibles"
-              element={<ContenidosDisponibles />}
-            />
-            <Route
-              path="/admin/contenidosVistos"
-              element={<ContenidosVistos />}
-            />
+            <Route path="/admin/contenidosDisponibles" element={<ContenidosDisponibles />}/>
+            <Route path="/admin/contenidosVistos" element={<ContenidosVistos />}/>
+            <Route path="/generador/home" element={<HomeGenerador />} />
+            <Route path="/generador/miContenido" element={<MiContenido/>} />
+            <Route path="/generador/agregarContenido" element={<AltaContenido/>} />
+            <Route path="/generador/destacar" element={<Destacar/>} />
           </Routes>
         </BrowserRouter>
       </PayPalScriptProvider>
