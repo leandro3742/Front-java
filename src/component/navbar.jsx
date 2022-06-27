@@ -29,7 +29,7 @@ function NavbarComponent(props) {
                 <div className="col-9 row m-0">
                     <div className="col-10 d-flex align-items-center justify-content-around">
                         <Link className="link d-flex align-items-center" to="/series">
-                            <img className="mx-1" style={{ width: "30px"}} src={series} alt="" />
+                            <img className="mx-1" style={{ width: "30px" }} src={series} alt="" />
                             Series
                         </Link>
                         <Link className="link d-flex align-items-center" to="/films">
@@ -46,12 +46,21 @@ function NavbarComponent(props) {
                         </Link>
                     </div>
                     <div className="col-2 m-auto ">
-                        <Link className="link d-flex align-items-center" to="/profile">
-                            <img style={{ width: "80px" }} className="rounded-circle" src={icon} alt="" />
-                        </Link>
+                        <div className="dropdown">
+                            <button className="dropbtn">
+                                <img style={{ width: "80px" }} className="rounded-circle" src={icon} alt="" />
+                            </button>
+                            <div className="dropdown-content prioridad">
+                                <a className="itemsdrop">Ver perfil</a>
+                                <a className="itemsdrop">Ver suscripciones</a>
+                                <a className="itemsdrop">Rankear contenido</a> {/*Solamente hay que mostrarle los contenidos que tiene como favoritos*/}
+                                <a className="itemsdrop">Cerrar sesión</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             )}
+
             {props.isLogged && window.screen.width <= 730 && (
                 <div className="col-10 d-flex align-items-center justify-content-end">
                     <Link className="mx-1 link d-flex align-items-center" to="/search">

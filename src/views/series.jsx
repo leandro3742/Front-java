@@ -5,6 +5,8 @@ import FormHelperText from "@mui/material/FormHelperText";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { useState, useEffect } from 'react';
+import '../styles/series.css';
+import sr from "../images/seriestitulo.png";
 
 function Series() {
     var categories = [];
@@ -25,13 +27,13 @@ function Series() {
     return (
         <div className="mx-5 mt-3">
             <div className="d-flex align-items-center">
-                <h1>Series</h1>
+                <h3 className="texto"><img src={sr} style={{width: "200px"}}/></h3>
                 <FormControl style={{ width: "300px", backgroundColor: "grey", color: "white", border: "white" }} className="mx-5 rounded">
-                    <InputLabel>Categorías</InputLabel>
+                    <InputLabel className="texto">Categorías</InputLabel>
                     <Select style={{ color: "white" }} value={age} onChange={handleChange}>
                         {categories.map((elem) => {
                             return (
-                                <MenuItem key={elem} value={elem}>
+                                <MenuItem key={elem} value={elem} className="texto">
                                     {elem}
                                 </MenuItem>
                             );
