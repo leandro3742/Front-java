@@ -1,18 +1,12 @@
-import React from 'react'
+import React from 'react';
 import "../../styles/contenidosDisponibles.css";
-
-function altaContenido(){
+function HomeGenerador(){
     return (
         <div className='divGlobal'>
             <div className='contenidosDisponibles'>
-                <u><h2>Alta Contenido</h2></u>
-            </div>
-
-            <div>
-
+                <h2>HOME</h2>
             </div>
         </div>
     )
 }
-
-export default altaContenido;
+export default HomeGenerador;

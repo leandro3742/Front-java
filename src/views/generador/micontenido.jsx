@@ -9,7 +9,7 @@ function miContenido(){
             </div>
 
             <div>
-
+                {/*Listar contenidos del generador*/}
             </div>
         </div>
     )
