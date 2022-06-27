@@ -1,11 +1,11 @@
 import React from 'react'
 import "../../styles/contenidosDisponibles.css";
 
-function destacar(){
+function altaContenido(){
     return (
         <div className='divGlobal'>
             <div className='contenidosDisponibles'>
-                <u><h2>Destacar Contenido</h2></u>
+                <u><h2>Alta Contenido</h2></u>
             </div>
 
             <div>
@@ -15,4 +15,4 @@ function destacar(){
     )
 }
 
-export default destacar
+export default altaContenido;

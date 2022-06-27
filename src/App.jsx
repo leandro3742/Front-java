@@ -16,10 +16,10 @@ import AltaGenerador from "./views/altaGenerador";
 import ContenidosDisponibles from "./views/contenidosDisponibles";
 import ContenidosVistos from "./views/contenidosVistos";
 import Details from "./views/details";
-import HomeGenerador from "./views/Generador/homeGenetador";
-import MiContenido from "./views/Generador/micontenido";
-import AltaContenido from "./views/Generador/altaContenido";
-import Destacar from "./views/Generador/destacar";
+import HomeGenerador from "./views/homeGenetador";
+import MiContenido from "./views/micontenido";
+import AltaContenido from "./views/altaContenido";
+import Destacar from "./views/destacar";
 
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 function App() {
@@ -29,6 +29,7 @@ function App() {
       <PayPalScriptProvider
         options={{ "client-id": import.meta.env.VITE_CLIENT_ID }}
       >
+
         <BrowserRouter>
           <NavbarComponent isLogged={isLogged} style={{ height: "10vh" }} />
           <Routes>
@@ -45,9 +46,9 @@ function App() {
             <Route path="/admin/contenidosDisponibles" element={<ContenidosDisponibles />}/>
             <Route path="/admin/contenidosVistos" element={<ContenidosVistos />}/>
             <Route path="/generador/home" element={<HomeGenerador />} />
-            <Route path="/generador/miContenido" element={<MiContenido/>} />
-            <Route path="/generador/agregarContenido" element={<AltaContenido/>} />
-            <Route path="/generador/destacar" element={<Destacar/>} />
+            <Route path="/generador/miContenido" element={<MiContenido />} />
+            <Route path="/generador/agregarContenido" element={<AltaContenido />} />
+            <Route path="/generador/destacar" element={<Destacar />} />
           </Routes>
         </BrowserRouter>
       </PayPalScriptProvider>

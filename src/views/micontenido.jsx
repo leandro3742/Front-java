@@ -15,4 +15,4 @@ function miContenido(){
     )
 }
 
-export default miContenido
+export default miContenido;
