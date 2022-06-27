@@ -11,7 +11,7 @@ function Search() {
     };
     return (
         <div className="d-flex justify-content-center mt-2 ">
-            <input style={styleDiv} className=" d-flex justify-content-center align-items-center rounded text-center" placeholder="Título o género" />
+            <input style={styleDiv} className="texto d-flex justify-content-center align-items-center rounded text-center" placeholder="Título o género" />
         </div>
     );
 }
