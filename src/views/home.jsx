@@ -1,51 +1,37 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../styles/home.css";
-import arrowright from "../images/arrowright.png";
-import arrowleft from "../images/arrowleft.png";
-import { Link } from "react-router-dom";
+
+
 import PaypalCheckoutButton from "../component/paypalCheckoutButton";
+import { getContents } from "../fakeApi";
+import List from "../component/list";
 
 function Home() {
-    let url = "https://dam.smashmexico.com.mx/wp-content/uploads/2018/12/marvel-legacy-portadas-smash-.jpg";
-    let url1 = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTEmQkz3jnGgfDAcdtEiycxdRnDybQp7RLxg&usqp=CAU";
-    const [series, setSeries] = useState([{}, {}]);
-    const [showSeries, setShowSeries] = useState(url);
-    const [imageSize, setImageSize] = useState({});
-    const product = {
-        description: "Bka bla v;a",
-        price: 15000
-    }
-    const getSeries = () => {
-        if (showSeries === url) setShowSeries(url1);
-        else setShowSeries(url);
-    };
+    const [index, setIndex] = useState(0);
 
-    useEffect(() => {
-        if (window.screen.width > 730) {
-            setImageSize({ maxHeight: "175px", maxWidth: "300px" });
-        } else {
-            setImageSize({ maxHeight: "175px", maxWidth: "150px" });
-        }
-        console.log("emtra")
-    }, []);
     return (
         <div className="m-0 row d-flex justify-content-center">
-            <div onClick={getSeries} className="back col-1 d-flex align-items-center" style={{ zIndex: "1", cursor: "pointer" }}>
-                <img style={{ width: "50px"}} src={arrowleft} alt="" />
+            <div>
+                <h3>Lo mas visto</h3>
+                <List />
             </div>
-            <div className="col-10 d-flex my-3 justify-content-center">
-                {series.map((elem, index) => {
-                    return (
-                        <div style={imageSize} key={index} className="m-2">
-                            <img style={imageSize} className="frontPage rounded" src={showSeries} key={index} />
-                            <PaypalCheckoutButton product={product} />
-                        </div>
-                    );
-                })}
+            <div>
+                <h3>Eventos en vivo</h3>
+                <List />
             </div>
-            <div onClick={getSeries} className="next col-1 d-flex align-items-center" style={{ zIndex: "1", cursor: "pointer" }}>
-                <img style={{ width: "50px" }} src={arrowright} alt="" />
+            <div>
+                <h3>Lo mas visto</h3>
+                <List />
             </div>
+            <div>
+                <h3>Favoritos en Mantel</h3>
+                <List />
+            </div>
+            <div>
+                <h3>Agregados recientemente</h3>
+                <List />
+            </div>
+            
         </div>
     );
 }

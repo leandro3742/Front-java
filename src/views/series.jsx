@@ -7,9 +7,10 @@ import Select from "@mui/material/Select";
 import { useState, useEffect } from 'react';
 import '../styles/series.css';
 import sr from "../images/seriestitulo.png";
+import { getCategories } from "../fakeApi";
 
 function Series() {
-    var categories = [];
+    var categories = getCategories();
     const [age, setAge] = React.useState("");
 
     const handleChange = (event) => {
