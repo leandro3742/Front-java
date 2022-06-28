@@ -22,10 +22,10 @@ function PaypalCheckoutButton(props) {
             return actions.order.create({
             purchase_units: [
                 {
-                description: product.description,
+                description: product.descripcion,
                 amount: {
                     currency_code: 'USD',
-                    value: product.price,
+                    value: product.precio,
                 },
                 },
             ],
