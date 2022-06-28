@@ -8,11 +8,15 @@ import icon from "../images/logo menu.png"
 import "../styles/navbar.css";
 
 function NavbarComponent(props) {
+    function cerrarSesion(){
+        sessionStorage.removeItem("usuario");
+        props.setIsLogged(false);
+    }
     return (
         <div className="m-0 p-0 row bg-dark d-flex justify-content-between">
             <div className="col-lg-3 col-2">
                 <Link className="link" to="/">
-                    <img style={{ width: "180px" }} className="rounded-pill" src={mantel} alt="" />
+                    <img style={{ width: "180px", margin: "10px" }} className="rounded-pill" src={mantel} alt="" />
                 </Link>
             </div>
             {!props.isLogged && (
@@ -54,7 +58,7 @@ function NavbarComponent(props) {
                                 <a className="itemsdrop">Ver perfil</a>
                                 <a className="itemsdrop">Ver suscripciones</a>
                                 <a className="itemsdrop">Rankear contenido</a> {/*Solamente hay que mostrarle los contenidos que tiene como favoritos*/}
-                                <a className="itemsdrop">Cerrar sesión</a>
+                                <Link to="/" className="itemsdrop" onClick={cerrarSesion}>Cerrar sesión</Link>
                             </div>
                         </div>
                     </div>
