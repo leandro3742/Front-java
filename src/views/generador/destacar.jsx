@@ -11,16 +11,6 @@ function destacar(){
             </div>
 
             <div>
-                <Select style={{ color: "white" }} value={} onChange={}>
-                    {/*{categories.map((elem) => {*/}
-                    {/*    return (*/}
-                    {/*        <MenuItem key={elem} value={elem} className="texto">*/}
-                    {/*            {elem}*/}
-                    {/*        </MenuItem>*/}
-                    {/*    );*/}
-                    {/*})}*/}
-                </Select>
-                {/*Select de contenidos*/}
             </div>
 
             <div className='divlabel'>

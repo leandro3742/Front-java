@@ -45,10 +45,10 @@ function App() {
             <Route path="/admin/nuevoGenerador" element={<AltaGenerador />} />
             <Route path="/admin/contenidosDisponibles" element={<ContenidosDisponibles />} />
             <Route path="/admin/contenidosVistos" element={<ContenidosVistos />}/>
-            <Route path="/generador/home" element={<HomeGenerador />} />
-            <Route path="/generador/miContenido" element={<MiContenido />} />
-            <Route path="/generador/agregarContenido" element={<AltaContenido />} />
+            <Route path="/generador/" element={<HomeGenerador />} />
             <Route path="/generador/destacar" element={<Destacar />} />
+            <Route path="/generador/agregarContenido" element={<AltaContenido />} />
+            <Route path="/generador/contenido" element={<MiContenido />}/>
           </Routes>
         </BrowserRouter>
       </PayPalScriptProvider>
