@@ -1,6 +1,9 @@
 export const fetchFunction = async (url, header) => {
     const response = await fetch(url, header);
-    return await response.json();
+    if(response.status<300){
+        return await response.json();
+    }
+    return "ERROR";
 }
 
 export const buildHeader = (method, body) => {

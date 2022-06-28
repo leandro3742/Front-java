@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/home.css";
 
 
@@ -12,7 +12,7 @@ function Home() {
     return (
         <div className="m-0 row d-flex justify-content-center">
             <div>
-                <h3>Lo mas visto</h3>
+                <h3>Destacado</h3>
                 <List />
             </div>
             <div>

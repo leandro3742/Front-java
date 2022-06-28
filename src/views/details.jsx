@@ -11,6 +11,7 @@ function Details() {
     const [isLogged, setIsLogged] = useState(false);
 
     useEffect(() => {
+        fetchFunction("http://localhost:8080/categoria", buildHeader("GET")).then(result => console.log(result)).catch(err => console.log(err));
         setData(getSingleContent(id));
     }, []);
 
