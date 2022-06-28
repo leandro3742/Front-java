@@ -49,7 +49,7 @@
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
     display: block;
-    background-color: rgba(0, 255, 255, 0.358);
+    background-color: rgba(0, 255, 255, 0.79);
     border-radius: 5px;
     text-align:left;
 }
