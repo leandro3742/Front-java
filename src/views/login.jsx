@@ -8,7 +8,11 @@ function Login(props) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     function rf(){
-        window.location.replace("/");
+        if(props.tipoUsuario === "GENERADOR_CONTENIDO"){
+            window.location.replace("/generador/");
+        } else{ 
+            window.location.replace("/");
+        }
     }
     const saveElement = () => { 
         fetchFunction("http://localhost:8080/sistema/login", buildHeader("POST",{"email": email, "contrasenia": password}))

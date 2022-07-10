@@ -7,6 +7,8 @@ import mantel from "../images/MANTEL.png";
 import icon from "../images/logo menu.png"
 import "../styles/navbar.css";
 import NavbarCliente from "./navbarCliente";
+import NavbarAdmin from "./navbarAdmin";
+import NavbarGenerador from "./navbargenerador";
 
 function NavbarComponent(props) {
     function cerrarSesion() {
@@ -21,7 +23,7 @@ function NavbarComponent(props) {
                 </Link>
             </div>
             {!props.isLogged && (
-                <div className="col-lg-4 col-9 d-flex align-items-center justify-content-end">
+                <div className="col-lg-8 col-12 d-flex align-items-center justify-content-end">
                     <Link className="mx-lg-5 mx-2 link" to="/register">
                         Register
                     </Link>
@@ -30,9 +32,19 @@ function NavbarComponent(props) {
                     </Link>
                 </div>
             )}
-            {props.isLogged && props.tipoUsuario === "ADMIN" && (
+            {props.isLogged && props.tipoUsuario === "CLIENTE" && (
                 <div className="col-lg-9">
                     <NavbarCliente setIsLogged={props.setIsLogged} />
+                </div>
+            )}
+            {props.isLogged && props.tipoUsuario === "ADMIN" && (
+                <div className="col-lg-9">
+                    <NavbarAdmin setIsLogged={props.setIsLogged} />
+                </div>
+            )}
+            {props.isLogged && props.tipoUsuario === "GENERADOR_CONTENIDO" && (
+            <div className="col-lg-9">
+                    <NavbarGenerador setIsLogged={props.setIsLogged} />
                 </div>
             )}
         </div>
