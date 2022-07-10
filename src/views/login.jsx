@@ -25,7 +25,7 @@ function Login(props) {
                 sessionStorage.setItem("usuario",JSON.stringify(result));
                 props.setTipoUsuario(result.tipoUsuario);
                 props.setIsLogged(true);
-                rf();
+                //rf();
             }
         }).catch(err => console.log(err));
     };

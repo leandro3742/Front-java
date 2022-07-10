@@ -19,7 +19,8 @@ function altaContenido(){
     }
 
     const saveElement = () => {
-        fetchFunction("http://localhost:8080/contenidos/agregarContenido/1", buildHeader("POST", {
+        let email = JSON.parse(sessionStorage.getItem("usuario")).email;
+        let objet = {
             "tipoContenido": tipo,
             "descripcion": descripcion,
             "ranking": 0,
@@ -28,10 +29,11 @@ function altaContenido(){
             "precio": precio,
             "duracion": duracion,
             "destacado": 1,
-	        "bloqueado": 0	
-        })).then(result => {
+            "bloqueado": 0}
+        fetchFunction("http://localhost:8080/contenidos/agregarContenido/"+email, buildHeader("POST", {objet}))
+        .then(result => {
                 if (result == "ERROR") {
-                    alert("Usuario incorrecto");console.log(result);
+                    alert("Usuario incorrecto");``
                 }
                 else {
                     console.log("Ok", result);
@@ -56,10 +58,6 @@ function altaContenido(){
                     <input type="text" onChange={(e) => setprecio(e.target.value)} className='inputs' placeholder="Precio"></input>
                     <input type="text" onChange={(e) => settipo(e.target.value)} className='inputs' placeholder="Tipo"></input>
                     <input type="text" onChange={(e) => setduracion(e.target.value)} className='inputs' placeholder="Duracion"></input>
-                    <div>
-                        <leave>Destacar:</leave>
-                        <input type="checkbox" onChange={(e) => setdestacado(e.target.value)} className='inputs' placeholder="Destacado"></input>
-                    </div>
                 </div>
                 <button  onClick={saveElement} className="m-auto col-lg-4 col-10 my-2 btn btnConfirmar">
                     Agregar Contenido
