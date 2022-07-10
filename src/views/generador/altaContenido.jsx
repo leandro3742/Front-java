@@ -20,13 +20,13 @@ function altaContenido(){
     const saveElement = () => {
         let email = sessionStorage.getItem("usuario").email;
         fetchFunction("http://localhost:8080/contenidos/agregarContenido/cintia@fgg", buildHeader("POST", {
-            "tipoContenido": tipo,
-            "descripcion": descripcion,
+            "tipoContenido": "PELICULA",
+            "descripcion": "descripcion",
             "ranking": 0,
-            "fotoPortada": portada,
-            "video": video,
-            "precio": precio,
-            "duracion": duracion,
+            "fotoPortada": "portada",
+            "video": "video",
+            "precio": 0,
+            "duracion": "duracion",
             "destacado": 0,
 	        "bloqueado": 0	}))
         .then(result => {
