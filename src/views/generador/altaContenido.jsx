@@ -11,7 +11,6 @@ function altaContenido(){
     const [precio, setprecio] = useState("");
     const [tipo, settipo] = useState("");
     const [duracion, setduracion] = useState("");
-    const [destacado, setdestacado] = useState("");
     const [video,setvideo] = useState("");
 
     function rf() {
@@ -19,8 +18,8 @@ function altaContenido(){
     }
 
     const saveElement = () => {
-        let email = JSON.parse(sessionStorage.getItem("usuario")).email;
-        let objet = {
+        let email = sessionStorage.getItem("usuario").email;
+        fetchFunction("http://localhost:8080/contenidos/agregarContenido/cintia@fgg", buildHeader("POST", {
             "tipoContenido": tipo,
             "descripcion": descripcion,
             "ranking": 0,
@@ -28,12 +27,11 @@ function altaContenido(){
             "video": video,
             "precio": precio,
             "duracion": duracion,
-            "destacado": 1,
-            "bloqueado": 0}
-        fetchFunction("http://localhost:8080/contenidos/agregarContenido/"+email, buildHeader("POST", {objet}))
+            "destacado": 0,
+	        "bloqueado": 0	}))
         .then(result => {
                 if (result == "ERROR") {
-                    alert("Usuario incorrecto");``
+                    alert("Usuario incorrecto");
                 }
                 else {
                     console.log("Ok", result);
