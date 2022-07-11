@@ -5,13 +5,14 @@ import { buildHeader } from "../../utils/fetch";
 import "../../styles/login.css";
 
 
-function altaContenido(){
+function altaContenido(props){
     const [descripcion, setdescripcion] = useState("");
     const [portada, setportada] = useState("");
     const [precio, setprecio] = useState("");
     const [tipo, settipo] = useState("");
     const [duracion, setduracion] = useState("");
     const [video,setvideo] = useState("");
+    const [nombre,setnombre] = useState("");
 
     function rf() {
         window.location.replace("/generador/");
@@ -19,12 +20,14 @@ function altaContenido(){
 
     const saveElement = () => {
         let url = "http://localhost:8080/contenidos/agregarContenido/1";
-        fetchFunction(url, buildHeader("POST", {"tipoContenido": "PELICULA",
+        fetchFunction(url, buildHeader("POST", {
+            "nombre": nombre,
+            "tipoContenido": tipo,
             "descripcion": descripcion,
             "ranking": 0,
             "fotoPortada": portada,
             "video": video,
-            "precio": 0,
+            "precio": precio,
             "duracion": duracion,
             "destacado": 0,
 	        "bloqueado": 0	}))
@@ -34,10 +37,6 @@ function altaContenido(){
                 }
                 else {
                     console.log("Ok", result);
-                    sessionStorage.setItem("usuario", JSON.stringify(result));
-                    props.setTipoUsuario(result.tipoUsuario);
-                    props.setIsLogged(true);
-                    rf();
                 }
             }).catch(err => console.log(err));
     };
@@ -49,6 +48,7 @@ function altaContenido(){
                 <u><h2>Alta Contenido</h2></u>
             </div>
             <div className="row d-flex justify-content-center divtitulo">
+                    <input type="text" onChange={(e) => setnombre(e.target.value)} className='inputs' placeholder="Nombre"></input>
                     <input type="text" onChange={(e) => setdescripcion(e.target.value)} className='inputs' placeholder="Descripcion"></input>
                     <input type="text" onChange={(e) => setportada(e.target.value)} className='inputs' placeholder="Portada"></input>
                     <input type="text" onChange={(e) => setvideo(e.target.value)} className='inputs' placeholder="Video"></input>
