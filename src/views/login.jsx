@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/login.css";
-import { fetchFunction } from "../utils/fetch";
+import { fetchFunction, fetchLogin } from "../utils/fetch";
 import { buildHeader } from "../utils/fetch";
 
 function Login(props) {
@@ -11,7 +11,7 @@ function Login(props) {
         window.location.replace("/");
     }
     const saveElement = () => { 
-        fetchFunction("http://localhost:8080/sistema/login", buildHeader("POST",{"email": email, "contrasenia": password}))
+        fetchLogin("http://localhost:8080/sistema/login", buildHeader("POST",{"email": email, "contrasenia": password}))
         .then(result => {
             if(result=="ERROR"){
             alert("Usuario incorrecto");

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getSingleContent } from "../fakeApi";
 import { buildHeader, fetchFunction } from "../utils/fetch";
 import PaypalCheckoutButton from "../component/paypalCheckoutButton";
@@ -8,11 +8,12 @@ import PaypalCheckoutButton from "../component/paypalCheckoutButton";
 function Details() {
     const { id } = useParams();
     const [data, setData] = useState();
-    const [isLogged, setIsLogged] = useState(false);
-
     useEffect(() => {
-        fetchFunction("http://localhost:8080/categoria", buildHeader("GET")).then(result => console.log(result)).catch(err => console.log(err));
-        setData(getSingleContent(id));
+        async function fetchFunction(url){
+            const response = await fetch(url);
+            setData(await response.json())
+        }
+        fetchFunction('http://localhost:8080/contenidos/'+id);
     }, []);
 
     return (
@@ -25,8 +26,8 @@ function Details() {
                     {data.precio}
                 </div>
                 <div>
-                    { sessionStorage.getItem("user") && data.precio == 0 &&
-                        <button className="btn btn-primary"> Ver ahora</button>
+                    { sessionStorage.getItem("usuario") && data.precio == 0 &&
+                        <Link to={`/video/${data.id}/${data.url}`} className="btn btn-primary"> Ver ahora</Link>
                     }
                     {data.precio > 0 &&
                         <PaypalCheckoutButton product={data} />

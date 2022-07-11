@@ -4,7 +4,8 @@ import React from "react";
 function PaypalCheckoutButton(props) {
     const { product } = props;
     const handleApprove = (orderId) => {
-
+        console.log(orderId)
+        props.isOk();
     }
     return (
         <PayPalButtons
@@ -38,7 +39,6 @@ function PaypalCheckoutButton(props) {
         onApprove={async (data, actions) => {
             const order = await actions.order.capture();
             console.log("order", order);
-
             handleApprove(data.orderID);
         }}
 

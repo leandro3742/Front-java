@@ -22,6 +22,8 @@ import AltaContenido from "./views/generador/altaContenido";
 import Destacar from "./views/generador/destacar";
 
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
+import Pricings from "./views/pricings";
+import Video from "./views/video";
 function App() {
   const [isLogged, setIsLogged] = useState(false);
   const [tipoUsuario, setTipoUsuario] = useState(false);
@@ -36,7 +38,6 @@ function App() {
       <PayPalScriptProvider
         options={{ "client-id": import.meta.env.VITE_CLIENT_ID }}
       >
-
         <BrowserRouter>
           <NavbarComponent isLogged={isLogged} setIsLogged={setIsLogged} tipoUsuario={tipoUsuario} style={{ height: "10vh" }} />
           <Routes>
@@ -56,6 +57,8 @@ function App() {
             <Route path="/generador/destacar" element={<Destacar />} />
             <Route path="/generador/agregarContenido" element={<AltaContenido />} />
             <Route path="/generador/contenido" element={<MiContenido />}/>
+            <Route path="/pricings" element={<Pricings />}/>
+            <Route path="/video/:id/:url" element={<Video />} />
           </Routes>
         </BrowserRouter>
       </PayPalScriptProvider>

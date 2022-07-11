@@ -29,6 +29,10 @@ function NavbarCliente(props) {
                             <img className="mx-1" style={{ width: "25px" }} src={add} alt="" />
                             Mi lista
                         </Link>
+                        <Link className="link d-flex align-items-center" to="/pricings">
+                            <img className="mx-1" style={{ width: "25px" }} src={search} alt="" />
+                            Generadores
+                        </Link>
                         <Link className="link d-flex align-items-center" to="/search">
                             <img className="mx-1" style={{ width: "25px" }} src={search} alt="" />
                             Búsqueda
@@ -40,8 +44,8 @@ function NavbarCliente(props) {
                                 <img style={{ width: "80px" }} className="rounded-circle" src={icon} alt="" />
                             </button>
                             <div className="dropdown-content prioridad">
-                                <a className="itemsdrop">Ver perfil</a>
-                                <a className="itemsdrop">Ver suscripciones</a>
+                                <Link to='/profile' className="itemsdrop">Ver perfil</Link>
+                                <Link to='/subscriptions' className="itemsdrop">Ver suscripciones</Link>
                                 <a className="itemsdrop">Rankear contenido</a> {/*Solamente hay que mostrarle los contenidos que tiene como favoritos*/}
                                 <Link to="/" className="itemsdrop">Ver generadores</Link>
                                 <Link to="/" className="itemsdrop" onClick={cerrarSesion}>Cerrar sesión</Link>
