@@ -35,27 +35,27 @@ function Categoria() {
 };
   return (
 
-<div class="centrar">
+<div className="centrar">
 
-<div class="divGlobal">
+<div className="divGlobal">
 <Accordion  defaultActiveKey="0" flush>
   <Accordion.Item eventKey="0">
-    <Accordion.Header><h1 class="titles">Nueva</h1></Accordion.Header>
+    <Accordion.Header><h1 className="titles">Nueva</h1></Accordion.Header>
     <Accordion.Body>
     <div className="row d-flex justify-content-center divtitulo">
-        <input class="inputs" onChange={(e) => setNombre(e.target.value)} className="m-2 col-10 fuenteL" placeholder="Nombre" />
+        <input className="inputs" onChange={(e) => setNombre(e.target.value)} class="m-2 col-10 fuenteL" placeholder="Nombre" />
     </div>
-    <button onClick={saveElement} class="btnConfir">
+    <button onClick={saveElement} className="btnConfir">
          Confirmar
     </button> 
     </Accordion.Body>
   </Accordion.Item>
      <Accordion.Item >
-     <Accordion.Header ><h1 class="titles">Todas las Categorías</h1></Accordion.Header>
+     <Accordion.Header ><h1 className="titles">Todas las Categorías</h1></Accordion.Header>
      <Accordion.Body>
      {!todos ? 'cargando ...':
       todos.map((todo,index)=>{
-        return <div class="eldiv"><p>{todo.nombre}</p></div>
+        return <div className="eldiv"><p>{todo.nombre}</p></div>
       })
   }
   </Accordion.Body>

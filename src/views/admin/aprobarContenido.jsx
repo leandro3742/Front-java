@@ -68,7 +68,7 @@ function AprobarContenido() {
                                 </Accordion>
                                 
                                
-                                <button class="btnConfirmar" onClick={() => saveElement(todo.id)}>APROBAR</button>
+                                <button className="btnConfirmar" onClick={() => saveElement(todo.id)}>APROBAR</button>
                             </div>
                         </div>
 
