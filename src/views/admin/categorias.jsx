@@ -51,7 +51,7 @@ function Categoria() {
     </Accordion.Body>
   </Accordion.Item>
      <Accordion.Item >
-     <Accordion.Header ><h1 class="titles">Todas las Categorias</h1></Accordion.Header>
+     <Accordion.Header ><h1 class="titles">Todas las Categorías</h1></Accordion.Header>
      <Accordion.Body>
      {!todos ? 'cargando ...':
       todos.map((todo,index)=>{
