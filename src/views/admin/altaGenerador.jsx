@@ -46,7 +46,7 @@ function AltaGenerador() {
                 <label>
                     Contraseña: 
                 </label>
-                <input class="inputs" onChange={(e) => setPassword(e.target.value)}  placeholder="Password" />
+                <input type="password" class="inputs" onChange={(e) => setPassword(e.target.value)}  placeholder="Password" />
             </div>
             <div className='divBotones'>
                 <button onClick={saveElement}  className='btnConfirmar'>Confirmar</button>

@@ -21,6 +21,7 @@ import MiContenido from "./views/generador/micontenido";
 import AltaContenido from "./views/generador/altaContenido";
 import Destacar from "./views/generador/destacar";
 import Categoria from "./views/admin/categorias";
+import AprobarContenido from "./views/admin/aprobarContenido";
 
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import Pricings from "./views/pricings";
@@ -55,12 +56,14 @@ function App() {
             <Route path="/admin/contenidosDisponibles" element={<ContenidosDisponibles />} />
             <Route path="/admin/contenidosVistos" element={<ContenidosVistos />}/>
             <Route path="/admin/categoria" element={<Categoria />} />
+            <Route path="/admin/aprobarContenido" element={<AprobarContenido />} />
             <Route path="/generador/" element={<HomeGenerador />} />
             <Route path="/generador/destacar" element={<Destacar />} />
             <Route path="/generador/agregarContenido" element={<AltaContenido />} />
             <Route path="/generador/contenido" element={<MiContenido />}/>
             <Route path="/pricings" element={<Pricings />}/>
             <Route path="/video/:id/:url" element={<Video />} />
+            
           </Routes>
         </BrowserRouter>
       </PayPalScriptProvider>
