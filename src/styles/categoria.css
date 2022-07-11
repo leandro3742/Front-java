@@ -62,6 +62,7 @@
 
 .titles {
     font-family: 'Press Start 2P', cursive;
+    font-size: 20px;
 }
 
 .eldiv {
@@ -72,4 +73,140 @@ p {
     width: 100%;
     font-family: 'Press Start 2P', cursive;
     background-color: darkviolet;
+}
+
+@media (max-width: 800px) {
+    .divGlobal {
+        width: 60%;
+        align-items: center;
+        justify-items: center;
+        text-align: center;
+        margin-top: 5%;
+    }
+    .centrar {
+        width: 100%;
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+    .divInputs {
+        text-align: left;
+        margin-left: 30%;
+    }
+    .divBotones {
+        justify-content: space-between;
+        margin-left: 15%;
+        margin-top: 3%;
+    }
+    .divlabel {
+        margin: 5px;
+        margin-bottom: 20px;
+        display: flex;
+        font-family: 'Press Start 2P', cursive;
+    }
+    .inputs {
+        background-color: transparent;
+        border-radius: 5px;
+        border-color: aqua;
+        margin-left: 5px;
+        color: aliceblue;
+        font-family: 'Press Start 2P', cursive;
+    }
+    .btnConfir {
+        border-radius: 5px;
+        background-color: darkviolet;
+        color: aliceblue;
+        margin-right: 15px;
+        font-family: 'Press Start 2P', cursive;
+    }
+    .btnC {
+        width: 20%;
+        border-radius: 5px;
+        background-color: rgb(211, 56, 0);
+        color: aliceblue;
+        font-family: 'Press Start 2P', cursive;
+    }
+    .divTitle {
+        text-align: center;
+        margin-bottom: 80px;
+    }
+    .titles {
+        font-family: 'Press Start 2P', cursive;
+        font-size: 16px;
+    }
+    .eldiv {
+        width: 100%;
+    }
+    p {
+        width: 100%;
+        font-family: 'Press Start 2P', cursive;
+        background-color: darkviolet;
+    }
+}
+
+@media (max-width: 500px) {
+    .divGlobal {
+        width: 60%;
+        align-items: center;
+        justify-items: center;
+        text-align: center;
+        margin-top: 5%;
+    }
+    .centrar {
+        width: 100%;
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+    .divInputs {
+        text-align: left;
+        margin-left: 30%;
+    }
+    .divBotones {
+        justify-content: space-between;
+        margin-left: 15%;
+        margin-top: 3%;
+    }
+    .divlabel {
+        margin: 5px;
+        margin-bottom: 20px;
+        display: flex;
+        font-family: 'Press Start 2P', cursive;
+    }
+    .inputs {
+        background-color: transparent;
+        border-radius: 5px;
+        border-color: aqua;
+        margin-left: 5px;
+        color: aliceblue;
+        font-family: 'Press Start 2P', cursive;
+    }
+    .btnConfir {
+        border-radius: 5px;
+        background-color: darkviolet;
+        color: aliceblue;
+        margin-right: 15px;
+        font-family: 'Press Start 2P', cursive;
+    }
+    .btnC {
+        width: 20%;
+        border-radius: 5px;
+        background-color: rgb(211, 56, 0);
+        color: aliceblue;
+        font-family: 'Press Start 2P', cursive;
+    }
+    .divTitle {
+        text-align: center;
+        margin-bottom: 80px;
+    }
+    .titles {
+        font-family: 'Press Start 2P', cursive;
+        font-size: 16px;
+    }
+    .eldiv {
+        width: 100%;
+    }
+    p {
+        width: 100%;
+        font-family: 'Press Start 2P', cursive;
+        background-color: darkviolet;
+    }
 }

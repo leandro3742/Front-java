@@ -40,7 +40,7 @@ function Categoria() {
 <div class="divGlobal">
 <Accordion  defaultActiveKey="0" flush>
   <Accordion.Item eventKey="0">
-    <Accordion.Header class="titles">Nueva</Accordion.Header>
+    <Accordion.Header><h1 class="titles">Nueva</h1></Accordion.Header>
     <Accordion.Body>
     <div className="row d-flex justify-content-center divtitulo">
         <input class="inputs" onChange={(e) => setNombre(e.target.value)} className="m-2 col-10 fuenteL" placeholder="Nombre" />
@@ -51,7 +51,7 @@ function Categoria() {
     </Accordion.Body>
   </Accordion.Item>
      <Accordion.Item >
-     <Accordion.Header class="titles">Categorias</Accordion.Header>
+     <Accordion.Header ><h1 class="titles">Todas las Categorias</h1></Accordion.Header>
      <Accordion.Body>
      {!todos ? 'cargando ...':
       todos.map((todo,index)=>{

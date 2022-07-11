@@ -1,9 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&family=Play&family=Press+Start+2P&family=Source+Code+Pro&display=swap');
 .divGlobal {
+    width: 60%;
     align-items: center;
     justify-items: center;
     text-align: center;
     margin-top: 5%;
+}
+
+.centrar {
+    width: 100%;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 .divInputs {
@@ -15,6 +22,24 @@
     justify-content: space-between;
     margin-left: 15%;
     margin-top: 3%;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: black;
+    transition: 0.3s;
+    width: 70%;
+    margin: 2%;
+    margin-left: 15%;
+    margin-right: 20%;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container {
+    padding: 2px 16px;
 }
 
 .divlabel {
@@ -53,5 +78,15 @@
 }
 
 .title {
+    font-family: 'Press Start 2P', cursive;
+}
+
+a {
+    color: black;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px
+}
+
+h4 {
     font-family: 'Press Start 2P', cursive;
 }
