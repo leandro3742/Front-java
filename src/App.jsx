@@ -12,7 +12,7 @@ import Series from "./views/series";
 import Films from "./views/films";
 import MyList from "./views/myList";
 import Profile from "./views/profile";
-import AltaGenerador from "./views/altaGenerador";
+import AltaGenerador from "./views/admin/altaGenerador";
 import ContenidosDisponibles from "./views/contenidosDisponibles";
 import ContenidosVistos from "./views/contenidosVistos";
 import Details from "./views/details";
@@ -20,8 +20,11 @@ import HomeGenerador from "./views/generador/homeGenetador";
 import MiContenido from "./views/generador/micontenido";
 import AltaContenido from "./views/generador/altaContenido";
 import Destacar from "./views/generador/destacar";
+import Categoria from "./views/admin/categorias";
 
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
+import Pricings from "./views/pricings";
+import Video from "./views/video";
 function App() {
   const [isLogged, setIsLogged] = useState(false);
   const [tipoUsuario, setTipoUsuario] = useState(false);
@@ -36,7 +39,6 @@ function App() {
       <PayPalScriptProvider
         options={{ "client-id": import.meta.env.VITE_CLIENT_ID }}
       >
-
         <BrowserRouter>
           <NavbarComponent isLogged={isLogged} setIsLogged={setIsLogged} tipoUsuario={tipoUsuario} style={{ height: "10vh" }} />
           <Routes>
@@ -52,10 +54,13 @@ function App() {
             <Route path="/admin/nuevoGenerador" element={<AltaGenerador />} />
             <Route path="/admin/contenidosDisponibles" element={<ContenidosDisponibles />} />
             <Route path="/admin/contenidosVistos" element={<ContenidosVistos />}/>
+            <Route path="/admin/categoria" element={<Categoria />} />
             <Route path="/generador/" element={<HomeGenerador />} />
             <Route path="/generador/destacar" element={<Destacar />} />
             <Route path="/generador/agregarContenido" element={<AltaContenido />} />
             <Route path="/generador/contenido" element={<MiContenido />}/>
+            <Route path="/pricings" element={<Pricings />}/>
+            <Route path="/video/:id/:url" element={<Video />} />
           </Routes>
         </BrowserRouter>
       </PayPalScriptProvider>

@@ -37,6 +37,7 @@ function NavbarComponent(props) {
                     <NavbarCliente setIsLogged={props.setIsLogged} />
                 </div>
             )}
+           
             {props.isLogged && props.tipoUsuario === "ADMIN" && (
                 <div className="col-lg-9">
                     <NavbarAdmin setIsLogged={props.setIsLogged} />
