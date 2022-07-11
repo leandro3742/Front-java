@@ -11,6 +11,7 @@ function destacar(){
             </div>
 
             <div>
+                //no se bien como listar los contenidos de este generador aun 
             </div>
 
             <div className='divlabel'>

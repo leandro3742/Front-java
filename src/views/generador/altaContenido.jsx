@@ -18,15 +18,14 @@ function altaContenido(){
     }
 
     const saveElement = () => {
-        let email = sessionStorage.getItem("usuario").email;
-        fetchFunction("http://localhost:8080/contenidos/agregarContenido/cintia@fgg", buildHeader("POST", {
-            "tipoContenido": "PELICULA",
-            "descripcion": "descripcion",
+        let url = "http://localhost:8080/contenidos/agregarContenido/1";
+        fetchFunction(url, buildHeader("POST", {"tipoContenido": "PELICULA",
+            "descripcion": descripcion,
             "ranking": 0,
-            "fotoPortada": "portada",
-            "video": "video",
+            "fotoPortada": portada,
+            "video": video,
             "precio": 0,
-            "duracion": "duracion",
+            "duracion": duracion,
             "destacado": 0,
 	        "bloqueado": 0	}))
         .then(result => {
@@ -51,8 +50,8 @@ function altaContenido(){
             </div>
             <div className="row d-flex justify-content-center divtitulo">
                     <input type="text" onChange={(e) => setdescripcion(e.target.value)} className='inputs' placeholder="Descripcion"></input>
-                    <input type="file" onChange={(e) => setportada(e.target.value)} className='inputs' placeholder="Portada"></input>
-                    <input type="file" onChange={(e) => setvideo(e.target.value)} className='inputs' placeholder="Video"></input>
+                    <input type="text" onChange={(e) => setportada(e.target.value)} className='inputs' placeholder="Portada"></input>
+                    <input type="text" onChange={(e) => setvideo(e.target.value)} className='inputs' placeholder="Video"></input>
                     <input type="text" onChange={(e) => setprecio(e.target.value)} className='inputs' placeholder="Precio"></input>
                     <input type="text" onChange={(e) => settipo(e.target.value)} className='inputs' placeholder="Tipo"></input>
                     <input type="text" onChange={(e) => setduracion(e.target.value)} className='inputs' placeholder="Duracion"></input>
