@@ -24,24 +24,25 @@ function AltaGenerador() {
     }).catch(err => console.log(err));
 };
   return (
-    <div class="centrar">
+    <div className="centrar">
     <div className='divGlobal'>
         <div className='divTitle'>
             <h4 className='title'>Nuevo Generador de Contenido</h4>
         </div>
+
         <div className='div'>
-        <label class='label'>
+        <label className='label'>
         Nombre: 
         </label>
-        <input class="inputs" onChange={(e) => setNombre(e.target.value)} placeholder="Nombre" />
-        <label class='label'>
+        <input className="inputs" onChange={(e) => setNombre(e.target.value)} placeholder="Nombre" />
+        <label className='label'>
         Email: 
         </label>
-        <input class="inputs" onChange={(e) => setEmail(e.target.value)}  placeholder="Email" />
-        <label class='label'>
+        <input className="inputs" onChange={(e) => setEmail(e.target.value)}  placeholder="Email" />
+        <label className='label'>
         Contraseña: 
         </label>
-        <input type="password" class="inputs" onChange={(e) => setPassword(e.target.value)}  placeholder="Password" />
+        <input type="password" className="inputs" onChange={(e) => setPassword(e.target.value)}  placeholder="Password" />
         </div>
         <div >
         <button onClick={saveElement}  className='btnConfirmar'>Confirmar</button>     
