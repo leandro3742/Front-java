@@ -25,11 +25,12 @@ function AltaGenerador() {
 };
   return (
     <div class="centrar">
-    <div className='divGlobal'>
-        <div className='divTitle'>
-            <h4 className='title'>Nuevo Generador de Contenido</h4>
+    <div class='divGlobal'>
+        <div class='divTitle'>
+            <h4 class='title'>Nuevo Generador de Contenido</h4>
         </div>
-        <div className='div'>
+        
+        <div class='div'>
         <label class='label'>
         Nombre: 
         </label>
@@ -44,7 +45,7 @@ function AltaGenerador() {
         <input type="password" class="inputs" onChange={(e) => setPassword(e.target.value)}  placeholder="Password" />
         </div>
         <div >
-        <button onClick={saveElement}  className='btnConfirmar'>Confirmar</button>     
+        <button onClick={saveElement}  class='btnConfirmar'>Confirmar</button>     
         </div>    
     </div>
     </div>

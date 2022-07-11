@@ -101,14 +101,14 @@
     }
 }
 
-@media only screen and (min-width: 375px) and (max-width: 900px) {
+@media only screen and (min-width: 300px) and (max-width: 500px) {
     .divGlobal {
         align-items: center;
         justify-items: center;
         text-align: center;
     }
     .centrar {
-        width: 100%;
+        width: 300px;
     }
     .divBotones {
         justify-items: center;
@@ -116,12 +116,14 @@
     .label {
         margin-top: 2%;
         display: flex;
+        width: 80%;
         font-family: 'Press Start 2P', cursive;
     }
     .inputs {
         background-color: transparent;
         border-radius: 5px;
         margin-top: 2%;
+        width: 80%;
         border-color: aqua;
         color: aliceblue;
     }
@@ -131,16 +133,13 @@
         color: aliceblue;
         justify-items: center;
         margin-top: 5%;
-        margin-right: 5%;
         font-family: 'Press Start 2P', cursive;
     }
     .divTitle {
-        text-align: center;
-        width: 350px;
+        width: 300px;
     }
     .div {
-        text-align: center;
-        width: 340px;
+        width: 300px;
         margin-left: 1%;
     }
     .title {
