@@ -1,0 +1,9 @@
+table {
+    width: 80%;
+    margin: 2%;
+}
+
+th {
+    color: blueviolet;
+    font-size: 20px;
+}
