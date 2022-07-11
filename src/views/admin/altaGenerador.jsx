@@ -24,35 +24,29 @@ function AltaGenerador() {
     }).catch(err => console.log(err));
 };
   return (
+    <div class="centrar">
     <div className='divGlobal'>
         <div className='divTitle'>
-            <b><u><h4 className='title'>Nuevo Generador de Contenido</h4></u></b>
+            <h4 className='title'>Nuevo Generador de Contenido</h4>
         </div>
-        <div className='divInputs'>
-            <div className='divlabel'>
-                <label>
-                    Nombre: 
-                </label>
-                <input class="inputs" onChange={(e) => setNombre(e.target.value)} placeholder="Nombre" />
-             
-            </div>
-            <div className='divlabel'>
-                <label>
-                    Correo electrónico: 
-                </label>
-                <input class="inputs" onChange={(e) => setEmail(e.target.value)}  placeholder="Email" />
-            </div>
-            <div className='divlabel'>
-                <label>
-                    Contraseña: 
-                </label>
-                <input type="password" class="inputs" onChange={(e) => setPassword(e.target.value)}  placeholder="Password" />
-            </div>
-            <div className='divBotones'>
-                <button onClick={saveElement}  className='btnConfirmar'>Confirmar</button>
-                
-            </div>
+        <div className='div'>
+        <label class='label'>
+        Nombre: 
+        </label>
+        <input class="inputs" onChange={(e) => setNombre(e.target.value)} placeholder="Nombre" />
+        <label class='label'>
+        Email: 
+        </label>
+        <input class="inputs" onChange={(e) => setEmail(e.target.value)}  placeholder="Email" />
+        <label class='label'>
+        Contraseña: 
+        </label>
+        <input type="password" class="inputs" onChange={(e) => setPassword(e.target.value)}  placeholder="Password" />
         </div>
+        <div >
+        <button onClick={saveElement}  className='btnConfirmar'>Confirmar</button>     
+        </div>    
+    </div>
     </div>
   )
 }

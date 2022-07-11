@@ -3,23 +3,20 @@
     align-items: center;
     justify-items: center;
     text-align: center;
-    margin-top: 5%;
 }
 
-.divInputs {
-    text-align: left;
-    margin-left: 30%;
+.centrar {
+    width: 100%;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 .divBotones {
-    justify-content: space-between;
-    margin-left: 15%;
-    margin-top: 3%;
+    justify-items: center;
 }
 
-.divlabel {
-    margin: 5px;
-    margin-bottom: 20px;
+.label {
+    margin-top: 5%;
     display: flex;
     font-family: 'Press Start 2P', cursive;
 }
@@ -27,8 +24,8 @@
 .inputs {
     background-color: transparent;
     border-radius: 5px;
+    margin-top: 5%;
     border-color: aqua;
-    margin-left: 5px;
     color: aliceblue;
 }
 
@@ -36,22 +33,117 @@
     border-radius: 5px;
     background-color: darkviolet;
     color: aliceblue;
-    margin-right: 15px;
-    font-family: 'Press Start 2P', cursive;
-}
-
-.btnCancelar {
-    border-radius: 5px;
-    background-color: rgb(211, 0, 207);
-    color: aliceblue;
+    justify-items: center;
+    margin-top: 5%;
     font-family: 'Press Start 2P', cursive;
 }
 
 .divTitle {
     text-align: center;
-    margin-bottom: 80px;
+}
+
+.div {
+    text-align: center;
+    width: 600px;
+    margin-left: 30%;
+    margin-right: 20%;
 }
 
 .title {
     font-family: 'Press Start 2P', cursive;
+}
+
+@media only screen and (min-width: 500px) and (max-width: 900px) {
+    .divGlobal {
+        align-items: center;
+        justify-items: center;
+        text-align: center;
+    }
+    .centrar {
+        width: 60%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .divBotones {
+        justify-items: center;
+    }
+    .label {
+        margin-top: 5%;
+        display: flex;
+        font-family: 'Press Start 2P', cursive;
+    }
+    .inputs {
+        background-color: transparent;
+        border-radius: 5px;
+        margin-top: 5%;
+        border-color: aqua;
+        color: aliceblue;
+    }
+    .btnConfirmar {
+        border-radius: 5px;
+        background-color: darkviolet;
+        color: aliceblue;
+        justify-items: center;
+        margin-top: 5%;
+        font-family: 'Press Start 2P', cursive;
+    }
+    .divTitle {
+        text-align: center;
+    }
+    .div {
+        text-align: center;
+        width: 600px;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .title {
+        font-family: 'Press Start 2P', cursive;
+    }
+}
+
+@media only screen and (min-width: 375px) and (max-width: 900px) {
+    .divGlobal {
+        align-items: center;
+        justify-items: center;
+        text-align: center;
+    }
+    .centrar {
+        width: 100%;
+    }
+    .divBotones {
+        justify-items: center;
+    }
+    .label {
+        margin-top: 2%;
+        display: flex;
+        font-family: 'Press Start 2P', cursive;
+    }
+    .inputs {
+        background-color: transparent;
+        border-radius: 5px;
+        margin-top: 2%;
+        border-color: aqua;
+        color: aliceblue;
+    }
+    .btnConfirmar {
+        border-radius: 5px;
+        background-color: darkviolet;
+        color: aliceblue;
+        justify-items: center;
+        margin-top: 5%;
+        margin-right: 5%;
+        font-family: 'Press Start 2P', cursive;
+    }
+    .divTitle {
+        text-align: center;
+        width: 350px;
+    }
+    .div {
+        text-align: center;
+        width: 340px;
+        margin-left: 1%;
+    }
+    .title {
+        font-family: 'Press Start 2P', cursive;
+    }
 }
