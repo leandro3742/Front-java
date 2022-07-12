@@ -22,6 +22,9 @@ import Destacar from "./views/generador/destacar";
 import Categoria from "./views/admin/categorias";
 import AprobarContenido from "./views/admin/aprobarContenido";
 import ContenidoVisto from "./views/admin/contenidoVisto";
+import GestionarCliente from "./views/admin/gestionarCliente";
+import GestionarContenido from "./views/admin/gestionarContenido";
+import TodoContenido from "./views/admin/todoContenido";
 
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import Pricings from "./views/pricings";
@@ -57,6 +60,9 @@ function App() {
             <Route path="/admin/categoria" element={<Categoria />} />
             <Route path="/admin/aprobarContenido" element={<AprobarContenido />} />
             <Route path="/admin/contenidoVisto" element={<ContenidoVisto />} />
+            <Route path="/admin/gestionarCliente" element={<GestionarCliente />} />
+            <Route path="/admin/gestionarContenido" element={<GestionarContenido />} />
+            <Route path="/admin/todoContenido" element={<TodoContenido />} />
             <Route path="/generador/" element={<HomeGenerador />} />
             <Route path="/generador/destacar" element={<Destacar />} />
             <Route path="/generador/agregarContenido" element={<AltaContenido />} />
