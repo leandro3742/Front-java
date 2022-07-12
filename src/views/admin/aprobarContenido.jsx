@@ -47,7 +47,7 @@ function AprobarContenido() {
                     <h4 className='title'>Aprobar Contenidos</h4>
                 </div>
 
-                {!todos ? 'cargando ...' :
+                {!todos ? 'Cargando ...' :
                     todos.map((todo, index) => {
                         return <div className="card">
                             <div className="container">

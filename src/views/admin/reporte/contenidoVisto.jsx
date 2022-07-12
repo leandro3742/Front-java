@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "../../styles/contenidoVisto.css";
-import { fetchFunction } from "../../utils/fetch";
-import { buildHeader } from "../../utils/fetch";
+import "../../../styles/contenidoVisto.css";
+import { fetchFunction } from "../../../utils/fetch";
+import { buildHeader } from "../../../utils/fetch";
 import { Button } from 'react-bootstrap';
 import { Accordion } from 'react-bootstrap';
 
@@ -22,12 +22,17 @@ const url = 'http://localhost:8080/admin/reporte/contenido/visto';
     fetchApi()
   },[])
   return (
-   
-
+    <div className="centrar">
+    <div className='divGlobal'>
+<div className='divTitle'>
+<h4 className='title'>Contenidos Visto</h4>
+</div>
+</div>
+    
 <table>
 <td>
     <th>ID</th>
-      {!todos ? 'cargando ...':
+      {!todos ? 'No encontrado ...':
         todos.map((todo,index)=>{
           return <tr><td><a>{todo[0]}</a></td></tr>
         })
@@ -35,7 +40,7 @@ const url = 'http://localhost:8080/admin/reporte/contenido/visto';
  </td>
 <td>
     <th>Nombre</th>
-      {!todos ? 'cargando ...':
+      {!todos ? 'No encontrado ...':
         todos.map((todo,index)=>{
           return <tr><td><a>{todo[7]}</a></td></tr>
         })
@@ -43,7 +48,7 @@ const url = 'http://localhost:8080/admin/reporte/contenido/visto';
  </td>
  <td>
  <th>Tipo Contenido</th>
-      {!todos ? 'cargando ...':
+      {!todos ? 'No encontrado ...':
         todos.map((todo,index)=>{
           return <tr><td><a>{todo[10]}</a></td></tr>
         })
@@ -51,6 +56,7 @@ const url = 'http://localhost:8080/admin/reporte/contenido/visto';
   </td>
 
 </table>
+</div>
   );
   
 }

@@ -13,7 +13,7 @@ import Films from "./views/films";
 import MyList from "./views/myList";
 import Profile from "./views/profile";
 import AltaGenerador from "./views/admin/altaGenerador";
-import ContenidosDisponibles from "./views/contenidosDisponibles";
+
 import Details from "./views/details";
 import HomeGenerador from "./views/generador/homeGenetador";
 import MiContenido from "./views/generador/micontenido";
@@ -21,10 +21,12 @@ import AltaContenido from "./views/generador/altaContenido";
 import Destacar from "./views/generador/destacar";
 import Categoria from "./views/admin/categorias";
 import AprobarContenido from "./views/admin/aprobarContenido";
-import ContenidoVisto from "./views/admin/contenidoVisto";
+import ContenidoVisto from "./views/admin/reporte/contenidoVisto";
 import GestionarCliente from "./views/admin/gestionarCliente";
 import GestionarContenido from "./views/admin/gestionarContenido";
 import TodoContenido from "./views/admin/todoContenido";
+import ContenidoDisponible from "./views/admin/reporte/contenidoDisponible";
+import ContenidoActivo from "./views/admin/reporte/contenidoActivo";
 
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import Pricings from "./views/pricings";
@@ -56,13 +58,15 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/detail/:id" element={<Details />} />
             <Route path="/admin/nuevoGenerador" element={<AltaGenerador />} />
-            <Route path="/admin/contenidosDisponibles" element={<ContenidosDisponibles />} />
+            
+            <Route path="/admin/contenidoActivo" element={<ContenidoActivo />} />
             <Route path="/admin/categoria" element={<Categoria />} />
             <Route path="/admin/aprobarContenido" element={<AprobarContenido />} />
             <Route path="/admin/contenidoVisto" element={<ContenidoVisto />} />
             <Route path="/admin/gestionarCliente" element={<GestionarCliente />} />
             <Route path="/admin/gestionarContenido" element={<GestionarContenido />} />
             <Route path="/admin/todoContenido" element={<TodoContenido />} />
+            <Route path="/admin/contenidoDisponible" element={<ContenidoDisponible />} />
             <Route path="/generador/" element={<HomeGenerador />} />
             <Route path="/generador/destacar" element={<Destacar />} />
             <Route path="/generador/agregarContenido" element={<AltaContenido />} />
