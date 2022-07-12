@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../../styles/altaGenerador.css";
 import { fetchFunction } from "../../utils/fetch";
 import { buildHeader } from "../../utils/fetch";
+import Swal from 'sweetalert2'
 function AltaGenerador() {
     //input
     const [nombre, setNombre] = useState("");
@@ -15,9 +16,10 @@ function AltaGenerador() {
     fetchFunction("http://localhost:8080/generadorcontenidos/agregarGeneradorContenido", buildHeader("POST",{"contrasenia":password,"email":email,"nombre":nombre}))
     .then(result => {
         if(result=="ERROR"){
-        alert("Error en la creacion");
+          Swal.fire('Error');
         } 
         else{
+          Swal.fire('Creado Correcto');
             console.log("Ok");
            
         }
@@ -46,7 +48,8 @@ function AltaGenerador() {
         <input type="password" className="inputs" onChange={(e) => setPassword(e.target.value)}  placeholder="Password" />
         </div>
         <div >
-        <button onClick={saveElement}  className='btnConfirmar'>Confirmar</button>     
+        <button onClick={saveElement}  className='btnConfirmar'>Confirmar</button>   
+       
         </div>    
     </div>
  
