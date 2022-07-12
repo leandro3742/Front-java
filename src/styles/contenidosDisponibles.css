@@ -1,10 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&family=Play&family=Press+Start+2P&family=Source+Code+Pro&display=swap');
-
-.divG{
+.divGlobal {
+    width: 100%;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
     margin-top: 5%;
 }
 
-.contenidosDisponibles{
-    font-family: 'Press Start 2P', cursive;
-    color:deeppink;
+.centrar {
+    width: 100%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.div {
+    width: 800px;
+}
+
+@media (max-width: 500px) {
+    .div {
+        width: 350px;
+    }
 }

@@ -7,3 +7,17 @@ th {
     color: blueviolet;
     font-size: 20px;
 }
+
+.divGlobal {
+    width: 60%;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.centrar {
+    width: 100%;
+    margin-left: 20%;
+    margin-right: 20%;
+}

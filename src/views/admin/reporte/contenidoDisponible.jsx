@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "../../../styles/contenidoVisto.css";
+import "../../../styles/contenidosDisponibles.css";
+
 import { fetchFunction } from "../../../utils/fetch";
 import { buildHeader } from "../../../utils/fetch";
 import { Button } from 'react-bootstrap';
@@ -31,13 +32,15 @@ const url = 'http://localhost:8080/admin/reporte/contenido/disponible';
     fetchApi()
   }, [])
   return (
+ 
     <div className="centrar">
          {mostrar ?
     <div className='divGlobal'>
+        
 <div className='divTitle'>
 <h4 className='title'>Contenidos Disponibles</h4>
 </div>
-
+<div className='div'>
 <table>
 <td>
     <th>ID</th>
@@ -66,7 +69,9 @@ const url = 'http://localhost:8080/admin/reporte/contenido/disponible';
 
 </table>
 </div>
+</div>
 : <div> <div className='centrar'><h4 className='title'>No tiene persmisos</h4></div></div>}
+
 </div>
   );
   
