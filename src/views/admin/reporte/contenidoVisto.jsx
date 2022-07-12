@@ -9,6 +9,7 @@ import { Accordion } from 'react-bootstrap';
 function ContenidosVistos() {
 const url = 'http://localhost:8080/admin/reporte/contenido/visto';
   const [todos, setTodos] = useState()
+  const [mostrar, setMostrar] = useState(false)
   const fetchApi = async() =>{
     const response = await fetch(url)
     console.log(response.status)
@@ -18,16 +19,24 @@ const url = 'http://localhost:8080/admin/reporte/contenido/visto';
     setTodos(responseJSON)
   }
 
-  useEffect(() =>{
+  useEffect(() => {
+    if (sessionStorage.getItem("usuario")) {
+      let aux = JSON.parse(sessionStorage.getItem("usuario"));
+      console.log(aux)
+      if (aux.tipoUsuario === "ADMIN") {
+        setMostrar(true)
+      }
+    }
     fetchApi()
-  },[])
+  }, [])
   return (
     <div className="centrar">
+         {mostrar ?
     <div className='divGlobal'>
 <div className='divTitle'>
 <h4 className='title'>Contenidos Visto</h4>
 </div>
-</div>
+
     
 <table>
 <td>
@@ -56,6 +65,8 @@ const url = 'http://localhost:8080/admin/reporte/contenido/visto';
   </td>
 
 </table>
+</div>
+: <div> <div className='centrar'><h4 className='title'>No tiene persmisos</h4></div></div>}
 </div>
   );
   

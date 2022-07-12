@@ -11,6 +11,7 @@ import { Accordion } from 'react-bootstrap';
 function ContenidosActivo() {
 const url = 'http://localhost:8080/admin/reporte/contenido/activo';
   const [todos, setTodos] = useState()
+  const [mostrar, setMostrar] = useState(false)
   const fetchApi = async() =>{
     const response = await fetch(url)
     console.log(response.status)
@@ -20,16 +21,28 @@ const url = 'http://localhost:8080/admin/reporte/contenido/activo';
     setTodos(responseJSON)
   }
 
-  useEffect(() =>{
+  useEffect(() => {
+    if (sessionStorage.getItem("usuario")) {
+      let aux = JSON.parse(sessionStorage.getItem("usuario"));
+      console.log(aux)
+      if (aux.tipoUsuario === "ADMIN") {
+        setMostrar(true)
+      }
+    }
     fetchApi()
-  },[])
+  }, [])
   return (
-    <div className="centrar">
+
+      
+      <div className="centrar">
+        {mostrar ?
            <div className='divGlobal'>
+              
     <div className='divTitle'>
     <h4 className='title'>Contenidos Activos</h4>
 </div>
-</div>
+
+
 <table>
 <td>
     <th>ID</th>
@@ -49,7 +62,7 @@ const url = 'http://localhost:8080/admin/reporte/contenido/activo';
  </td>
  <td>
  <th>Tipo Contenido</th>
-      {!todos ? 'No encontrado ...':
+      {!todos ? 'No encontrado...':
         todos.map((todo,index)=>{
           return <tr><td><a>{todo.tipoContenido}</a></td></tr>
         })
@@ -57,9 +70,11 @@ const url = 'http://localhost:8080/admin/reporte/contenido/activo';
   </td>
 
 </table>
-
+   
 </div>
-  );
+: <div> <div className='centrar'><h4 className='title'>No tiene persmisos</h4></div></div>}
+</div>
+);
   
 }
 

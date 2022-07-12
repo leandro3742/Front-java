@@ -71,7 +71,7 @@ function Categoria() {
             </Accordion.Item>
           </Accordion>
         </div>
-        : <div><h1>No puedes</h1></div>}
+        : <div><h1>No tienes permisos</h1></div>}
     </div>
 
   );

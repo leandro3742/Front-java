@@ -25,6 +25,7 @@ function AltaGenerador() {
 };
   return (
     <div className="centrar">
+       
     <div className='divGlobal'>
         <div className='divTitle'>
             <h4 className='title'>Nuevo Generador de Contenido</h4>
@@ -48,6 +49,7 @@ function AltaGenerador() {
         <button onClick={saveElement}  className='btnConfirmar'>Confirmar</button>     
         </div>    
     </div>
+ 
     </div>
   )
 }
