@@ -51,18 +51,18 @@ function AprobarContenido() {
                     todos.map((todo, index) => {
                         return <div className="card">
                             <div className="container">
-                            <h4>{todo.nombre}</h4>
+                            <h4 className="h4">{todo.nombre}</h4>
                             {console.log(todo)}
-                            <img src={todo.fotoPortada} style={{width: "200px"}}></img>
+                            <img  className="img"src={todo.fotoPortada}></img>
                                 <Accordion className="df" defaultActiveKey="0" flush>
                                     <Accordion.Item >
-                                        <Accordion.Header ><h5>Descripción</h5></Accordion.Header>
+                                        <Accordion.Header ><h5 className="h5">Descripción</h5></Accordion.Header>
                                         <Accordion.Body>
-                                        <ul><a>Descripción: {todo.descripcion}</a></ul>
-                                        <ul><a>Duración: {todo.duracion}</a></ul>
-                                        <ul><a>Tipo: {todo.tipoContenido}</a></ul>
-                                        <ul><a>Generador: {todo.gcId}</a></ul>
-                                        <ul><a>Destacado: {todo.destacado}</a></ul>
+                                        <ul className="ul">Descripción: {todo.descripcion}</ul>
+                                        <ul className="ul">Duración: {todo.duracion}</ul>
+                                        <ul className="ul">Tipo: {todo.tipoContenido}</ul>
+                                        <ul className="ul">Generador: {todo.gcId}</ul>
+                                        <ul className="ul">Destacado: {todo.destacado}</ul>
                                         </Accordion.Body>
                                     </Accordion.Item>
                                 </Accordion>
