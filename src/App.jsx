@@ -27,7 +27,6 @@ import GestionarContenido from "./views/admin/gestionarContenido";
 import TodoContenido from "./views/admin/todoContenido";
 import ContenidoDisponible from "./views/admin/reporte/contenidoDisponible";
 import ContenidoActivo from "./views/admin/reporte/contenidoActivo";
-
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import Pricings from "./views/pricings";
 import Video from "./views/video";
@@ -72,6 +71,7 @@ function App() {
             <Route path="/generador/agregarContenido" element={<AltaContenido />} />
             <Route path="/generador/contenido" element={<MiContenido />}/>
             <Route path="/pricings" element={<Pricings />}/>
+            
             <Route path="/video/:id/:url" element={<Video />} />
             
           </Routes>
