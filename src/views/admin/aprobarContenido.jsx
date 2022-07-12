@@ -7,6 +7,7 @@ function AprobarContenido() {
     //Para get
     const url = 'http://localhost:8080/admin/contenidosParaAprobar';
     const [todos, setTodos] = useState()
+    const [mostrar, setMostrar] = useState(false)
     const fetchApi = async () => {
         const response = await fetch(url)
         console.log(response.status)
@@ -14,8 +15,15 @@ function AprobarContenido() {
         setTodos(responseJSON)
     }
     useEffect(() => {
+        if (sessionStorage.getItem("usuario")) {
+          let aux = JSON.parse(sessionStorage.getItem("usuario"));
+          console.log(aux)
+          if (aux.tipoUsuario === "ADMIN") {
+            setMostrar(true)
+          }
+        }
         fetchApi()
-    }, [])
+      }, [])
     /*/input
     const [nombre, setNombre] = useState("");
     const [email, setEmail] = useState("");
@@ -42,6 +50,7 @@ function AprobarContenido() {
     };
     return (
         <div className="centrar">
+             {mostrar ?
             <div className='divGlobal'>
                 <div className='divTitle'>
                     <h4 className='title'>Aprobar Contenidos</h4>
@@ -75,6 +84,7 @@ function AprobarContenido() {
                     })
                 }
             </div>
+            : <div><div className='centrar'><h4 className='title'>No tiene persmisos</h4></div></div>}
         </div>
     )
 }
