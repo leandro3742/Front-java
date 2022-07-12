@@ -19,7 +19,8 @@ function altaContenido(props){
     }
 
     const saveElement = () => {
-        let url = "http://localhost:8080/contenidos/agregarContenido/1";
+        console.log();
+        let url = "http://localhost:8080/contenidos/agregarContenido/"+JSON.parse(sessionStorage.getItem("usuario")).email;
         fetchFunction(url, buildHeader("POST", {
             "nombre": nombre,
             "tipoContenido": tipo,
