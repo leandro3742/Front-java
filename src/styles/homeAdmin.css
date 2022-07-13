@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&family=Play&family=Press+Start+2P&family=Source+Code+Pro&display=swap');
+.divGlobal {
+    width: 60%;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.centrar {
+    width: 100%;
+    margin-left: 30%;
+    margin-right: 20%;
+}
+
+.btnConfirmar {
+    border-radius: 5px;
+    width: 50%;
+    background-color: rgb(112, 172, 102);
+    color: aliceblue;
+    margin-left: 50px;
+    font-size: 20px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.btnCancelar {
+    border-radius: 5px;
+    background-color: rgb(211, 0, 0);
+    color: aliceblue;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 30px
+}
+
+h1 {
+    font-size: 10px;
+}
+
+a {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px
+}
+
+h4 {
+    font-size: 20px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+h5 {
+    font-size: 16px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.df {
+    background-color: rgb(211, 0, 207);
+}
+
+.link {
+    font-size: 20px;
+    color: white;
+}

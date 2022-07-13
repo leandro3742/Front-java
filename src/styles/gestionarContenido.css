@@ -13,17 +13,6 @@
     margin-right: 20%;
 }
 
-.divInputs {
-    text-align: left;
-    margin-left: 30%;
-}
-
-.divBotones {
-    justify-content: space-between;
-    margin-left: 15%;
-    margin-top: 3%;
-}
-
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     background-color: black;
@@ -42,33 +31,26 @@
     padding: 2px 16px;
 }
 
-.divlabel {
-    margin: 5px;
-    margin-bottom: 20px;
-    display: flex;
-    font-family: 'Press Start 2P', cursive;
-}
-
-.inputs {
-    background-color: transparent;
-    border-radius: 5px;
-    border-color: aqua;
-    margin-left: 5px;
-    color: aliceblue;
-}
-
 .btnConfirmar {
     border-radius: 5px;
     background-color: rgb(112, 172, 102);
     color: aliceblue;
-    margin-left: 50px;
-    font-size: 10px;
+    font-size: 4px;
     font-family: 'Press Start 2P', cursive;
 }
 
 .btnCancelar {
     border-radius: 5px;
     background-color: rgb(211, 0, 0);
+    font-size: 4px;
+    color: aliceblue;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.b {
+    border-radius: 5px;
+    background-color: rgb(46, 211, 0);
+    font-size: 5px;
     color: aliceblue;
     font-family: 'Press Start 2P', cursive;
 }
@@ -87,7 +69,6 @@ h1 {
 }
 
 a {
-    color: black;
     font-family: 'Press Start 2P', cursive;
     font-size: 10px
 }
@@ -143,4 +124,25 @@ table {
 th {
     color: blueviolet;
     font-size: 20px;
+}
+
+@media (max-width: 500px) {
+    a {
+        font-size: 6px
+    }
+    .btnCancelar {
+        border-radius: 5px;
+        background-color: rgb(211, 0, 0);
+        color: aliceblue;
+        font-size: 4px;
+        font-family: 'Press Start 2P', cursive;
+    }
+    th {
+        color: blueviolet;
+        font-size: 20px;
+    }
+    table {
+        width: 70%;
+        border: #b2b2b2 1px solid;
+    }
 }

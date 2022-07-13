@@ -22,11 +22,12 @@ import Destacar from "./views/generador/destacar";
 import Categoria from "./views/admin/categorias";
 import AprobarContenido from "./views/admin/aprobarContenido";
 import ContenidoVisto from "./views/admin/reporte/contenidoVisto";
-import GestionarCliente from "./views/admin/gestionarCliente";
+import VerContenido from "./views/admin/reporte/verContenido";
 import GestionarContenido from "./views/admin/gestionarContenido";
 import TodoContenido from "./views/admin/todoContenido";
 import ContenidoDisponible from "./views/admin/reporte/contenidoDisponible";
 import ContenidoActivo from "./views/admin/reporte/contenidoActivo";
+import HomeAdmin from "./views/admin/homeAdmin";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import Pricings from "./views/pricings";
 import Video from "./views/video";
@@ -58,11 +59,12 @@ function App() {
             <Route path="/detail/:id" element={<Details />} />
             <Route path="/admin/nuevoGenerador" element={<AltaGenerador />} />
             
+            <Route path="/admin/homeAdmin" element={<HomeAdmin />} />
             <Route path="/admin/contenidoActivo" element={<ContenidoActivo />} />
             <Route path="/admin/categoria" element={<Categoria />} />
             <Route path="/admin/aprobarContenido" element={<AprobarContenido />} />
             <Route path="/admin/contenidoVisto" element={<ContenidoVisto />} />
-            <Route path="/admin/gestionarCliente" element={<GestionarCliente />} />
+            <Route path="/admin/verContenido" element={<VerContenido />} />
             <Route path="/admin/gestionarContenido" element={<GestionarContenido />} />
             <Route path="/admin/todoContenido" element={<TodoContenido />} />
             <Route path="/admin/contenidoDisponible" element={<ContenidoDisponible />} />
