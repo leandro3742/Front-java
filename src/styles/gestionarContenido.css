@@ -144,3 +144,25 @@ th {
     color: blueviolet;
     font-size: 20px;
 }
+
+@media (max-width: 500px) {
+    a {
+        color: black;
+        font-size: 6px
+    }
+    .btnCancelar {
+        border-radius: 5px;
+        background-color: rgb(211, 0, 0);
+        color: aliceblue;
+        font-size: 4px;
+        font-family: 'Press Start 2P', cursive;
+    }
+    th {
+        color: blueviolet;
+        font-size: 20px;
+    }
+    table {
+        width: 70%;
+        border: #b2b2b2 1px solid;
+    }
+}

@@ -5,10 +5,12 @@ import { buildHeader } from "../../utils/fetch";
 import { Button } from 'react-bootstrap';
 import { Accordion } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 function GestionarContenido() {
   const url = 'http://localhost:8080/contenidos/';
   const [todos, setTodos] = useState()
+  const [mostrar, setMostrar] = useState(false)
   const fetchApi = async() =>{
     const response = await fetch(url)
     console.log(response.status)
@@ -18,9 +20,16 @@ function GestionarContenido() {
     setTodos(responseJSON)
   }
 
-  useEffect(() =>{
+  useEffect(() => {
+    if (sessionStorage.getItem("usuario")) {
+      let aux = JSON.parse(sessionStorage.getItem("usuario"));
+      console.log(aux)
+      if (aux.tipoUsuario === "ADMIN") {
+        setMostrar(true)
+      }
+    }
     fetchApi()
-  },[])
+  }, [])
   //Para desbloquear
   const saveElement = (x) => {
     async function fetchFunction(url){
@@ -34,9 +43,13 @@ function GestionarContenido() {
         await response.json()
     }
     fetchFunction('http://localhost:8080/admin/contenido/desbloquear/'+x);
+    Swal.fire('Contenido Desbloqueado');
 }
   return (
+    <div>
+       {mostrar ?
     <div className="centrar">
+        
     <div className='divGlobal'>
         <div className='divTitle'>
             <h4 className='title'>Contenidos Bloqueados</h4>
@@ -79,11 +92,12 @@ function GestionarContenido() {
  </td>
 
 </table>
-
-
-</div> 
- );
-  
-
+<div className='centrar'>
+<button className="btnConfirmar"> <Link to="/admin/todoContenido">Todos los Contenidos</Link></button>
+</div>
+</div>
+: <div><div className='centrar'><h4 className='title'>No tiene persmisos</h4></div></div>}
+</div>   
+  );
 }
 export default GestionarContenido;

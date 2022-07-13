@@ -4,6 +4,7 @@ import { fetchFunction } from "../../utils/fetch";
 import { buildHeader } from "../../utils/fetch";
 import { Button } from 'react-bootstrap';
 import { Accordion } from 'react-bootstrap';
+import Swal from 'sweetalert2'
 
 function Categoria() {
   const [nombre, setNombre] = useState("");
@@ -34,10 +35,11 @@ function Categoria() {
     fetchFunction("http://localhost:8080/categorias/agregarCategoria", buildHeader("POST", { "nombre": nombre }))
       .then(result => {
         if (result == "ERROR") {
-          alert("Error en la creacion");
+          Swal.fire('Error en la creacion');
         }
         else {
           console.log("Ok");
+          Swal.fire('Creado Correcto');
 
         }
       }).catch(err => console.log(err));

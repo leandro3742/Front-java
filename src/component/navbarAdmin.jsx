@@ -22,11 +22,11 @@ function NavbarAdmin(props) {
                         <Link className="link d-flex align-items-center" to="/admin/nuevoGenerador">
                             Nuevo Generador
                         </Link>
-                        <Link className="link d-flex align-items-center" to="/admin/contenidosDisponibles">
-                            Contenido Disponible
+                        <Link className="link d-flex align-items-center" to="/admin/gestionarContenido">
+                            Gestionar Contenido 
                         </Link>
                         <Link className="link d-flex align-items-center" to="/admin/contenidosVistos">
-                            Contenidos Vistos
+                        Gestionar Clientes 
                         </Link>
                     </div>
                     <div className="col-2 m-auto ">
@@ -35,8 +35,13 @@ function NavbarAdmin(props) {
                                 <img style={{ width: "80px" }} className="rounded-circle" src={icon} alt="" />
                             </button>
                             <div className="dropdown-content prioridad">
+                                <Link to="/admin/aprobarContenido" className="itemsdrop">Aprobar Contenido</Link>
+                                <Link to="/admin/contenidoDisponible" className="itemsdrop">Contenidos Disponible</Link>
+                                <Link to="/admin/contenidoVisto" className="itemsdrop">Contenidos Vistos</Link>
+                                <Link to="/admin/contenidoActivo" className="itemsdrop">Contenidos Activo</Link>
                                 <Link to="/" className="itemsdrop" onClick={cerrarSesion}>Cerrar sesión</Link>
                             </div>
+                          
                         </div>
                     </div>
                 </div>

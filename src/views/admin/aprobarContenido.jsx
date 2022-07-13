@@ -3,6 +3,7 @@ import "../../styles/aprobarContenido.css";
 import { fetchFunction } from "../../utils/fetch";
 import { buildHeader } from "../../utils/fetch";
 import { Accordion } from 'react-bootstrap';
+import Swal from 'sweetalert2'
 function AprobarContenido() {
     //Para get
     const url = 'http://localhost:8080/admin/contenidosParaAprobar';
@@ -24,17 +25,10 @@ function AprobarContenido() {
         }
         fetchApi()
       }, [])
-    /*/input
-    const [nombre, setNombre] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");*/
+   
 
-    //funcion
-
+    //funcion aprobar
     const saveElement = (x) => {
-        console.log(x);
-        console.log("hola");
-        //fetchFunction("http://localhost:8080/admin/contenidos/contenido/aprobar/")
         async function fetchFunction(url){
             const response = await fetch(url, 
                 {method:"PUT",
@@ -46,7 +40,7 @@ function AprobarContenido() {
             await response.json()
         }
         fetchFunction('http://localhost:8080/admin/contenido/aprobar/'+x);
-       
+        Swal.fire('Contenido Aprobado');
     };
     return (
         <div className="centrar">
