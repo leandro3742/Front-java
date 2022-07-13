@@ -27,6 +27,7 @@ import GestionarContenido from "./views/admin/gestionarContenido";
 import TodoContenido from "./views/admin/todoContenido";
 import ContenidoDisponible from "./views/admin/reporte/contenidoDisponible";
 import ContenidoActivo from "./views/admin/reporte/contenidoActivo";
+import HomeAdmin from "./views/admin/homeAdmin";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import Pricings from "./views/pricings";
 import Video from "./views/video";
@@ -58,6 +59,7 @@ function App() {
             <Route path="/detail/:id" element={<Details />} />
             <Route path="/admin/nuevoGenerador" element={<AltaGenerador />} />
             
+            <Route path="/admin/homeAdmin" element={<HomeAdmin />} />
             <Route path="/admin/contenidoActivo" element={<ContenidoActivo />} />
             <Route path="/admin/categoria" element={<Categoria />} />
             <Route path="/admin/aprobarContenido" element={<AprobarContenido />} />

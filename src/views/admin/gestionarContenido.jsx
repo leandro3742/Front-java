@@ -85,16 +85,14 @@ function GestionarContenido() {
       {!todos ? 'cargando ...':
         todos.map((todo,index)=>{
             if(todo.bloqueado==1){
-          return <tr><td><button  className="btnConfirmar" onClick={() => saveElement(todo.id)}>-</button></td></tr>
+          return <tr><td><button  className="b" onClick={() => saveElement(todo.id)}>-</button></td></tr>
             }
         })
     }
  </td>
 
 </table>
-<div className='centrar'>
-<button className="btnConfirmar"> <Link to="/admin/todoContenido">Todos los Contenidos</Link></button>
-</div>
+
 </div>
 : <div><div className='centrar'><h4 className='title'>No tiene persmisos</h4></div></div>}
 </div>   
