@@ -22,7 +22,7 @@ import Destacar from "./views/generador/destacar";
 import Categoria from "./views/admin/categorias";
 import AprobarContenido from "./views/admin/aprobarContenido";
 import ContenidoVisto from "./views/admin/reporte/contenidoVisto";
-
+import VerContenido from "./views/admin/reporte/verContenido";
 import GestionarContenido from "./views/admin/gestionarContenido";
 import TodoContenido from "./views/admin/todoContenido";
 import ContenidoDisponible from "./views/admin/reporte/contenidoDisponible";
@@ -62,7 +62,7 @@ function App() {
             <Route path="/admin/categoria" element={<Categoria />} />
             <Route path="/admin/aprobarContenido" element={<AprobarContenido />} />
             <Route path="/admin/contenidoVisto" element={<ContenidoVisto />} />
-          
+            <Route path="/admin/verContenido" element={<VerContenido />} />
             <Route path="/admin/gestionarContenido" element={<GestionarContenido />} />
             <Route path="/admin/todoContenido" element={<TodoContenido />} />
             <Route path="/admin/contenidoDisponible" element={<ContenidoDisponible />} />
