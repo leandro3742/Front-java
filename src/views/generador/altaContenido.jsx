@@ -89,6 +89,7 @@ function altaContenido(props) {
                 }
                 else {
                     console.log("Ok", result);
+        Swal.fire('Contenido Agregado');
                     window.location.replace("/generador/");
                 }
             }).catch(err => console.log(err));
