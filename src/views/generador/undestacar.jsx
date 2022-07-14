@@ -5,7 +5,7 @@ import { buildHeader } from "../../utils/fetch";
 import { Accordion } from 'react-bootstrap';
 import Swal from 'sweetalert2'
 
-function destacar(){
+function undestacar(){
     //Para get
     const url = 'http://localhost:8080/contenidos/listarContenidosGenerador/'+ JSON.parse(sessionStorage.getItem("usuario")).email;
     const [todos, setTodos] = useState()
@@ -33,14 +33,14 @@ function destacar(){
                 });
             await response.json()
         }
-        fetchFunction('http://localhost:8080/contenidos/marcarContenidoDestacado/'+x);
-        Swal.fire('Contenido Destacado');
+        fetchFunction('http://localhost:8080/contenidos/desmarcarContenidoDestacado/'+x);
+        Swal.fire('Contenido eliminado de destacados');
     };
     return (
         <div className="centrar">
             <div className='divGlobal'>
                 <div className='divTitle'>
-                    <h4 className='title'>Contenidos sin Destacar</h4>
+                    <h4 className='title'>Contenidos Destacados</h4>
                 </div>
                 {!todos ? 'Cargando ...' :
                     todos.map((todo, index) => {
@@ -61,7 +61,7 @@ function destacar(){
                                         </Accordion.Body>
                                     </Accordion.Item>
                                 </Accordion>
-                                <button className="btnConfirmar" onClick={() => saveElement(todo.id)}>Destacar</button>
+                                <button className="btnConfirmar" onClick={() => saveElement(todo.id)}>Qutar de destacados</button>
                             </div>
                         </div>
 
@@ -72,4 +72,4 @@ function destacar(){
     )
 }
 
-export default destacar;
+export default undestacar;

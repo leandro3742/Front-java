@@ -44,7 +44,7 @@ function NavbarComponent(props) {
                 </div>
             )}
             {props.isLogged && props.tipoUsuario === "GENERADOR_CONTENIDO" && (
-            <div className="col-lg-9">
+            <div className="col-lg-8 col-12 d-flex align-items-center justify-content-center">
                     <NavbarGenerador setIsLogged={props.setIsLogged} />
                 </div>
             )}

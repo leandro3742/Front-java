@@ -37,8 +37,6 @@ function NavbarCliente(props) {
                             <img className="mx-1" style={{ width: "25px" }} src={search} alt="" />
                             Búsqueda
                         </Link>
-                    </div>
-                    <div className="col-2 m-auto ">
                         <div className="dropdown">
                             <button className="dropbtn">
                                 <img style={{ width: "80px" }} className="rounded-circle" src={icon} alt="" />

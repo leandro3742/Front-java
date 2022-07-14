@@ -10,7 +10,10 @@ function Login(props) {
     function rf(x){
         if(x === "GENERADOR_CONTENIDO"){
             window.location.replace("/generador/");
-        } else{ 
+        } else if (x === "ADMIN"){
+            window.location.replace("/admin/homeAdmin");
+        }        
+        else{ 
             window.location.replace("/");
         }
     }
