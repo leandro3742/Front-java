@@ -5,7 +5,7 @@ function PaypalCheckoutButton(props) {
     const { product } = props;
     const handleApprove = (orderId) => {
         console.log(orderId)
-        props.isOk();
+        props.isOk(product);
     }
     return (
         <PayPalButtons

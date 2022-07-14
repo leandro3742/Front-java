@@ -74,7 +74,7 @@ function App() {
             <Route path="/generador/contenido" element={<MiContenido />}/>
             <Route path="/pricings" element={<Pricings />}/>
             
-            <Route path="/video/:id/:url" element={<Video />} />
+            <Route path="/video/:id" element={<Video />} />
             
           </Routes>
         </BrowserRouter>

@@ -16,6 +16,25 @@ function Details() {
         fetchFunction('http://localhost:8080/contenidos/'+id);
     }, []);
 
+    const pagarPPV = (elem) => {
+        async function subscribirse(url){
+            const response = await fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type":"application/json"
+                },
+                body: JSON.stringify({
+                    fechaVencimiento: `${day}-${month}-${year}`,
+                    monto: elem.precio,
+                    tipoSuscripcion: elem.tipoSub
+                })
+            });
+            console.log(await response)
+            alert("Teermino")
+        }
+        subscribirse(`http://localhost:8080/suscripciones/agrearSuscripcionPP/${elem.id}/${usuario.id}`)
+    }
+
     return (
     <div>
         {data && (
@@ -27,10 +46,10 @@ function Details() {
                 </div>
                 <div>
                     { sessionStorage.getItem("usuario") && data.precio == 0 &&
-                        <Link to={`/video/${data.id}/${data.url}`} className="btn btn-primary"> Ver ahora</Link>
+                        <Link to={`/video/${data.id}`} className="btn btn-primary"> Ver ahora</Link>
                     }
                     {data.precio > 0 &&
-                        <PaypalCheckoutButton product={data} />
+                        <PaypalCheckoutButton product={data} isOk={pagarPPV} />
                     }
                 </div>
             </div>
