@@ -1,5 +1,6 @@
 import React from 'react'
 import "../../styles/contenidosDisponibles.css";
+import List from "./miLista";
 
 function miContenido(){
     return (
@@ -7,9 +8,8 @@ function miContenido(){
             <div className='contenidosDisponibles'>
                 <u><h2>Mi Contenido</h2></u>
             </div>
-
             <div>
-                {/*Listar contenidos del generador*/}
+                <List /> 
             </div>
         </div>
     )

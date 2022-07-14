@@ -2,6 +2,7 @@ import React from 'react'
 import "../../styles/contenidosDisponibles.css";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
+import List from "./miLista";
 
 function destacar(){
     return (
@@ -9,14 +10,11 @@ function destacar(){
             <div className='contenidosDisponibles'>
                 <u><h2>Destacar Contenido</h2></u>
             </div>
-
             <div>
-                {/*no se bien como listar los contenidos de este generador aun*/} 
+                <h3>Mi cintenido</h3>
+                <List /> 
             </div>
 
-            <div className='divlabel'>
-                <input type="checkbox" className='inputs'></input>
-            </div>
         </div>
     )
 }
