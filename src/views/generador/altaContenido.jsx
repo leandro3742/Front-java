@@ -20,11 +20,11 @@ function altaContenido(props) {
 
     const funciontipo = (e) => {
         settipo(e.target.value);
-        if(e.target.value === "EVENTO"){
+        if (e.target.value === "EVENTO") {
             setShowElement(true);
         }
-        else{
-            setShowElement(false);    
+        else {
+            setShowElement(false);
         }
     }
 
@@ -89,7 +89,7 @@ function altaContenido(props) {
                 }
                 else {
                     console.log("Ok", result);
-        Swal.fire('Contenido Agregado');
+                    Swal.fire('Contenido Agregado');
                     window.location.replace("/generador/");
                 }
             }).catch(err => console.log(err));
@@ -114,7 +114,7 @@ function altaContenido(props) {
                         <option value="EVENTO" selected>Evento</option>
                         <option value="SERIES" selected>Serie</option>
                     </select>
-                    {showElement ? <input sowelem type="time" step="1" onChange={(e) => setComienzo(e.target.value)} className='inputs' placeholder="Inicio"></input> : null} 
+                    {showElement ? <input sowelem type="time" step="1" onChange={(e) => setComienzo(e.target.value)} className='inputs' placeholder="Inicio"></input> : null}
                     <input type="time" step="1" onChange={(e) => setduracion(e.target.value)} className='inputs' placeholder="Duracion"></input>
                 </div>
                 <button onClick={saveElement} className="m-auto col-lg-4 col-10 my-2 btn btnConfirmar">
