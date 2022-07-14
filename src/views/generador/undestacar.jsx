@@ -7,7 +7,7 @@ import Swal from 'sweetalert2'
 
 function undestacar() {
     //Para get
-    const url = 'http://localhost:8080/contenidos/listarContenidosGenerador/' + JSON.parse(sessionStorage.getItem("usuario")).email;
+    const url = 'http://localhost:8080/contenidos/listarmarcados/' + JSON.parse(sessionStorage.getItem("usuario")).email;
     const [todos, setTodos] = useState()
     const [mostrar, setMostrar] = useState(false)
     const fetchApi = async () => {
@@ -42,6 +42,7 @@ function undestacar() {
             console.log(response.json());
         }
         fetchFunction('http://localhost:8080/contenidos/desmarcarContenidoDestacado/'+x);
+        fetchApi();
         Swal.fire('Contenido eliminado de destacados');
     };
     return (
