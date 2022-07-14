@@ -1,15 +1,54 @@
-import React from 'react'
-import "../../styles/contenidosDisponibles.css";
+import React, { useState, useEffect } from "react";
+import "../../styles/aprobarContenido.css";
+import { fetchFunction } from "../../utils/fetch";
+import { buildHeader } from "../../utils/fetch";
+import { Accordion } from 'react-bootstrap';
+import Swal from 'sweetalert2'
 
 function miContenido(){
+    //Para get
+    const url = 'http://localhost:8080/contenidos/listarContenidosGenerador/'+ JSON.parse(sessionStorage.getItem("usuario")).email;
+    const [todos, setTodos] = useState()
+    const [mostrar, setMostrar] = useState(false)
+    const fetchApi = async () => {
+        const response = await fetch(url)
+        console.log(response.status)
+        const responseJSON = await response.json()
+        setTodos(responseJSON)
+    }
+    useEffect(() => {
+        fetchApi()
+      }, [])
+   
     return (
-        <div className='divGlobal'>
-            <div className='contenidosDisponibles'>
-                <u><h2>Mi Contenido</h2></u>
-            </div>
+        <div className="centrar">
+            <div className='divGlobal'>
+                <div className='divTitle'>
+                    <h4 className='title'>Mi Contenidos</h4>
+                </div>
+                {!todos ? 'Cargando ...' :
+                    todos.map((todo, index) => {
+                        return <div className="card">
+                            <div className="container">
+                            <h4 className="h4">{todo.nombre}</h4>
+                            {console.log(todo)}
+                            <img  className="img"src={todo.fotoPortada}></img>
+                                <Accordion className="df" defaultActiveKey="0" flush>
+                                    <Accordion.Item >
+                                        <Accordion.Header ><h5 className="h5">Descripción</h5></Accordion.Header>
+                                        <Accordion.Body>
+                                        <ul className="ul">Descripción: {todo.descripcion}</ul>
+                                        <ul className="ul">Duración: {todo.duracion}</ul>
+                                        <ul className="ul">Tipo: {todo.tipoContenido}</ul>
+                                        <ul className="ul">Destacado: {todo.destacado}</ul>
+                                        </Accordion.Body>
+                                    </Accordion.Item>
+                                </Accordion>
+                            </div>
+                        </div>
 
-            <div>
-                {/*Listar contenidos del generador*/}
+                    })
+                }
             </div>
         </div>
     )

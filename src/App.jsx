@@ -13,7 +13,7 @@ import Films from "./views/films";
 import MyList from "./views/myList";
 import Profile from "./views/profile";
 import AltaGenerador from "./views/admin/altaGenerador";
-
+import Undestacar from "./views/generador/undestacar";
 import Details from "./views/details";
 import HomeGenerador from "./views/generador/homeGenetador";
 import MiContenido from "./views/generador/micontenido";
@@ -58,7 +58,6 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/detail/:id" element={<Details />} />
             <Route path="/admin/nuevoGenerador" element={<AltaGenerador />} />
-            
             <Route path="/admin/homeAdmin" element={<HomeAdmin />} />
             <Route path="/admin/contenidoActivo" element={<ContenidoActivo />} />
             <Route path="/admin/categoria" element={<Categoria />} />
@@ -70,6 +69,7 @@ function App() {
             <Route path="/admin/contenidoDisponible" element={<ContenidoDisponible />} />
             <Route path="/generador/" element={<HomeGenerador />} />
             <Route path="/generador/destacar" element={<Destacar />} />
+            <Route path="/generador/undestacar" element={<Undestacar />} />
             <Route path="/generador/agregarContenido" element={<AltaContenido />} />
             <Route path="/generador/contenido" element={<MiContenido />}/>
             <Route path="/pricings" element={<Pricings />}/>

@@ -7,10 +7,13 @@ import { buildHeader } from "../utils/fetch";
 function Login(props) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    function rf(){
-        if(props.tipoUsuario === "GENERADOR_CONTENIDO"){
+    function rf(x){
+        if(x === "GENERADOR_CONTENIDO"){
             window.location.replace("/generador/");
-        } else{ 
+        } else if (x === "ADMIN"){
+            window.location.replace("/admin/homeAdmin");
+        }        
+        else{ 
             window.location.replace("/");
         }
     }
@@ -25,7 +28,7 @@ function Login(props) {
                 sessionStorage.setItem("usuario",JSON.stringify(result));
                 props.setTipoUsuario(result.tipoUsuario);
                 props.setIsLogged(true);
-                //rf();
+                rf(result.tipoUsuario);
             }
         }).catch(err => console.log(err));
     };
