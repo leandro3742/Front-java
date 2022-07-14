@@ -79,9 +79,9 @@ function altaContenido(props) {
             "video": video,
             "precio": precio,
             "duracion": duracion,
+            "comienzo": comienzo,
             "destacado": 0,
             "bloqueado": 0,
-            "comienzo": comienzo,
         }))
             .then(result => {
                 if (result == "ERROR") {
