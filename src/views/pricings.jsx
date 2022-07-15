@@ -57,10 +57,10 @@ function Pricings(){
                     tipoSuscripcion: elem.tipoSub
                 })
             });
-            console.log(await response)
+            await response
             alert("Subscripcion creada con exito")
         }
-        subscribirse(`http://localhost:8080/suscripciones/agregarSuscripcion/${elem.id}/${usuario.id}`)
+        subscribirse(`http://localhost:8080/suscripciones/agregarSuscripcion/${elem.id}/${usuario.idUsuario}`)
     }
     return (
     <div className='m-0 row p-3 d-flex flex-column flex-lg-row flex-md-row justify-content-around align-items-center'>

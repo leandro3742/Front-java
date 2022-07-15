@@ -4,7 +4,6 @@ import React from "react";
 function PaypalCheckoutButton(props) {
     const { product } = props;
     const handleApprove = (orderId) => {
-        console.log(orderId)
         props.isOk(product);
     }
     return (
@@ -18,8 +17,6 @@ function PaypalCheckoutButton(props) {
         }}
 
         createOrder={(data, actions) => {
-            console.log("entra")
-            console.log(product)
             return actions.order.create({
             purchase_units: [
                 {
@@ -38,7 +35,6 @@ function PaypalCheckoutButton(props) {
 
         onApprove={async (data, actions) => {
             const order = await actions.order.capture();
-            console.log("order", order);
             handleApprove(data.orderID);
         }}
 
