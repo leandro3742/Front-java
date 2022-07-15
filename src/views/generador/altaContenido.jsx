@@ -10,17 +10,19 @@ function altaContenido(props) {
     const [descripcion, setdescripcion] = useState("");
     const [portada, setportada] = useState("");
     const [precio, setprecio] = useState("");
-    const [tipo, settipo] = useState("");
+    const [tipo, settipo] = useState("SERIES");
     const [duracion, setduracion] = useState("");
     const [video, setvideo] = useState("");
     const [nombre, setnombre] = useState("");
-    const [comienzo, setComienzo] = useState(null);
+    const [comienzo, setComienzo] = useState("");
+    const [fecha_comienzo, setfecha_comienzo] = useState("");
     const [loading, setloading] = useState(false);
     const [showElement, setShowElement] = useState(false)
 
     const funciontipo = (e) => {
         settipo(e.target.value);
         if (e.target.value === "EVENTO") {
+            settipo("EVENTO_DEPORTIVOS");
             setShowElement(true);
         }
         else {
@@ -68,21 +70,20 @@ function altaContenido(props) {
     }
 
     const saveElement = () => {
-        console.log();
-        let url = "http://localhost:8080/contenidos/agregarContenido/" + JSON.parse(sessionStorage.getItem("usuario")).email;
+        console.log(comienzo);
+        let url = "http://localhost:8080/contenidos/agregarContenido/" + JSON.parse(sessionStorage.getItem("usuario")).idUsuario;
         fetchFunction(url, buildHeader("POST", {
             "nombre": nombre,
             "tipoContenido": tipo,
             "descripcion": descripcion,
-            "ranking": 0,
             "fotoPortada": portada,
             "video": video,
             "precio": precio,
             "duracion": duracion,
             "comienzo": comienzo,
-            "destacado": 0,
-            "bloqueado": 0,
-        }))
+            "fecha_comienzo": fecha_comienzo
+        }
+        ))
             .then(result => {
                 if (result == "ERROR") {
                     alert("Error");
@@ -108,13 +109,22 @@ function altaContenido(props) {
                     <input type="text" onChange={(e) => setdescripcion(e.target.value)} className='inputs' placeholder="Descripcion"></input>
                     <input type="file" onChange={uploadportada} className='inputs' placeholder="Foto de Portada"></input>
                     <input type="file" onChange={uploadvideo} className='inputs' placeholder="Video"></input>
-                    <input type="text" onChange={(e) => setprecio(e.target.value)} className='inputs' placeholder="Precio"></input>
+                    <input type="number " onChange={(e) => setprecio(e.target.value)} className='inputs' placeholder="Precio"></input>
                     <select className="form-control" onChange={funciontipo}>
                         <option value="PELICULA" selected>Pelicula</option>
                         <option value="EVENTO" selected>Evento</option>
                         <option value="SERIES" selected>Serie</option>
                     </select>
-                    {showElement ? <input sowelem type="time" step="1" onChange={(e) => setComienzo(e.target.value)} className='inputs' placeholder="Inicio"></input> : null}
+                    {showElement ?
+                        <div className='divGlobal'>
+                            <select className="form-control" onChange={(e) => settipo(e.target.value)}>
+                                <option value="EVENTO_ESPECTACULO" selected>Espectaculo</option>
+                                <option value="EVENTO_DEPORTIVOS" selected>Deportivo</option>
+                            </select>
+                            <input sowelem type="time" step="1" onChange={(e) => setComienzo(e.target.value)} className='inputs' placeholder="Inicio"></input>
+                            <input sowelem type="Date" step="1" onChange={(e) => setfecha_comienzo(e.target.value)} className='inputs' placeholder="Inicio"></input>
+
+                        </div> : null}
                     <input type="time" step="1" onChange={(e) => setduracion(e.target.value)} className='inputs' placeholder="Duracion"></input>
                 </div>
                 <button onClick={saveElement} className="m-auto col-lg-4 col-10 my-2 btn btnConfirmar">

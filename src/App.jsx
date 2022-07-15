@@ -31,6 +31,8 @@ import HomeAdmin from "./views/admin/homeAdmin";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import Pricings from "./views/pricings";
 import Video from "./views/video";
+import Pagos from "./views/generador/editarPagos";
+
 function App() {
   const [isLogged, setIsLogged] = useState(false);
   const [tipoUsuario, setTipoUsuario] = useState(false);
@@ -72,8 +74,8 @@ function App() {
             <Route path="/generador/undestacar" element={<Undestacar />} />
             <Route path="/generador/agregarContenido" element={<AltaContenido />} />
             <Route path="/generador/contenido" element={<MiContenido />}/>
+            <Route path="/generador/pagos" element={<Pagos />}/>
             <Route path="/pricings" element={<Pricings />}/>
-            
             <Route path="/video/:id" element={<Video />} />
             
           </Routes>
