@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "../../styles/aprobarContenido.css";
-import { fetchFunction } from "../../utils/fetch";
-import { buildHeader } from "../../utils/fetch";
+import { Link } from "react-router-dom";
 import { Accordion } from 'react-bootstrap';
-import Swal from 'sweetalert2'
 
 function miContenido(){
-    //Para get
     const url = 'http://localhost:8080/contenidos/listarContenidosGenerador/'+ JSON.parse(sessionStorage.getItem("usuario")).email;
     const [todos, setTodos] = useState()
     const [mostrar, setMostrar] = useState(false)
@@ -17,11 +14,19 @@ function miContenido(){
         setTodos(responseJSON)
     }
     useEffect(() => {
+        if (sessionStorage.getItem("usuario")) {
+            let aux = JSON.parse(sessionStorage.getItem("usuario"));
+            console.log(aux)
+            if (aux.tipoUsuario === "GENERADOR_CONTENIDO") {
+                setMostrar(true)
+            }
+        }
         fetchApi()
-      }, [])
+    }, [])
    
     return (
         <div className="centrar">
+            {mostrar ?
             <div className='divGlobal'>
                 <div className='divTitle'>
                     <h4 className='title'>Mi Contenidos</h4>
@@ -44,12 +49,14 @@ function miContenido(){
                                         </Accordion.Body>
                                     </Accordion.Item>
                                 </Accordion>
+                                <button className="btnConfirmar"><Link to={`/generador/categorias/${todo.id}`} >Agregar</Link></button>
                             </div>
                         </div>
 
                     })
                 }
             </div>
+                : <div><div className='centrar'><h4 className='title'>No tiene persmisos</h4></div></div>}
         </div>
     )
 }

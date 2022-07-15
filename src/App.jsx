@@ -32,6 +32,7 @@ import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import Pricings from "./views/pricings";
 import Video from "./views/video";
 import Pagos from "./views/generador/editarPagos";
+import CategoriasContenido from "./views/generador/agregarCategorias";
 
 function App() {
   const [isLogged, setIsLogged] = useState(false);
@@ -77,6 +78,7 @@ function App() {
             <Route path="/generador/pagos" element={<Pagos />}/>
             <Route path="/pricings" element={<Pricings />}/>
             <Route path="/video/:id" element={<Video />} />
+            <Route path="/generador/categorias/:id" element={<CategoriasContenido />} />
             
           </Routes>
         </BrowserRouter>

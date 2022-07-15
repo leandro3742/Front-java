@@ -14,8 +14,8 @@ function altaContenido(props) {
     const [duracion, setduracion] = useState("");
     const [video, setvideo] = useState("");
     const [nombre, setnombre] = useState("");
-    const [comienzo, setComienzo] = useState("");
-    const [fecha_comienzo, setfecha_comienzo] = useState("");
+    const [comienzo, setComienzo] = useState(null);
+    const [fecha_comienzo, setfecha_comienzo] = useState(null);
     const [loading, setloading] = useState(false);
     const [showElement, setShowElement] = useState(false)
 

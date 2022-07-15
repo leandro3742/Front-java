@@ -1,10 +1,5 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import search from "../images/load.png";
-import series from "../images/serielogo.png";
-import film from "../images/peliculalogo.png";
-import add from "../images/milista.png";
-import mantel from "../images/MANTEL.png";
 import icon from "../images/logo menu.png"
 
 function NavbarGenerador(props) {
