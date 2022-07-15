@@ -24,11 +24,15 @@ function Login(props) {
             alert("Usuario incorrecto");
             } 
             else{
-                console.log("Ok",result);
-                sessionStorage.setItem("usuario",JSON.stringify(result));
-                props.setTipoUsuario(result.tipoUsuario);
-                props.setIsLogged(true);
-                rf(result.tipoUsuario);
+                if(result.email == null){
+                    alert("Usuario o contrase;a incorrecto")
+                }
+                else{
+                    sessionStorage.setItem("usuario",JSON.stringify(result));
+                    props.setTipoUsuario(result.tipoUsuario);
+                    props.setIsLogged(true);
+                    rf(result.tipoUsuario);
+                }
             }
         }).catch(err => console.log(err));
     };

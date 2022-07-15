@@ -32,7 +32,7 @@ function Details() {
             console.log(await response)
             alert("Teermino")
         }
-        subscribirse(`http://localhost:8080/suscripciones/agrearSuscripcionPP/${elem.id}/${usuario.id}`)
+        subscribirse(`http://localhost:8080/suscripciones/agrearSuscripcionPP/${elem.id}/1`)
     }
 
     return (
