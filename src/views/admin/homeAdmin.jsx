@@ -9,12 +9,10 @@ import { Link } from 'react-router-dom'
 function HomeAdmin() {
 
   return ( 
-    <div className="divGlobal">
+    <body className="body">
     <div className="centrar">
-            <h4 className='title'>Administrador</h4>
     <div>
-    
-    
+      <h4 className='h4'>Administrador</h4>
     </div>
     <div>
     <button  className="btnConfirmar"><Link className="link" to="/admin/nuevoGenerador">Nuevo Generador Contenido</Link></button>
@@ -29,11 +27,16 @@ function HomeAdmin() {
     <button  className="btnConfirmar"><Link className="link" to="/admin/todoContenido">Bloquear Contenido</Link></button>
     </div>
     <div>
-    <button  className="btnConfirmar"><Link className="link" to="/admin/categoria">Nueva Categoria</Link></button>
+    <button  className="btnConfirmar"><Link className="link" to="/admin/bloquearUsuario">Bloquear Usuario</Link></button>
     </div>
-    </div> 
-  
+    <div>
+    <button  className="btnConfirmar"><Link className="link" to="/admin/desbloquearUsuario">Desbloquear Usuario</Link></button>
     </div>
+    <div>
+    <button  className="btnConfirmar"><Link className="link" to="/admin/categoria">Nueva Categoría</Link></button>
+    </div>
+    </div>
+    </body>
  );
   
 

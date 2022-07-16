@@ -9,8 +9,6 @@
 
 .centrar {
     width: 100%;
-    margin-left: 30%;
-    margin-right: 20%;
 }
 
 .btnConfirmar {
@@ -18,25 +16,8 @@
     width: 50%;
     background-color: rgb(112, 172, 102);
     color: aliceblue;
-    margin-left: 50px;
-    font-size: 20px;
+    font-size: 18px;
     font-family: 'Press Start 2P', cursive;
-}
-
-.btnCancelar {
-    border-radius: 5px;
-    background-color: rgb(211, 0, 0);
-    color: aliceblue;
-    font-family: 'Press Start 2P', cursive;
-}
-
-.title {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 30px
-}
-
-h1 {
-    font-size: 10px;
 }
 
 a {
@@ -44,21 +25,54 @@ a {
     font-size: 10px
 }
 
-h4 {
-    font-size: 20px;
+.h4 {
+    margin-top: 2%;
+    margin-left: 15%;
+    font-size: 30px;
     font-family: 'Press Start 2P', cursive;
-}
-
-h5 {
-    font-size: 16px;
-    font-family: 'Press Start 2P', cursive;
-}
-
-.df {
-    background-color: rgb(211, 0, 207);
 }
 
 .link {
     font-size: 20px;
     color: white;
+}
+
+.body {
+    margin: none;
+    background-color: #11131C;
+}
+
+@media (max-width: 500px) {
+    .h4 {
+        font-size: 20px;
+        margin-left: 1%;
+        font-family: 'Press Start 2P', cursive;
+        background-color: #11131C;
+    }
+    .btnConfirmar {
+        border-radius: 5px;
+        width: 60%;
+        background-color: rgb(112, 172, 102);
+        color: aliceblue;
+        font-size: 15px;
+        font-family: 'Press Start 2P', cursive;
+    }
+    .divGlobal {
+        width: 100%;
+        margin-top: 5%;
+    }
+    .link {
+        font-size: 15px;
+        color: white;
+    }
+    .centrar {
+        width: 100%;
+    }
+    .body {
+        margin: none;
+        background-color: #11131C;
+    }
+    .divB {
+        width: 100%;
+    }
 }
