@@ -4,11 +4,16 @@ import { fetchFunction } from "../../utils/fetch";
 import { buildHeader } from "../../utils/fetch";
 import Swal from 'sweetalert2'
 function AltaGenerador() {
+  //para seguridad
+  const [mostrar, setMostrar] = useState(false);
     //input
     const [nombre, setNombre] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
+    //fet
+    const fetchApi = async () => {
+     
+  }
     //funcion
     //psot
   const saveElement = () => { 
@@ -25,9 +30,19 @@ function AltaGenerador() {
         }
     }).catch(err => console.log(err));
 };
+useEffect(() => {
+  if (sessionStorage.getItem("usuario")) {
+    let aux = JSON.parse(sessionStorage.getItem("usuario"));
+    console.log(aux)
+    if (aux.tipoUsuario === "ADMIN") {
+      setMostrar(true)
+    }
+  }
+  fetchApi()
+}, [])
   return (
     <div className="centrar">
-       
+      {mostrar ?
     <div className='divGlobal'>
         <div className='divTitle'>
             <h4 className='title'>Nuevo Generador de Contenido</h4>
@@ -52,7 +67,7 @@ function AltaGenerador() {
        
         </div>    
     </div>
- 
+  : <div><div className='centrar'><h4 className='title'>No tienes persmisos</h4></div></div>}
     </div>
   )
 }
