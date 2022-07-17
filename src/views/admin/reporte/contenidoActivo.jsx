@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from "react";
-import "../../../styles/contenidoVisto.css";
+import "../../../styles/reporte.css";
+//src\styles\reporte.css
 import { fetchFunction } from "../../../utils/fetch";
 import { buildHeader } from "../../../utils/fetch";
 import { Button } from 'react-bootstrap';
@@ -33,26 +34,21 @@ const url = 'http://localhost:8080/admin/reporte/contenido/activo';
   }, [])
   return (
 
-      
-      <div className="centrar">
-        {mostrar ?
-           <div className='divGlobal'>
-              
-    <div className='divTitle'>
-    <h4 className='title'>Contenidos Activos</h4>
+<body className="body"> 
+<div className="centrar">
+<h4 className="h4">Activos</h4>
 </div>
-
-
+        {mostrar ?
 <table>
-<td>
+<td className="td">
     <th>ID</th>
       {!todos ? 'No encontrado ...':
         todos.map((todo,index)=>{
-          return <tr><td><a>{todo.id}</a></td></tr>
+          return <tr><td className="td"><a>{todo.id}</a></td></tr>
         })
     }
  </td>
-<td>
+<td  className="td">
     <th>Nombre</th>
       {!todos ? 'No encontrado ...':
         todos.map((todo,index)=>{
@@ -60,7 +56,7 @@ const url = 'http://localhost:8080/admin/reporte/contenido/activo';
         })
     }
  </td>
- <td>
+ <td  className="td">
  <th>Tipo Contenido</th>
       {!todos ? 'No encontrado...':
         todos.map((todo,index)=>{
@@ -71,9 +67,10 @@ const url = 'http://localhost:8080/admin/reporte/contenido/activo';
 
 </table>
    
-</div>
-: <div> <div className='centrar'><h4 className='title'>No tienes persmisos</h4></div></div>}
-</div>
+
+: <div> <div className='centrar'><h4 >No tienes persmisos</h4></div></div>}
+
+</body>
 );
   
 }

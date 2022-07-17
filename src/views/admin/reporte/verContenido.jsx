@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../../../styles/contenidoVisto.css";
+
 import { fetchFunction } from "../../../utils/fetch";
 import { buildHeader } from "../../../utils/fetch";
 import { Button } from 'react-bootstrap';

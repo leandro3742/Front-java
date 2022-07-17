@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../../../styles/contenidosDisponibles.css";
+import "../../../styles/reporte.css";
 
 import { fetchFunction } from "../../../utils/fetch";
 import { buildHeader } from "../../../utils/fetch";
@@ -32,29 +32,26 @@ const url = 'http://localhost:8080/admin/reporte/contenido/disponible';
     fetchApi()
   }, [])
   return (
- 
-    <div className="centrar">
-         {mostrar ?
-    <div className='divGlobal'>
-        
-<div className='divTitle'>
-<h4 className='title'>Contenidos Disponibles</h4>
+ <body className="body">
+  <div className="centrar">
+<h4 className="h4">Disponibles</h4>
 </div>
-<div className='div'>
+         {mostrar ?
+  
 <table>
-<td>
+<td >
     <th>ID</th>
       {!todos ? 'No encontrado ...':
         todos.map((todo,index)=>{
-          return <tr><td><a>{todo.id}</a></td></tr>
+          return <tr><td ><a>{todo.id}</a></td></tr>
         })
     }
  </td>
-<td>
+<td  >
     <th>Nombre</th>
       {!todos ? 'No encontrado ...':
         todos.map((todo,index)=>{
-          return <tr><td><a>{todo.nombre}</a></td></tr>
+          return <tr><td c><a>{todo.nombre}</a></td></tr>
         })
     }
  </td>
@@ -68,11 +65,11 @@ const url = 'http://localhost:8080/admin/reporte/contenido/disponible';
   </td>
 
 </table>
-</div>
-</div>
+
 : <div> <div className='centrar'><h4 className='title'>No tienes persmisos</h4></div></div>}
 
-</div>
+
+</body>
   );
   
 }

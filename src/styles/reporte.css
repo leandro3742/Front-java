@@ -1,0 +1,45 @@
+.body {
+    margin: none;
+    background-color: #11131C;
+}
+
+a {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px
+}
+
+.h4d {
+    font-size: 20px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+table {
+    width: 100%;
+    margin: 2%;
+}
+
+th {
+    color: blueviolet;
+    font-size: 15px;
+}
+
+@media (max-width: 500px) {
+    .body {
+        margin: none;
+        background-color: #11131C;
+    }
+    a {
+        font-size: 6px
+    }
+    th {
+        color: blueviolet;
+        font-size: 5px;
+    }
+    .h4 {
+        font-size: 12px;
+        font-family: 'Press Start 2P', cursive;
+    }
+    table {
+        width: 100%;
+    }
+}
