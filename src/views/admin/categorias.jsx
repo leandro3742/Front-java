@@ -73,7 +73,7 @@ function Categoria() {
             </Accordion.Item>
           </Accordion>
         </div>
-        : <div><div className='centrar'><h4 className='title'>No tiene persmisos</h4></div></div>}
+        : <div><div className='centrar'><h4 className='title'>No tienes persmisos</h4></div></div>}
     </div>
 
   );

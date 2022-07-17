@@ -7,9 +7,21 @@ import { Accordion } from 'react-bootstrap';
 import Swal from 'sweetalert2'
 import { Link } from 'react-router-dom'
 function HomeAdmin() {
+  const [mostrar, setMostrar] = useState(false);
 
+  useEffect(() => {
+    if (sessionStorage.getItem("usuario")) {
+      let aux = JSON.parse(sessionStorage.getItem("usuario"));
+      console.log(aux)
+      if (aux.tipoUsuario === "ADMIN") {
+        setMostrar(true)
+      }
+    }
+   
+  }, [])
   return ( 
     <body className="body">
+    {mostrar ?
     <div className="centrar">
     <div>
       <h4 className='h4'>Administrador</h4>
@@ -36,6 +48,7 @@ function HomeAdmin() {
     <button  className="btnConfirmar"><Link className="link" to="/admin/categoria">Nueva Categoría</Link></button>
     </div>
     </div>
+    : <div><h4 className='h4'>No tienes persmisos</h4></div>}
     </body>
  );
   

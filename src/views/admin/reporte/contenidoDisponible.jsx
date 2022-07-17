@@ -70,7 +70,7 @@ const url = 'http://localhost:8080/admin/reporte/contenido/disponible';
 </table>
 </div>
 </div>
-: <div> <div className='centrar'><h4 className='title'>No tiene persmisos</h4></div></div>}
+: <div> <div className='centrar'><h4 className='title'>No tienes persmisos</h4></div></div>}
 
 </div>
   );
