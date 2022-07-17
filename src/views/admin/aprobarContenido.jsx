@@ -43,25 +43,26 @@ function AprobarContenido() {
         Swal.fire('Contenido Aprobado');
     };
     return (
+        <body className="body">
         <div className="centrar">
              {mostrar ?
             <div className='divGlobal'>
-                <div className='divTitle'>
-                    <h4 className='title'>Aprobar Contenidos</h4>
+                <div>
+                    <h4 className='tit'>Aprobar Contenidos</h4>
                 </div>
 
                 {!todos ? 'Cargando ...' :
                     todos.map((todo, index) => {
                         return <div className="card">
                             <div className="container">
-                            <h4 className="h4">{todo.nombre}</h4>
+                            <h4 className="h5">{todo.nombre}</h4>
                             {console.log(todo)}
                             <img  className="img"src={todo.fotoPortada}></img>
                                 <Accordion className="df" defaultActiveKey="0" flush>
                                     <Accordion.Item >
-                                        <Accordion.Header ><h5 className="h5">Descripción</h5></Accordion.Header>
+                                        <Accordion.Header><h5 className="h5">Descripción</h5></Accordion.Header>
                                         <Accordion.Body>
-                                        <ul className="ul">Descripción: {todo.descripcion}</ul>
+                                        <ul className="ul">{todo.descripcion}</ul>
                                         <ul className="ul">Duración: {todo.duracion}</ul>
                                         <ul className="ul">Tipo: {todo.tipoContenido}</ul>
                                         <ul className="ul">Generador: {todo.gcId}</ul>
@@ -71,7 +72,7 @@ function AprobarContenido() {
                                 </Accordion>
                                 
                                
-                                <button className="btnConfirmar" onClick={() => saveElement(todo.id)}>APROBAR</button>
+                                <button className="conf" onClick={() => saveElement(todo.id)}>APROBAR</button>
                             </div>
                         </div>
 
@@ -80,6 +81,7 @@ function AprobarContenido() {
             </div>
             : <div><div className='centrar'><h4 className='title'>No tienes persmisos</h4></div></div>}
         </div>
+        </body>
     )
 }
 
