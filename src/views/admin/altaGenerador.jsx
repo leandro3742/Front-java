@@ -41,34 +41,34 @@ useEffect(() => {
   fetchApi()
 }, [])
   return (
+    <body className="body">
     <div className="centrar">
       {mostrar ?
     <div className='divGlobal'>
-        <div className='divTitle'>
+        <div>
             <h4 className='title'>Nuevo Generador de Contenido</h4>
         </div>
-
-        <div className='div'>
-        <label className='label'>
-        Nombre: 
-        </label>
+        <div >
+        <div>
+        
         <input className="inputs" onChange={(e) => setNombre(e.target.value)} placeholder="Nombre" />
-        <label className='label'>
-        Email: 
-        </label>
+        </div>
+        <div  >
+      
         <input className="inputs" onChange={(e) => setEmail(e.target.value)}  placeholder="Email" />
-        <label className='label'>
-        Contraseña: 
-        </label>
+        </div>
+        <div >     
         <input type="password" className="inputs" onChange={(e) => setPassword(e.target.value)}  placeholder="Password" />
         </div>
+        </div>
         <div >
-        <button onClick={saveElement}  className='btnConfirmar'>Confirmar</button>   
+        <button className="con" onClick={saveElement}  >Confirmar</button>   
        
         </div>    
     </div>
   : <div><div className='centrar'><h4 className='title'>No tienes persmisos</h4></div></div>}
     </div>
+    </body>
   )
 }
 
