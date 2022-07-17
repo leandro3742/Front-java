@@ -17,6 +17,7 @@
     background-color: rgb(112, 172, 102);
     color: aliceblue;
     font-size: 18px;
+    margin: 20px;
     font-family: 'Press Start 2P', cursive;
 }
 
@@ -55,6 +56,7 @@ a {
         background-color: rgb(112, 172, 102);
         color: aliceblue;
         font-size: 15px;
+        margin: 10px;
         font-family: 'Press Start 2P', cursive;
     }
     .divGlobal {
@@ -62,7 +64,7 @@ a {
         margin-top: 5%;
     }
     .link {
-        font-size: 15px;
+        font-size: 12px;
         color: white;
     }
     .centrar {
