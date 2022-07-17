@@ -69,7 +69,7 @@ const saveElement = (x) => {
           <th>ID</th>
             {!todos ? 'cargando ...':
               todos.map((todo,index)=>{        
-                if(todo.activo===0){
+                if(todo.activo==0){
                     return <tr><td><a>{todo.id}</a></td></tr>
                 }             
               })
@@ -104,7 +104,7 @@ const saveElement = (x) => {
             {!todos ? 'cargando ...':
               todos.map((todo,index)=>{
                 if(todo.activo==0){
-                return <tr><td><button  className="b" onClick={() => eliminar(todo.email)}>-</button></td></tr>
+                return <tr><td><button  className="b" onClick={() => eliminar(todo.id)}>-</button></td></tr>
                 }
                  
               })
