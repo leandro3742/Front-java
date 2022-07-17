@@ -36,6 +36,7 @@ function Pagos() {
                 });
         }
         fetchFunction('http://localhost:8080/generadorcontenidos/editar');
+        window.location.replace("/generador/");
     };
     return (
         <div>

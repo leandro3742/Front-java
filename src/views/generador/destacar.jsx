@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "../../styles/aprobarContenido.css";
-import { fetchFunction } from "../../utils/fetch";
-import { buildHeader } from "../../utils/fetch";
 import { Accordion } from 'react-bootstrap';
 import Swal from 'sweetalert2'
 
