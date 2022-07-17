@@ -7,13 +7,12 @@ import { Accordion } from 'react-bootstrap';
 import Swal from 'sweetalert2'
 
 function BloquearUsuario() {
-  const url = 'http://localhost:8080/usuarios';
+  const url = 'http://localhost:8080/usuarios/listarBloqueados';
   const [todos, setTodos] = useState()
   const [mostrar, setMostrar] = useState(false)
   const fetchApi = async() =>{
     const response = await fetch(url)
     console.log(response.status)
-    
     const responseJSON = await response.json()
     console.log(responseJSON)
     setTodos(responseJSON)
@@ -45,7 +44,7 @@ const saveElement = (x) => {
       }
     }).catch(err => console.log(err));
 };
- //Para desbloquear
+ //Para eliminar
  const eliminar = (x) => {
   async function fetchFunction(url){
       const response = await fetch(url, 
@@ -58,8 +57,8 @@ const saveElement = (x) => {
       await response.json()
   }
   fetchFunction('http://localhost:8080/usuarios/eliminarUsuario/'+x);
-  Swal.fire('Usuario eliminado');
   fetchApi();
+  Swal.fire('Usuario eliminado');
 }
   return (
     <body className="body">
@@ -69,9 +68,9 @@ const saveElement = (x) => {
           <th>ID</th>
             {!todos ? 'cargando ...':
               todos.map((todo,index)=>{        
-                if(todo.activo==0){
+                
                     return <tr><td><a>{todo.id}</a></td></tr>
-                }             
+                             
               })
           }
        </td>
@@ -80,9 +79,9 @@ const saveElement = (x) => {
           <th>Email</th>
             {!todos ? 'cargando ...':
               todos.map((todo,index)=>{
-                  if(todo.activo==0){
+                  
                 return <tr><td><a>{todo.email}</a></td></tr>
-                  }
+                  
                   
               })
           }
@@ -92,9 +91,9 @@ const saveElement = (x) => {
           <th>Desbloquear</th>
             {!todos ? 'cargando ...':
               todos.map((todo,index)=>{
-                if(todo.activo==0){
+                
                 return <tr><td><button  className="b" onClick={() => saveElement(todo.email)}>-</button></td></tr>
-                }
+                
                  
               })
           }
@@ -102,11 +101,9 @@ const saveElement = (x) => {
        <td>
           <th>Eliminar</th>
             {!todos ? 'cargando ...':
-              todos.map((todo,index)=>{
-                if(todo.activo==0){
-                return <tr><td><button  className="b" onClick={() => eliminar(todo.id)}>-</button></td></tr>
-                }
-                 
+              todos.map((todo,index)=>{          
+                return <tr><td><button  className="borrar" onClick={() => eliminar(todo.id)}>-</button></td></tr>
+                
               })
           }
        </td>
