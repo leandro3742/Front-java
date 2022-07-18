@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import "../../styles/generador.css";
 import { fetchFunction } from "../../utils/fetch";
 import { buildHeader } from "../../utils/fetch";
-import { margin } from '@mui/system';
+import Swal from 'sweetalert2';
 
 
 function altaContenido(props) {

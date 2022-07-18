@@ -3,7 +3,7 @@ import "../../styles/aprobarContenido.css";
 import { fetchFunction } from "../../utils/fetch";
 import { buildHeader } from "../../utils/fetch";
 import { Accordion } from 'react-bootstrap';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
 function undestacar() {
     const url = 'http://localhost:8080/contenidos/listarmarcados/' + JSON.parse(sessionStorage.getItem("usuario")).email;
@@ -11,14 +11,12 @@ function undestacar() {
     const [mostrar, setMostrar] = useState(false)
     const fetchApi = async () => {
         const response = await fetch(url)
-        console.log(response.status)
         const responseJSON = await response.json()
         setTodos(responseJSON)
     }
     useEffect(() => {
         if (sessionStorage.getItem("usuario")) {
             let aux = JSON.parse(sessionStorage.getItem("usuario"));
-            console.log(aux)
             if (aux.tipoUsuario === "GENERADOR_CONTENIDO") {
                 setMostrar(true)
             }
@@ -45,7 +43,6 @@ function undestacar() {
                     }
                 }).catch(err => console.log(err));
             await response.json()
-            console.log(response.json());
         }
         fetchFunction('http://localhost:8080/contenidos/desmarcarContenidoDestacado/' + x);
         fetchApi();
@@ -67,7 +64,7 @@ function undestacar() {
                                     <img className="img" src={todo.fotoPortada}></img>
                                     <Accordion className="df" defaultActiveKey="0" flush>
                                         <Accordion.Item >
-                                            <Accordion.Header ><h5 className="h5">{todo.nombre}</h5></Accordion.Header>
+                                            <Accordion.Header ><h5 className="h5">Descripción</h5></Accordion.Header>
                                             <Accordion.Body>
                                                 <ul className="ul">Descripción: {todo.descripcion}</ul>
                                                 <ul className="ul">Duración: {todo.duracion}</ul>

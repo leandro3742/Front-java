@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
-import { compose } from "@mui/system";
+import Swal from 'sweetalert2'
+
 function CategoriasContenido() {
 
     const { id } = useParams();

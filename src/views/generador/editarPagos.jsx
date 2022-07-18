@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from 'react';
-import { fetchFunction } from "../../utils/fetch";
-import { buildHeader } from "../../utils/fetch";
+import Swal from 'sweetalert2';
 
 function Pagos() {
     const [precio, setprecio] = useState("");

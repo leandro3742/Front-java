@@ -1,5 +1,6 @@
 import React from 'react';
 import "../../styles/contenidosDisponibles.css";
+import Swal from 'sweetalert2'
 function HomeGenerador(){
     return (
         <div className='divGlobal'>
