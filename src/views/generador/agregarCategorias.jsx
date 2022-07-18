@@ -66,6 +66,7 @@ function CategoriasContenido() {
             }
             fetchFunction('http://localhost:8080/contenidos/agregarCategoria/'+data.id+'/'+age);
             categoriasC();
+            Swal.fire('Categoria Agregada');
         }
     }
     
@@ -82,9 +83,16 @@ function CategoriasContenido() {
                         "Content-Type": "application/json"
                     },
                     body: {}
-                });
+                }).then(result => {
+                    if (result == "ERROR") {
+                        Swal.fire("Error");
+                    }
+                    else {
+                        console.log("Ok", result);
+                        Swal.fire('Categoria Eliminada');
+                    }
+                }).catch(err => console.log(err));
             await response.json()
-            console.log(response.json());
             }
             fetchFunction('http://localhost:8080/contenidos/eliminarCategoria/'+data.id+'/'+age);
             categoriasC();

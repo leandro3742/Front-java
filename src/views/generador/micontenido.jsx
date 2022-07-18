@@ -9,7 +9,6 @@ function miContenido(){
     const [mostrar, setMostrar] = useState(false)
     const fetchApi = async () => {
         const response = await fetch(url)
-        console.log(response.status)
         const responseJSON = await response.json()
         setTodos(responseJSON)
     }
@@ -49,7 +48,7 @@ function miContenido(){
                                         </Accordion.Body>
                                     </Accordion.Item>
                                 </Accordion>
-                                <button className="btnConfirmar"><Link to={`/generador/categorias/${todo.id}`} >Agregar</Link></button>
+                                <button className="btnConfirmar"><Link to={`/generador/categorias/${todo.id}`} >Editar Categorias</Link></button>
                             </div>
                         </div>
 

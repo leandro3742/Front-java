@@ -32,7 +32,7 @@ function NavbarGenerador(props) {
                                 Mi contenido
                             </Link>
                             <Link className="itemsdrop" to="/generador/pagos">
-                                Editar precio
+                                Editar
                             </Link>
                             <Link to="/" className="itemsdrop" onClick={cerrarSesion}>Cerrar sesión</Link>
                         </div>

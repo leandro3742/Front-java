@@ -6,7 +6,6 @@ import { Accordion } from 'react-bootstrap';
 import Swal from 'sweetalert2'
 
 function undestacar() {
-    //Para get
     const url = 'http://localhost:8080/contenidos/listarmarcados/' + JSON.parse(sessionStorage.getItem("usuario")).email;
     const [todos, setTodos] = useState()
     const [mostrar, setMostrar] = useState(false)
@@ -21,27 +20,34 @@ function undestacar() {
             let aux = JSON.parse(sessionStorage.getItem("usuario"));
             console.log(aux)
             if (aux.tipoUsuario === "GENERADOR_CONTENIDO") {
-              setMostrar(true)
+                setMostrar(true)
             }
-          }
+        }
         fetchApi()
     }, [])
-
 
     const saveElement = (x) => {
         async function fetchFunction(url) {
             const response = await fetch(url,
                 {
-                    method: "PUT",
+                    method: "POST",
                     headers: {
                         "Content-Type": "application/json"
                     },
                     body: {}
-                });
+                }).then(result => {
+                    if (result == "ERROR") {
+                        Swal.fire("Error");
+                    }
+                    else {
+                        console.log("Ok", result);
+                        Swal.fire('Contenido eliminado de destacados');
+                    }
+                }).catch(err => console.log(err));
             await response.json()
             console.log(response.json());
         }
-        fetchFunction('http://localhost:8080/contenidos/desmarcarContenidoDestacado/'+x);
+        fetchFunction('http://localhost:8080/contenidos/desmarcarContenidoDestacado/' + x);
         fetchApi();
         Swal.fire('Contenido eliminado de destacados');
     };
@@ -61,12 +67,11 @@ function undestacar() {
                                     <img className="img" src={todo.fotoPortada}></img>
                                     <Accordion className="df" defaultActiveKey="0" flush>
                                         <Accordion.Item >
-                                            <Accordion.Header ><h5 className="h5">Descripción</h5></Accordion.Header>
+                                            <Accordion.Header ><h5 className="h5">{todo.nombre}</h5></Accordion.Header>
                                             <Accordion.Body>
                                                 <ul className="ul">Descripción: {todo.descripcion}</ul>
                                                 <ul className="ul">Duración: {todo.duracion}</ul>
                                                 <ul className="ul">Tipo: {todo.tipoContenido}</ul>
-                                                <ul className="ul">Destacado: {todo.destacado}</ul>
                                             </Accordion.Body>
                                         </Accordion.Item>
                                     </Accordion>
