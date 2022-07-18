@@ -1,0 +1,11 @@
+.imgPortada{
+    width: 100%;
+    height: 70vh;
+}
+
+@media (max-width: 500px) {
+    .imgPortada{
+        width: 100%;
+        height: 100%;
+    }
+}

@@ -52,7 +52,7 @@ function Pricings(){
                     "Content-Type":"application/json"
                 },
                 body: JSON.stringify({
-                    fechaVencimiento: `${day}-${month}-${year}`,
+                    fechaVencimiento: `${year}-${month}-${day}`,
                     monto: elem.precio,
                     tipoSuscripcion: elem.tipoSub
                 })
