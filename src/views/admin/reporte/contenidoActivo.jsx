@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from "react";
 import "../../../styles/reporte.css";
-//src\styles\reporte.css
+
 import { fetchFunction } from "../../../utils/fetch";
 import { buildHeader } from "../../../utils/fetch";
 import { Button } from 'react-bootstrap';

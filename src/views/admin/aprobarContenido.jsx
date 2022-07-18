@@ -65,8 +65,8 @@ function AprobarContenido() {
                                         <ul className="ul">{todo.descripcion}</ul>
                                         <ul className="ul">Duración: {todo.duracion}</ul>
                                         <ul className="ul">Tipo: {todo.tipoContenido}</ul>
-                                        <ul className="ul">Generador: {todo.gcId}</ul>
-                                        <ul className="ul">Destacado: {todo.destacado}</ul>
+                                        <ul className="ul">ID: {todo.id}</ul>
+                
                                         </Accordion.Body>
                                     </Accordion.Item>
                                 </Accordion>

@@ -1,35 +1,51 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormHelperText from "@mui/material/FormHelperText";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import '../styles/films.css';
-import pl from '../images/peliculastitulo.png';
-function Films() {
-    const categories = ["Principales", "Todas las peliculas", "Animadas", "Comedia"];
-    const [age, setAge] = React.useState("");
 
-    const handleChange = (event) => {
-        setAge(event.target.value);
-    };
+function Films() {
+
+    const url = "http://localhost:8080/categorias";
+    const [todos, setTodos] = useState();
+
+    const fetchApi = async () => {
+        const response = await fetch(url)
+        const responseJSON = await response.json()
+        setTodos(responseJSON)
+    }
+    //buscar
+    /*
+        const buscar = (x) => {
+            const url = "http://localhost:8080/contenidos/listarPorTipoCat/"+x+"/PELICULA";
+            const [peliculas, setPeliculas] = useState()
+          
+            const fetchp = async () => {
+              const response = await fetch(url)
+              const responseJSON = await response.json()
+              setPeliculas(responseJSON)
+        }*/
+    useEffect(() => {
+        fetchApi();
+        //fetchp();
+    }, [])
     return (
         <div className="mx-5 mt-3">
             <div className="d-flex align-items-center">
-                <h1><img src={pl} style={{width: "300px"}}/></h1>
                 <FormControl style={{ width: "300px", backgroundColor: "grey", color: "white", border: "white" }} className="mx-5 rounded">
                     <InputLabel className="texto">Categorías</InputLabel>
-                    <Select style={{ color: "white" }} value={age} onChange={handleChange}>
-                        {categories.map((elem) => {
-                            return (
-                                <MenuItem key={elem} value={elem} className="texto">
-                                    {elem}
-                                </MenuItem>
-                            );
-                        })}
+                    <Select style={{ color: "white" }}>
+                        {!todos ? 'cargando ...' :
+                            todos.map((todo, index) => {
+                                return (<MenuItem className="texto">{todo.nombre}</MenuItem>)
+                            })
+                        }
                     </Select>
                 </FormControl>
             </div>
+           
         </div>
     );
 }
