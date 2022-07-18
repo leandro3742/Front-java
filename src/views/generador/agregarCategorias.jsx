@@ -107,7 +107,7 @@ function CategoriasContenido() {
             {data && (
                 <div className="d-flex flex-column align-items-center">
                     <img style={{ height: "300px" }} src={data.fotoPortada} alt="" />
-                    <label>{data.nombre}</label>
+                    <h4 className='title'>{data.nombre}</h4>
                 </div>
             )}
             <div>
@@ -126,7 +126,7 @@ function CategoriasContenido() {
                 <button onClick={eliminarcat}>Eliminar categoria</button>
             </div>
             <div>
-                <p>Categorias Agregadas</p>
+                <h4 className='title'>Categorias Agregadas</h4>
                 {!catC ? <p></p> :
                     <div>
                             {catC.map((elem) => {

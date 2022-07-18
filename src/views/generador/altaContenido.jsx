@@ -105,26 +105,24 @@ function altaContenido(props) {
                     <input type="file" onChange={uploadvideo} className='inputs' placeholder="Video"></input>
                     <input type="number " onChange={(e) => setprecio(e.target.value)} className='inputs' placeholder="Precio"></input>   
                     <div className='divGlobal'>
-                        <select className="form-control" onChange={funciontipo}>
-                            	<option value="PELICULA" selected>Pelicula</option>
-                            	<option value="EVENTO" selected>Evento</option>
-                            	<option value="SERIES" selected>Serie</option>
+                        <select className="form-control title" onChange={funciontipo}>
+                            	<option value="PELICULA" selected className='title'>Pelicula</option>
+                            	<option value="EVENTO" selected className='title'>Evento</option>
+                            	<option value="SERIES" selected className='title'>Serie</option>
                         </select>
                     </div>
                     {showElement ?
                         <div className='divGlobal'>
-                            <select className="form-control" onChange={(e) => settipo(e.target.value)}>
-                                <option value="EVENTO_ESPECTACULO" selected>Espectáculos</option>
-                                <option value="EVENTO_DEPORTIVOS" selected>Deportivo</option>
+                            <select className="form-control title" onChange={(e) => settipo(e.target.value)}>
+                                <option value="EVENTO_ESPECTACULO" selected className='title'>Espectáculos</option>
+                                <option value="EVENTO_DEPORTIVOS" selected className='title'>Deportivo</option>
                             </select>
                             <input sowelem type="time" step="1" onChange={(e) => setComienzo(e.target.value)} className='inputs' placeholder="Inicio"></input>
                             <input sowelem type="Date" step="1" onChange={(e) => setfecha_comienzo(e.target.value)} className='inputs' placeholder="Inicio"></input>
                         </div> : null}
                         <input type="time" step="1" onChange={(e) => setduracion(e.target.value)} className='inputs' placeholder="Duracion"></input>
                 </div>
-                <button onClick={saveElement} className="m-auto col-lg-4 col-10 my-2 btn btnConfirmar">
-                    Agregar Contenido
-                </button>
+                <button onClick={saveElement} className="m-auto col-lg-4 col-10 my-2 btn btnConfirmar">Agregar Contenido</button>
             </div>
         </div>
     )
