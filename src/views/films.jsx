@@ -26,7 +26,9 @@ function Films() {
               const response = await fetch(url)
               const responseJSON = await response.json()
               setPeliculas(responseJSON)
-        }*/
+        }
+    }*/
+    //onChange={() => buscar(todo.id)}
     useEffect(() => {
         fetchApi();
         //fetchp();
@@ -36,16 +38,17 @@ function Films() {
             <div className="d-flex align-items-center">
                 <FormControl style={{ width: "300px", backgroundColor: "grey", color: "white", border: "white" }} className="mx-5 rounded">
                     <InputLabel className="texto">Categorías</InputLabel>
-                    <Select style={{ color: "white" }}>
-                        {!todos ? 'cargando ...' :
+                    <Select   style={{ color: "white" }}>
+                    {!todos ? 'cargando ...' :
                             todos.map((todo, index) => {
-                                return (<MenuItem className="texto">{todo.nombre}</MenuItem>)
+                                return (<MenuItem className="texto" >{todo.nombre}</MenuItem>)
                             })
                         }
                     </Select>
                 </FormControl>
             </div>
-           
+     
+          
         </div>
     );
 }

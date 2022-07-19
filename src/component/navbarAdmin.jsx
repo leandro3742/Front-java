@@ -21,13 +21,12 @@ function NavbarAdmin(props) {
                         </Link>
                        
                     </div>
-                    <div className="col-2 m-auto ">
+                    <div className="col-2 m-auto">
                         <div className="dropdown">
                             <button className="dropbtn">
                                 <img style={{ width: "80px" }} className="rounded-circle" src={icon} alt="" />
                             </button>
                             <div className="dropdown-content prioridad">
-                               
                                 <Link to="/admin/contenidoDisponible" className="itemsdrop">Contenidos Disponible</Link>
                                 <Link to="/admin/contenidoVisto" className="itemsdrop">Contenidos Vistos</Link>
                                 <Link to="/admin/contenidoActivo" className="itemsdrop">Contenidos Activo</Link>

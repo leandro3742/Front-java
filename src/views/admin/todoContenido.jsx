@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../../styles/gestionarContenido.css";
+import "../../styles/gestionarUsuario.css";
 import { fetchFunction } from "../../utils/fetch";
 import { buildHeader } from "../../utils/fetch";
 import { Button } from 'react-bootstrap';
@@ -45,54 +45,62 @@ function TodoContenido() {
     Swal.fire('Contenido Bloqueado');
 }
   return (
-    <div>
-       {mostrar ?
-    <div className="centrar">
-    <div className='divGlobal'>
-        <div className='divTitle'>
-            <h4 className='title'>Todos los Contenidos</h4>
-        </div>
-    </div>
-    
-        <table>
-<td>
-    <th>ID</th>
-      {!todos ? 'cargando ...':
-        todos.map((todo,index)=>{
-          
-          if(todo.bloqueado==0){
-              return <tr><td><a>{todo.id}</a></td></tr>
+<body className="body">
+     {mostrar ?
+      <div>  <table>
+      <td>
+          <th>ID</th>
+            {!todos ? 'cargando ...':
+              todos.map((todo,index)=>{        
+                
+                    return <tr><td><a>{todo.id}</a></td></tr>
+                             
+              })
           }
+       </td>
+    
+      <td>
+          <th>Nombre</th>
+            {!todos ? 'cargando ...':
+              todos.map((todo,index)=>{
+                  
+                return <tr><td><a>{todo.nombre}</a></td></tr>
+                  
+                  
+              })
+          }
+      
+       </td>
+       <td>
+          <th>Tipo</th>
+            {!todos ? 'cargando ...':
+              todos.map((todo,index)=>{
+                  
+                return <tr><td><a>{todo.tipoContenido}</a></td></tr>
+                  
+                  
+              })
+          }
+      
+       </td>
+       <td>
+          <th>Bloquear</th>
+            {!todos ? 'cargando ...':
+              todos.map((todo,index)=>{
+                
+                return <tr><td><button  className="b" onClick={() => saveElement(todo.id)}>-</button></td></tr>
+                
+                 
+              })
+          }
+       </td>
+      
+      
+      </table>
+      </div>
+    : <div><div className='centrar'><h4 className='title'>No tienes persmisos</h4></div></div>}
 
-        })
-    }
- </td>
-<td>
-    <th>Nombre</th>
-      {!todos ? 'cargando ...':
-        todos.map((todo,index)=>{
-            if(todo.bloqueado==0){
-          return <tr><td><a>{todo.nombre}</a></td></tr>
-            }
-        })
-    }
- </td>
- <td>
-    <th>Bloquear</th>
-      {!todos ? 'cargando ...':
-        todos.map((todo,index)=>{
-            if(todo.bloqueado==0){
-          return <tr><td><button  className="btnCancelar" onClick={() => saveElement(todo.id)}>-</button></td></tr>
-            }
-        })
-    }
- </td>
-</table>
-
-</div> 
-: <div><div className='centrar'><h4 className='title'>No tienes persmisos</h4></div></div>}
-</div> 
-
+    </body>
 
  );
   
