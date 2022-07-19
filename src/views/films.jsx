@@ -17,7 +17,6 @@ function Films() {
         setTodos(responseJSON)
     }
     //buscar
-    
         const buscar = (x) => {
             const url = "http://localhost:8080/contenidos/listarPorTipoCat/"+x+"/PELICULA";
             const [peliculas, setPeliculas] = useState()
@@ -40,19 +39,18 @@ function Films() {
                     <InputLabel className="texto">Categorías</InputLabel>
                     <Select   style={{ color: "white" }}>
                     {!todos ? 'cargando ...' :
-                            todos.map((todo, index) => {
-                                return <MenuItem className="texto" onChange={() => buscar(todo.id)}>{todo.nombre}</MenuItem>
-                            })
-                        }
+                        todos.map((todo, index) => {
+                            return <MenuItem className="texto" onChange={() => buscar(todo.id)}>{todo.nombre}</MenuItem>
+                        })
+                    }
                     </Select>
                 </FormControl>
             </div>
-     
             {!peliculas ? 'cargando ...' :
-                            peliculas.map((pelicula, index) => {
-                                return <a key={pelicula.id}>{pelicula.nombre}</a>
-                            })
-                        }
+                    peliculas.map((pelicula, index) => {
+                        return <a key={pelicula.id}>{pelicula.nombre}</a>
+                    })
+            }
         </div>
     );
 }

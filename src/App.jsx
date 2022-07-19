@@ -36,6 +36,7 @@ import CategoriasContenido from "./views/generador/agregarCategorias";
 import BloquearUsuario from "./views/admin/bloquearUsuario";
 import DesbloquearUsuario from "./views/admin/desbloquearUsuario";
 import Reportes from "./views/generador/reportes";
+import AltaPersona from "./views/admin/altaPersona";
 function App() {
   const [isLogged, setIsLogged] = useState(false);
   const [tipoUsuario, setTipoUsuario] = useState(false);
@@ -72,6 +73,7 @@ function App() {
             <Route path="/admin/gestionarContenido" element={<GestionarContenido />} />
             <Route path="/admin/todoContenido" element={<TodoContenido />} />
             <Route path="/admin/contenidoDisponible" element={<ContenidoDisponible />} />
+            <Route path="/admin/altaPersona" element={<AltaPersona />} />
             <Route path="/admin/bloquearUsuario" element={<BloquearUsuario />} />
             <Route path="/admin/desbloquearUsuario" element={<DesbloquearUsuario />} />
             <Route path="/generador/" element={<HomeGenerador />} />
