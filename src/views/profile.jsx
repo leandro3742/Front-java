@@ -1,4 +1,4 @@
-import React from "react";
+import React , { useState, useEffect }from "react";
 
 function Profile() {
     const [usu,setusu] = useState()
@@ -7,26 +7,22 @@ function Profile() {
     const [Edit, setedit] = useState(false)
     
     useEffect(() => {
+        console.log(sessionStorage.getItem("usuario"))
         if (sessionStorage.getItem("usuario")) {
             setusu(JSON.parse(sessionStorage.getItem("usuario")));
-            if (usu.tipoUsuario === "GENERADOR_CONTENIDO") {
-                setMostrar(true)
-            }
         }
     }, [])
     
     return( 
         <div>
-            <div>
-                <h1>{usu.email}</h1>
-                <h1>{usu.contrasenia}</h1>
-                <button onClick={setedit(true)} className="m-auto col-lg-4 col-10 my-2 btn btnConfirmar">Agregar Contenido</button>
-            </div>
-                <div>
-                    <input type="text" placeholder="Nombre" onChange={(e)=> setNombre(e.target.value)}/>
-                    <input type="text" placeholder="Nombre" onChange={(e)=> setPass(e.target.value)} />
-                    <button className="m-auto col-lg-4 col-10 my-2 btn btnConfirmar">Editar</button>
+            {!usu ? 'Cargando ...' :
+                <div className="divGlobal">
+                    {/* Falta el Nombre del usuario jeje*/ }
+                    <h3 className="title">{usu.email}</h3>
+                    <h3 className="title">{usu.contrasenia}</h3>
+                    <button onClick={setedit(true)}> Editar</button>
                 </div>
+            }
         </div>
     )
 }
