@@ -64,16 +64,18 @@ function Video() {
     }
     setUrl(contenido.video+"?start="+time.time)
   }, [time, contenido]);
+  
   return (
     <>
       {mostrar ? (
         Object.keys(contenido).length > 0 &&
-          contenido.tipoContenido === "EVENTO" ? <EnVivo setProgress={setProgress} saveDuration={saveDuration} url={url} id={contenido}/> : <EnVivo setProgress={setProgress} saveDuration={saveDuration} url={url} id={id} idUsuario={usuario.idUsuario}/>
+          <EnVivo id={id}/>
       ) : (
         <div>No puede ver este contenido</div>
       )}
     </>
   );
+  {/* contenido.tipoContenido === "EVENTO" ? <EnVivo setProgress={setProgress} progress={progress} saveDuration={saveDuration} url={url} id={contenido} idUsuario={usuario.idUsuario} /> : <NoVivo setProgress={setProgress} progress={progress} saveDuration={saveDuration} url={url} id={id} idUsuario={usuario.idUsuario}/> */}
 }
 
 export default Video;

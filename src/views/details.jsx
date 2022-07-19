@@ -54,7 +54,6 @@ function Details() {
             fetchAgregarFav(`http://localhost:8080/usuarios/agregarContenidoFavorito/${id}/${contenido.id}`)
         } 
     }
-
     return (
     <div>
         {data && (

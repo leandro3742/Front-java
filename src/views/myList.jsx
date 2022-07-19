@@ -11,8 +11,24 @@ async function getFavs(url){
     return "ERROR"
 }
 
+async function deleteFav(url){
+    const response = await fetch(url, {method: "DELETE"});
+    if(await response.status < 300){
+        return await response
+    }
+    return "ERROR"
+}
+
+async function valorarContenido(url){
+    const response = await fetch(url, {method: "POST"});
+    if(await response.status < 300){
+        return await response
+    }
+    return "ERROR"
+}
 function MyList() {
     const [favs, setFavs] = useState([])
+    
     useEffect(() => {
         if(sessionStorage.getItem('usuario')){   
             getFavs(`http://localhost:8080/usuarios/listarFavoritos/${JSON.parse(sessionStorage.getItem('usuario')).idUsuario}`)
@@ -24,6 +40,30 @@ function MyList() {
             })
         }
     }, [])
+
+    const eliminar = (contenido) => {
+        console.log(contenido);
+        if(sessionStorage.getItem('usuario')){   
+            deleteFav(`http://localhost:8080/usuarios/eliminarContenidoDeFavoritos/${JSON.parse(sessionStorage.getItem('usuario')).idUsuario}/${contenido.id}`)
+            .then(res => {
+                if(res != "ERROR"){
+                    getFavs(`http://localhost:8080/usuarios/listarFavoritos/${JSON.parse(sessionStorage.getItem('usuario')).idUsuario}`)
+                    .then(res => {
+                        if(res != "ERROR"){
+                            setFavs(res)
+                        }
+                    })
+                }
+            })
+        }
+    }
+    const valorar = (e, data) => {
+        let value = e.target.value;
+        valorarContenido(`http://localhost:8080/usuarios/valorarContenido/${data.id}/${JSON.parse(sessionStorage.getItem('usuario')).idUsuario}/${value}`)
+            .then(res => {
+                console.log(res)
+            })
+    }
     return (
         <div className="row m-0">
             {/* https://lumiere-a.akamaihd.net/v1/images/encanto_ka_las_pay1_92ad7410.jpeg */}
@@ -35,7 +75,7 @@ function MyList() {
                         <span><b>Titulo</b> : {data.nombre}</span> <br />
                         <span><b>Descripcion</b> : {data.descripcion}</span> <br />                        
                         <span><b>Generador</b> : {data.generadorContenidoid.nombre}</span> <br />
-                        <form className="d-flex">
+                        <form className="d-flex" onChange={(e)=> valorar(e, data)}>
                             <span className="ml-3"><b>Valoracion</b> : </span>
                             <span className="clasificacion">
                                 <input id="radio1" type="radio" name="estrellas" value="5" />
@@ -50,7 +90,7 @@ function MyList() {
                                 <label htmlFor="radio5">★</label>
                             </span>
                         </form>
-                        <button className="my-3 btn btn-outline-danger">Eliminar</button>
+                        <button className="my-3 btn btn-outline-danger" onClick={()=> eliminar(data)}>Eliminar</button>
                         </div>
                     </div>
                 )

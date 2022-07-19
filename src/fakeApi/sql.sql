@@ -77,16 +77,16 @@ INSERT INTO `contenido_categoria` (`contenido_id`, `categoria_id`) VALUES ('5', 
 INSERT INTO `contenido_categoria` (`contenido_id`, `categoria_id`) VALUES ('6', '3');
 
 -- SUSCRIPCION
-INSERT INTO `suscripciones` (`id`, `fecha_vencimiento`, `monto`, `tipo_suscripcion`, `gc_id`, `usuario_id`) VALUES ('1', '2022/07/20', '200', 'MENSUAL', '1', '1');
+INSERT INTO `suscripciones` (`fecha_vencimiento`, `monto`, `tipo_suscripcion`, `gc_id`, `usuario_id`) VALUES ('2022/07/20', '200', 'MENSUAL', '1', '1');
 
 -- RANKINGS
-INSERT INTO `rankings` (`id`, `id_contenido`, `id_usuario`, `puntaje`) VALUES
-(1, 1, 1, 5),
-(2, 1, 2, 2),
-(4, 1, 3, 5);
+INSERT INTO `rankings` (`id_contenido`, `id_usuario`, `puntaje`) VALUES
+(1, 1, 5),
+(1, 2, 2),
+(1, 3, 5);
 
 -- VISUALIZACIONES
-INSERT INTO `visualizaciones` (`id`, `terminado`, `time`, `contenido_id`, `usuario_id`) VALUES ('1', '1', '20', '1', '1'), ('2', '1', '20', '1', '2');
+INSERT INTO `visualizaciones` (`terminado`, `time`, `contenido_id`, `usuario_id`) VALUES (1, 20, '1', '1'), (1, 20, '1', '2');
 
 -- CONTENIDO PERSONA
 INSERT INTO `contenidos_persona` (`contenido_id`, `persona_id`) VALUES ('1', '9');
