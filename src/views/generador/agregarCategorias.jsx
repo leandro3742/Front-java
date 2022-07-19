@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Select from "@mui/material/Select";
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Swal from 'sweetalert2'
 
@@ -106,24 +108,29 @@ function CategoriasContenido() {
         <div className="d-flex flex-column align-items-center">
             {data && (
                 <div className="d-flex flex-column align-items-center">
-                    <img style={{ height: "300px" }} src={data.fotoPortada} alt="" />
                     <h4 className='title'>{data.nombre}</h4>
+                    <img style={{ height: "300px" }} src={data.fotoPortada} alt="" />
                 </div>
             )}
             <div>
                 {!cat ? 'Cargando ...' :
+                <FormControl style={{ width: "300px", backgroundColor: "grey", color: "white", border: "white" }} className="mx-5 rounded">
+                <InputLabel className="fuenteL">Categorías</InputLabel>
                     <Select style={{ color: "white" }} value={age} onChange={(e) => setAge(e.target.value)}>
                         {cat.map((elem) => {
                             return (
-                                <MenuItem key={elem.id} value={elem.id} className="texto">
+                                <MenuItem key={elem.id} value={elem.id} className="fuenteL">
                                     {elem.nombre}
                                 </MenuItem>
                             );
                         })}
                     </Select>
+                </FormControl>
                 }
-                <button onClick={agregarcat}>Agregar categoria</button>
-                <button onClick={eliminarcat}>Eliminar categoria</button>
+                <div clasasName="d-flex flex-column align-items-center">
+                    <button onClick={agregarcat} className="btnConfirmar">Agregar</button>
+                    <button onClick={eliminarcat} className="btnConfirmar">Eliminar</button>
+                </div>
             </div>
             <div>
                 <h4 className='title'>Categorias Agregadas</h4>

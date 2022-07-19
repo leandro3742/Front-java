@@ -25,7 +25,7 @@ function reportes() {
     }, [])
 
     return (
-        <div className="centrar">
+        <div className="">
             {mostrar ?
                 <div className='divGlobal'>
                     <div className='divTitle'>
@@ -41,8 +41,8 @@ function reportes() {
                                         <Accordion.Item >
                                             <Accordion.Header ><h5 className="h5">Reporte</h5></Accordion.Header>
                                             <Accordion.Body>
-                                                <ul className="ul title">Puntaje: {todo.puntaje}</ul>
-                                                <ul className="ul title">Visualizaciones: {todo.visualizaciones}</ul>
+                                                <ul className="ul texto">Puntaje: {todo.puntaje}</ul>
+                                                <ul className="ul texto">Visualizaciones: {todo.visualizaciones}</ul>
                                             </Accordion.Body>
                                         </Accordion.Item>
                                     </Accordion>

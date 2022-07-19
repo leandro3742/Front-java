@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from 'react';
+import "../../styles/generador.css";
 import Swal from 'sweetalert2';
 
 function Pagos() {
@@ -16,7 +17,6 @@ function Pagos() {
                 setMostrar(true)
             }
         }
-
         async function fetchFunction(url) {
             const response = await fetch(url);
             setgc(await response.json())
@@ -86,12 +86,12 @@ function Pagos() {
             {mostrar ?
             <div>
                 <div className='d-flex align-items-center justify-content-center' >
-                    <input type="number" style={{maxWidth: '20%'}} onChange={(e) => setprecio(e.target.value)} className='inputs' placeholder="Precio"></input>
-                    <button onClick={saveElement} style={{maxWidth: '40%'}} className="btnConfirmar">Precio mensual</button>
+                    <input type="number" style={{maxWidth: '30%'}} onChange={(e) => setprecio(e.target.value)} className='inputs fuenteL' placeholder="Precio"></input>
+                    <button onClick={saveElement} style={{maxWidth: '40%'}} className="con">Precio mensual</button>
                 </div>
                 <div className='d-flex align-items-center justify-content-center' >
-                    <input type="text" style={{maxWidth: '40%',}}  contenteditable="true" onChange={(e) => setpago(e.target.value)} className='inputs' placeholder="Pagos"></input>
-                    <button onClick={savepago} style={{maxWidth: '20%'}}className="btnConfirmar">Tipos pago</button>
+                    <input type="text" style={{maxWidth: '40%',}}  contenteditable="true" onChange={(e) => setpago(e.target.value)} className='inputs fuenteL' placeholder="Pagos"></input>
+                    <button onClick={savepago} style={{maxWidth: '20%'}}className="con">Tipos pago</button>
                 </div>
             </div>
             : <div><div className='centrar'><h4 className='title'>No tiene persmisos</h4></div></div>}

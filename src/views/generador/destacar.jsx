@@ -66,9 +66,9 @@ function destacar() {
                                         <Accordion.Item >
                                             <Accordion.Header ><h5 className="h5">Descripción</h5></Accordion.Header>
                                             <Accordion.Body>
-                                                <ul className="ul title">Descripción: {todo.descripcion}</ul>
-                                                <ul className="ul title">Duración: {todo.duracion}</ul>
-                                                <ul className="ul title">Tipo: {todo.tipoContenido}</ul>
+                                                <ul className="ul texto">Descripción: {todo.descripcion}</ul>
+                                                <ul className="ul texto">Duración: {todo.duracion}</ul>
+                                                <ul className="ul texto">Tipo: {todo.tipoContenido}</ul>
                                             </Accordion.Body>
                                         </Accordion.Item>
                                     </Accordion>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../../styles/aprobarContenido.css";
+import "../../styles/generador.css";
 import { Link } from "react-router-dom";
 import { Accordion } from 'react-bootstrap';
 import Swal from 'sweetalert2';
@@ -67,15 +67,20 @@ function miContenido() {
                                         <Accordion.Item >
                                             <Accordion.Header ><h5 className="h5">Descripción</h5></Accordion.Header>
                                             <Accordion.Body>
-                                                <ul className="ul title">Descripción: {todo.descripcion}</ul>
-                                                <ul className="ul title">Duración: {todo.duracion}</ul>
-                                                <ul className="ul title">Tipo: {todo.tipoContenido}</ul>
+                                                <ul className="ul texto">Descripción: {todo.descripcion}</ul>
+                                                <ul className="ul texto">Duración: {todo.duracion}</ul>
+                                                <ul className="ul texto">Tipo: {todo.tipoContenido}</ul>
                                             </Accordion.Body>
                                         </Accordion.Item>
                                     </Accordion>
                                     <div>
-                                        <button key={todo.index} onClick={() => eliminar(todo.id)} className="btnConfirmar"> Eliminar </button>
-                                        <Link to={`/generador/categorias/${todo.id}`}><button className="btnConfirmar">Editar Categorias</button></Link>
+                                        <div>
+                                            <button key={todo.index} onClick={() => eliminar(todo.id)} className="con"> Eliminar </button>
+                                        </div><div>
+                                            <Link to={`/generador/categorias/${todo.id}`}><button className="con">Editar Categorias</button></Link>
+                                        </div><div>
+                                            <Link to={`/generador/personas/${todo.id}`}><button className="con">Editar Elenco </button></Link>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

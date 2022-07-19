@@ -99,28 +99,28 @@ function altaContenido(props) {
                     <h4 className='title'>Alta Contenido</h4>
                 </div>
                 <div className="row d-flex justify-content-center">
-                    <input type="text" onChange={(e) => setnombre(e.target.value)} className='inputs' placeholder="Nombre"></input>
-                    <input type="text" onChange={(e) => setdescripcion(e.target.value)} className='inputs' placeholder="Descripción"></input>
-                    <input type="file" onChange={uploadportada} className='inputs' placeholder="Foto de Portada"></input>
-                    <input type="file" onChange={uploadvideo} className='inputs' placeholder="Video"></input>
-                    <input type="number " onChange={(e) => setprecio(e.target.value)} className='inputs' placeholder="Precio"></input>   
+                    <input type="text" onChange={(e) => setnombre(e.target.value)} className='inputs fuenteL' placeholder="Nombre"></input>
+                    <input type="text" onChange={(e) => setdescripcion(e.target.value)} className='inputs fuenteL' placeholder="Descripción"></input>
+                    <input type="file" onChange={uploadportada} className='inputs fuenteL' placeholder="Foto de Portada"></input>
+                    <input type="text" onChange={(e)=> setvideo(e.target.value)} className='inputs fuenteL' placeholder="Video"></input>
+                    <input type="number " onChange={(e) => setprecio(e.target.value)} className='inputs fuenteL' placeholder="Precio"></input>   
                     <div className='divGlobal'>
-                        <select className="form-control title" onChange={funciontipo}>
-                            	<option value="PELICULA" selected className='title'>Pelicula</option>
-                            	<option value="EVENTO" selected className='title'>Evento</option>
-                            	<option value="SERIES" selected className='title'>Serie</option>
+                        <select className="form-control fuenteL" onChange={funciontipo}>
+                            	<option value="PELICULA" selected className='fuenteL'>Pelicula</option>
+                            	<option value="EVENTO" selected className='fuenteL'>Evento</option>
+                            	<option value="SERIES" selected className='fuenteL'>Serie</option>
                         </select>
                     </div>
                     {showElement ?
                         <div className='divGlobal'>
-                            <select className="form-control title" onChange={(e) => settipo(e.target.value)}>
-                                <option value="EVENTO_ESPECTACULO" selected className='title'>Espectáculos</option>
-                                <option value="EVENTO_DEPORTIVOS" selected className='title'>Deportivo</option>
+                            <select className="form-control fuenteL" onChange={(e) => settipo(e.target.value)}>
+                                <option value="EVENTO_ESPECTACULO" selected className='fuenteL'>Espectáculos</option>
+                                <option value="EVENTO_DEPORTIVOS" selected className='fuenteL'>Deportivo</option>
                             </select>
                             <input sowelem type="time" step="1" onChange={(e) => setComienzo(e.target.value)} className='inputs' placeholder="Inicio"></input>
                             <input sowelem type="Date" step="1" onChange={(e) => setfecha_comienzo(e.target.value)} className='inputs' placeholder="Inicio"></input>
                         </div> : null}
-                        <input type="time" step="1" onChange={(e) => setduracion(e.target.value)} className='inputs' placeholder="Duracion"></input>
+                        <input type="time" step="1" onChange={(e) => setduracion(e.target.value)} className='inputs fuenteL' placeholder="Duracion"></input>
                 </div>
                 <button onClick={saveElement} className="m-auto col-lg-4 col-10 my-2 btn btnConfirmar">Agregar Contenido</button>
             </div>

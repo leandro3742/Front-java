@@ -4,11 +4,9 @@ import Swal from 'sweetalert2';
 import Reporte from './reportes';
 function HomeGenerador(){
     return (
-        <div className='divGlobal'>
-            <div className='contenidosDisponibles'>
+        <div className='centrar'>
                 <h2 className='title'>|Mostrara las Ganancias|</h2>
                 <Reporte/>
-            </div>
         </div>
     )
 }
