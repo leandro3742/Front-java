@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from 'react';
-import { fetchFunction } from "../../utils/fetch";
-import { buildHeader } from "../../utils/fetch";
+import Swal from 'sweetalert2';
 
 function Pagos() {
     const [precio, setprecio] = useState("");
@@ -88,11 +87,11 @@ function Pagos() {
             <div>
                 <div className='d-flex align-items-center justify-content-center' >
                     <input type="number" style={{maxWidth: '20%'}} onChange={(e) => setprecio(e.target.value)} className='inputs' placeholder="Precio"></input>
-                    <button onClick={saveElement} style={{maxWidth: '40%'}} className="btnConfirmar"> Precio mensual</button>
+                    <button onClick={saveElement} style={{maxWidth: '40%'}} className="btnConfirmar">Precio mensual</button>
                 </div>
                 <div className='d-flex align-items-center justify-content-center' >
                     <input type="text" style={{maxWidth: '40%',}}  contenteditable="true" onChange={(e) => setpago(e.target.value)} className='inputs' placeholder="Pagos"></input>
-                    <button onClick={savepago} style={{maxWidth: '20%'}}className="btnConfirmar"> Tipos pago</button>
+                    <button onClick={savepago} style={{maxWidth: '20%'}}className="btnConfirmar">Tipos pago</button>
                 </div>
             </div>
             : <div><div className='centrar'><h4 className='title'>No tiene persmisos</h4></div></div>}

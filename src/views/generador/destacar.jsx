@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../../styles/aprobarContenido.css";
 import { Accordion } from 'react-bootstrap';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
 function destacar() {
     const url = 'http://localhost:8080/contenidos/listarsinmarcar/' + JSON.parse(sessionStorage.getItem("usuario")).email;
@@ -9,20 +9,21 @@ function destacar() {
     const [mostrar, setMostrar] = useState(false)
     const fetchApi = async () => {
         const response = await fetch(url)
-        console.log(response.status)
         const responseJSON = await response.json()
         setTodos(responseJSON)
     }
     useEffect(() => {
         if (sessionStorage.getItem("usuario")) {
             let aux = JSON.parse(sessionStorage.getItem("usuario"));
-            console.log(aux)
             if (aux.tipoUsuario === "GENERADOR_CONTENIDO") {
                 setMostrar(true)
             }
         }
         fetchApi()
     }, [])
+    function recarga() {
+        fetchApi();
+    }
 
     const saveElement = (x) => {
         async function fetchFunction(url) {
@@ -45,8 +46,7 @@ function destacar() {
             await response.json()
         }
         fetchFunction('http://localhost:8080/contenidos/marcarContenidoDestacado/'+x);
-        fetchApi();
-    };
+        recarga();};
 
     return (
         <div className="centrar">
@@ -64,11 +64,11 @@ function destacar() {
                                     <img className="img" src={todo.fotoPortada}></img>
                                     <Accordion className="df" defaultActiveKey="0" flush>
                                         <Accordion.Item >
-                                            <Accordion.Header ><h5 className="h5">{todo.nombre}</h5></Accordion.Header>
+                                            <Accordion.Header ><h5 className="h5">Descripción</h5></Accordion.Header>
                                             <Accordion.Body>
-                                                <ul className="ul">Descripción: {todo.descripcion}</ul>
-                                                <ul className="ul">Duración: {todo.duracion}</ul>
-                                                <ul className="ul">Tipo: {todo.tipoContenido}</ul>
+                                                <ul className="ul title">Descripción: {todo.descripcion}</ul>
+                                                <ul className="ul title">Duración: {todo.duracion}</ul>
+                                                <ul className="ul title">Tipo: {todo.tipoContenido}</ul>
                                             </Accordion.Body>
                                         </Accordion.Item>
                                     </Accordion>
