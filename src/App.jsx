@@ -68,7 +68,7 @@ function App() {
             <Route path="/admin/categoria" element={<Categoria />} />
             <Route path="/admin/aprobarContenido" element={<AprobarContenido />} />
             <Route path="/admin/contenidoVisto" element={<ContenidoVisto />} />
-            <Route path="/admin/verContenido" element={<VerContenido />} />
+            <Route path="/admin/verContenido/:id" element={<VerContenido />} />
             <Route path="/admin/gestionarContenido" element={<GestionarContenido />} />
             <Route path="/admin/todoContenido" element={<TodoContenido />} />
             <Route path="/admin/contenidoDisponible" element={<ContenidoDisponible />} />

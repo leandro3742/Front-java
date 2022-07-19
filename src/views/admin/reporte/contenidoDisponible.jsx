@@ -5,7 +5,7 @@ import { fetchFunction } from "../../../utils/fetch";
 import { buildHeader } from "../../../utils/fetch";
 import { Button } from 'react-bootstrap';
 import { Accordion } from 'react-bootstrap';
-
+import { Link, useParams } from "react-router-dom";
 
 
 function ContenidosDisponibles() {
@@ -39,11 +39,13 @@ const url = 'http://localhost:8080/admin/reporte/contenido/disponible';
          {mostrar ?
   
 <table>
-<td >
+<td>
     <th>ID</th>
       {!todos ? 'No encontrado ...':
         todos.map((todo,index)=>{
-          return <tr><td ><a>{todo.id}</a></td></tr>
+          return <tr><td><Link  to="/admin/homeAdmin">
+         {todo.id}
+      </Link></td></tr>
         })
     }
  </td>

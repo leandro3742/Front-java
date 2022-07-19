@@ -4,7 +4,7 @@ import { fetchFunction } from "../../../utils/fetch";
 import { buildHeader } from "../../../utils/fetch";
 import { Button } from 'react-bootstrap';
 import { Accordion } from 'react-bootstrap';
-
+import { Link, useParams } from "react-router-dom";
 
 function ContenidosVistos() {
   const url = 'http://localhost:8080/admin/reporte/contenido/visto';

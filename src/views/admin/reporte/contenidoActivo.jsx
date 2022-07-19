@@ -6,7 +6,7 @@ import { fetchFunction } from "../../../utils/fetch";
 import { buildHeader } from "../../../utils/fetch";
 import { Button } from 'react-bootstrap';
 import { Accordion } from 'react-bootstrap';
-
+import { Link, useParams } from "react-router-dom";
 
 
 function ContenidosActivo() {
@@ -44,7 +44,9 @@ const url = 'http://localhost:8080/admin/reporte/contenido/activo';
     <th>ID</th>
       {!todos ? 'No encontrado ...':
         todos.map((todo,index)=>{
-          return <tr><td className="td"><a>{todo.id}</a></td></tr>
+          return <tr><td className="td"><Link  to={`/admin/verContenido/${todo.id}`}>
+          {todo.id}
+       </Link></td></tr>
         })
     }
  </td>

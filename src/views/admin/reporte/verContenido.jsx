@@ -4,9 +4,11 @@ import { fetchFunction } from "../../../utils/fetch";
 import { buildHeader } from "../../../utils/fetch";
 import { Link, useParams } from "react-router-dom";
 
+
 function VerContenido() {
+  const { id } = useParams();
    //Para get
-   const url = "http://localhost:8080/admin/contenidosParaAprobar";
+   const url = "http://localhost:8080/contenidos";
    const [todos, setTodos] = useState();
    //const [mostrar, setMostrar] = useState(false);
    const fetchApi = async () => {
@@ -39,7 +41,7 @@ function VerContenido() {
 
 {!todos ? 'cargando ...':
               todos.map((todo,index)=>{      
-                if(todo.id==6){
+                if(todo.id==id){
                     return <div className="divGlo"><h1 className="titulo">{todo.nombre}</h1></div>
                 }      
               })
@@ -47,7 +49,7 @@ function VerContenido() {
     <div class="first">
     {!todos ? 'cargando ...':
               todos.map((todo,index)=>{              
-                if(todo.id==6){
+                if(todo.id==id){
                     return <div><img className="img" src={todo.fotoPortada}></img></div>
                 }  
               })
@@ -56,7 +58,7 @@ function VerContenido() {
     <div class="second">
     {!todos ? 'cargando ...':
               todos.map((todo,index)=>{              
-                if(todo.id==6){
+                if(todo.id==id){
                     return <div><h1 className="descripcion">Tipo: {todo.tipoContenido}</h1><h1 className="descripcion">Duración: {todo.duracion}</h1><h1 className="descripcion">Precio: {todo.precio}</h1><h1 className="descripcion">Categoria: {todo.categoria}</h1></div>
                 }  
               })
@@ -65,8 +67,8 @@ function VerContenido() {
     <div class="third">
     {!todos ? 'cargando ...':
               todos.map((todo,index)=>{              
-                if(todo.id==6){
-                    return <div><h1 className="descripcion">Información generador contenido</h1><h1 className="descripcion">{todo.descripcion}</h1></div>
+                if(todo.id==id){
+                    return <div><h1 className="descripcion">Información generador contenido</h1><h1 className="descripcion">{todo.generadorContenidoid.id}</h1></div>
                 }  
               })
           }
@@ -74,7 +76,7 @@ function VerContenido() {
     <div class="divInfo">
     {!todos ? 'cargando ...':
               todos.map((todo,index)=>{              
-                if(todo.id==6){
+                if(todo.id==id){
                     return <div><h1 className="descripcion">Informacíon:</h1><h1 className="descripcion">{todo.descripcion}</h1></div>
                 }  
               })
@@ -83,7 +85,7 @@ function VerContenido() {
     <div class="divVideo">
     {!todos ? 'cargando ...':
               todos.map((todo,index)=>{              
-                if(todo.id==6){
+                if(todo.id==id){
                     return <iframe className="vid" src="https://www.youtube.com/embed/A_g3lMcWVy0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 }  
               })

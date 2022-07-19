@@ -10,14 +10,14 @@ function Films() {
 
     const url = "http://localhost:8080/categorias";
     const [todos, setTodos] = useState();
-
+    const [peliculas, setPeliculas] = useState();
     const fetchApi = async () => {
         const response = await fetch(url)
         const responseJSON = await response.json()
         setTodos(responseJSON)
     }
     //buscar
-    /*
+    
         const buscar = (x) => {
             const url = "http://localhost:8080/contenidos/listarPorTipoCat/"+x+"/PELICULA";
             const [peliculas, setPeliculas] = useState()
@@ -27,7 +27,7 @@ function Films() {
               const responseJSON = await response.json()
               setPeliculas(responseJSON)
         }
-    }*/
+    }
     //onChange={() => buscar(todo.id)}
     useEffect(() => {
         fetchApi();
@@ -41,14 +41,18 @@ function Films() {
                     <Select   style={{ color: "white" }}>
                     {!todos ? 'cargando ...' :
                             todos.map((todo, index) => {
-                                return (<MenuItem className="texto" >{todo.nombre}</MenuItem>)
+                                return <MenuItem className="texto" onChange={() => buscar(todo.id)}>{todo.nombre}</MenuItem>
                             })
                         }
                     </Select>
                 </FormControl>
             </div>
      
-          
+            {!peliculas ? 'cargando ...' :
+                            peliculas.map((pelicula, index) => {
+                                return <a key={pelicula.id}>{pelicula.nombre}</a>
+                            })
+                        }
         </div>
     );
 }
