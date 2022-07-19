@@ -1,11 +1,13 @@
 import React from 'react';
 import "../../styles/contenidosDisponibles.css";
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import Reporte from './reportes';
 function HomeGenerador(){
     return (
         <div className='divGlobal'>
             <div className='contenidosDisponibles'>
-                <h2 className='title'>|Mostrara las estadisticas|</h2>
+                <h2 className='title'>|Mostrara las Ganancias|</h2>
+                <Reporte/>
             </div>
         </div>
     )

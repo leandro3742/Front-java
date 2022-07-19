@@ -35,6 +35,7 @@ import Pagos from "./views/generador/editarPagos";
 import CategoriasContenido from "./views/generador/agregarCategorias";
 import BloquearUsuario from "./views/admin/bloquearUsuario";
 import DesbloquearUsuario from "./views/admin/desbloquearUsuario";
+import Reportes from "./views/generador/reportes";
 function App() {
   const [isLogged, setIsLogged] = useState(false);
   const [tipoUsuario, setTipoUsuario] = useState(false);
@@ -79,6 +80,7 @@ function App() {
             <Route path="/generador/agregarContenido" element={<AltaContenido />} />
             <Route path="/generador/contenido" element={<MiContenido />}/>
             <Route path="/generador/pagos" element={<Pagos />}/>
+            <Route path="/generador/reportes" element={<Reportes />}/>
             <Route path="/pricings" element={<Pricings />}/>
             <Route path="/video/:id" element={<Video />} />
             <Route path="/generador/categorias/:id" element={<CategoriasContenido />} />
