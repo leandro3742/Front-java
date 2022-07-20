@@ -43,9 +43,9 @@ const url = 'http://localhost:8080/admin/reporte/contenido/disponible';
     <th>ID</th>
       {!todos ? 'No encontrado ...':
         todos.map((todo,index)=>{
-          return <tr><td><Link  to="/admin/homeAdmin">
-         {todo.id}
-      </Link></td></tr>
+          return <tr><td><Link  to={`/admin/verContenidoDisponible/${todo.id}`}>
+          {todo.id}
+       </Link></td></tr>
         })
     }
  </td>

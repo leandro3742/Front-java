@@ -43,7 +43,9 @@ function ContenidosVistos() {
                 <th>ID</th>
                 {!todos ? 'No encontrado ...' :
                   todos.map((todo, index) => {
-                    return <tr><td><a>{todo[0]}</a></td></tr>
+                    return <tr><td><Link  to={`/admin/verContenido/${todo[0]}`}>
+                    {todo[0]}
+                 </Link></td></tr>
                   })
                 }
               </td>
