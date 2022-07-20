@@ -37,6 +37,7 @@ import BloquearUsuario from "./views/admin/bloquearUsuario";
 import DesbloquearUsuario from "./views/admin/desbloquearUsuario";
 import Reportes from "./views/generador/reportes";
 import AltaPersona from "./views/admin/altaPersona";
+import AgregarPersonas from "./views/generador/agregarElenco";
 function App() {
   const [isLogged, setIsLogged] = useState(false);
   const [tipoUsuario, setTipoUsuario] = useState(false);
@@ -86,7 +87,7 @@ function App() {
             <Route path="/pricings" element={<Pricings />}/>
             <Route path="/video/:id" element={<Video />} />
             <Route path="/generador/categorias/:id" element={<CategoriasContenido />} />
-            
+            <Route path="/generador/personas/:id" element={<AgregarPersonas />} />
           </Routes>
         </BrowserRouter>
       </PayPalScriptProvider>

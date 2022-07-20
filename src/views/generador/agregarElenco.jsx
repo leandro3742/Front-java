@@ -6,7 +6,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Swal from 'sweetalert2'
 
-function CategoriasContenido() {
+function PersonasContenido() {
 
     const { id } = useParams();
     const [data, setData] = useState();
@@ -26,7 +26,7 @@ function CategoriasContenido() {
             const responseJSON = await response.json()
             setCat(responseJSON)
         }
-        fetchFunction('http://localhost:8080/categorias');
+        fetchFunction('http://localhost:8080/personas');
         console.log(cat);
     }
     function categoriasC() {
@@ -35,7 +35,7 @@ function CategoriasContenido() {
             const responseJSON = await response.json()
             setCatC(responseJSON)
         }
-        fetchFunction('http://localhost:8080/contenidos/listarCategorias/'+id);
+        fetchFunction('http://localhost:8080/contenidos/listarPersonas/'+id);
         console.log(catC);
     }
     useEffect(() => {
@@ -58,7 +58,7 @@ function CategoriasContenido() {
             async function fetchFunction(url) {
                 const response = await fetch(url,
                 {
-                    method: "PUT",
+                    method: "POST",
                     headers: {
                         "Content-Type": "application/json"
                     },
@@ -67,9 +67,9 @@ function CategoriasContenido() {
             await response.json()
             console.log(response.json());
             }
-            fetchFunction('http://localhost:8080/contenidos/agregarCategoria/'+data.id+'/'+age);
+            fetchFunction('http://localhost:8080/contenidos/agregarPersona/'+data.id+'/'+age);
             categoriasC();
-            Swal.fire('Categoria Agregada');
+            Swal.fire('Elenco Actualizado');
         }
     }
     
@@ -92,12 +92,12 @@ function CategoriasContenido() {
                     }
                     else {
                         console.log("Ok", result);
-                        Swal.fire('Categoria Eliminada');
+                        Swal.fire('Elenco Actualizado');
                     }
                 }).catch(err => console.log(err));
             await response.json()
             }
-            fetchFunction('http://localhost:8080/contenidos/eliminarCategoria/'+data.id+'/'+age);
+            fetchFunction('http://localhost:8080/contenidos/eliminarPersona/'+data.id+'/'+age);
             categoriasC();
     }
     function eliminarcat(){
@@ -115,12 +115,12 @@ function CategoriasContenido() {
             <div>
                 {!cat ? 'Cargando ...' :
                 <FormControl style={{ width: "300px", backgroundColor: "grey", color: "white", border: "white" }} className="mx-5 rounded">
-                <InputLabel className="fuenteL">Categorías</InputLabel>
+                <InputLabel className="fuenteL">Elencos</InputLabel>
                     <Select style={{ color: "white" }} value={age} onChange={(e) => setAge(e.target.value)}>
                         {cat.map((elem) => {
                             return (
                                 <MenuItem key={elem.id} value={elem.id} className="fuenteL">
-                                    {elem.nombre}
+                                    <h1 className="fuenteL">{elem.nombre} {elem.tipoElenco}</h1>
                                 </MenuItem>
                             );
                         })}
@@ -133,7 +133,7 @@ function CategoriasContenido() {
                 </div>
             </div>
             <div>
-                <h4 className='title'>Categorias Agregadas</h4>
+                <h4 className='title'>Elenco</h4>
                 {!catC ? <p></p> :
                     <div>
                             {catC.map((elem) => {
@@ -146,4 +146,4 @@ function CategoriasContenido() {
     );
 }
 
-export default CategoriasContenido;
+export default PersonasContenido;
