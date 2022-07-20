@@ -23,6 +23,10 @@ function undestacar() {
         }
         fetchApi()
     }, [])
+    
+    function recarga() {
+        fetchApi();
+    }
 
     const saveElement = (x) => {
         async function fetchFunction(url) {

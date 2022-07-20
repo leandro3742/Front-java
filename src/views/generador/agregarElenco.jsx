@@ -137,7 +137,7 @@ function PersonasContenido() {
                 {!catC ? <p></p> :
                     <div>
                             {catC.map((elem) => {
-                                return <h3>{elem.nombre}</h3>
+                                return <h3>{elem.nombre} {elem.tipoElenco}</h3>
                             })}
                     </div>
                 }

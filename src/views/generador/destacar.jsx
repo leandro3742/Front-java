@@ -46,7 +46,9 @@ function destacar() {
             await response.json()
         }
         fetchFunction('http://localhost:8080/contenidos/marcarContenidoDestacado/'+x);
-        recarga();};
+        recarga();
+        fetchApi();
+    };
 
     return (
         <div className="centrar">
