@@ -62,8 +62,11 @@
 }
 
 @media (max-width: 500px) {
+    .body {
+        margin: none
+    }
     .inputs {
-        width: 100%;
+        width: 80%;
         margin: 5px;
         background-color: transparent;
         border-radius: 5px;
@@ -71,7 +74,7 @@
         color: aliceblue;
     }
     .title {
-        font-size: 13px;
+        font-size: 15px;
         font-family: 'Press Start 2P', cursive;
     }
     .div {
@@ -79,5 +82,17 @@
     }
     .centrar {
         margin-right: none;
+    }
+    .inputsdes {
+        justify-items: center;
+        margin-top: 10px;
+        width: 80%;
+        background-color: transparent;
+        border-radius: 5px;
+        font-size: 20px;
+        border-color: aqua;
+        background-color: #212529;
+        color: rgb(255, 255, 255);
+        font-family: 'Press Start 2P', cursive;
     }
 }
