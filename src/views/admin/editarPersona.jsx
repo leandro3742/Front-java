@@ -4,12 +4,15 @@ import { fetchFunction } from "../../utils/fetch";
 import { buildHeader } from "../../utils/fetch";
 import Swal from 'sweetalert2'
 import { Link, useParams } from "react-router-dom";
-function AltaPersona() {
+import TodoContenido from "./todoContenido";
+function EditarPersona() {
   //para seguridad
   const [mostrar, setMostrar] = useState(false);
     //input
     const [nombre, setNombre] = useState("");
     const [tipo, settipo] = useState("");
+    const { id } = useParams();
+    
 
 
     //tipo
@@ -21,21 +24,27 @@ function AltaPersona() {
     const fetchApi = async () => {
      
   }
-    //funcion
-    //psot
-  const saveElement = () => { 
-    console.log(nombre)
-    fetchFunction("http://localhost:8080/personas/agregarPersona", buildHeader("POST",{"nombre":nombre,"tipoElenco":tipo}))
-    .then(result => {
-        if(result=="ERROR"){
-          Swal.fire('Error');
-        } 
-        else{
-          Swal.fire('Creado Correcto');
-            console.log("Ok");
-           
-        }
-    }).catch(err => console.log(err));
+   //Para editar
+  const saveElement = () => {
+
+    async function fetchFunction(url) {
+        const response = await fetch(url,{method: "PUT",headers: {"Content-Type": "application/json"},
+                body:JSON.stringify({
+                    "id": id,
+                    "nombre": nombre,
+                    "tipoElenco": tipo
+                })
+            }).then(result => {
+                if (result == "ERROR") {
+                    Swal.fire("Error");
+                }
+                else {
+                    console.log("Ok", result);
+                    Swal.fire('Persona editado con exito');
+                }
+            }).catch(err => console.log(err));
+    }
+    fetchFunction('http://localhost:8080/personas/editarPersona');
 };
 
 useEffect(() => {
@@ -54,7 +63,7 @@ useEffect(() => {
       {mostrar ?
     <div className='divGlobal'>
         <div>
-            <h4 className='title'>Nueva Persona</h4>
+            <h4 className='title'>Editar Persona ID: {id}</h4>
         </div>
         <div>
         <div>
@@ -73,12 +82,7 @@ useEffect(() => {
         </div>
         <div>
         <button className="con" onClick={saveElement}>Confirmar</button>    
-        </div> 
-        <div>
-        <Link  to={`/admin/eliminarPersona`}>
-          ver Todas las Personas
-       </Link>
-          </div> 
+        </div>    
     </div>
   : <div><div className='centrar'><h4 className='title'>No tienes persmisos</h4></div></div>}
     </div>
@@ -86,4 +90,4 @@ useEffect(() => {
   )
 }
 
-export default AltaPersona
+export default EditarPersona

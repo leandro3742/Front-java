@@ -47,6 +47,9 @@ function HomeAdmin() {
     <div>
     <button  className="btnConfirmar"><Link className="link" to="/admin/categoria">Nueva Categoría</Link></button>
     </div>
+    <div>
+    <button  className="btnConfirmar"><Link className="link" to="/admin/altaPersona">Personas</Link></button>
+    </div>
     </div>
     : <div><h4 className='h4'>No tienes persmisos</h4></div>}
     </body>

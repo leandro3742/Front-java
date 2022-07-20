@@ -5,14 +5,14 @@ import { buildHeader } from "../../../utils/fetch";
 import { Link, useParams } from "react-router-dom";
 
 
-function VerContenido() {
+function VerContenidoDisponible() {
   const { id } = useParams();
    //Para get
-   const url = "http://localhost:8080/contenidos";
+   const url = 'http://localhost:8080/admin/reporte/contenido/disponible';
    const [todos, setTodos] = useState();
    //const [mostrar, setMostrar] = useState(false);
    const fetchApi = async () => {
-       const response = await fetch(url)
+       const response = await fetch(url);
        console.log(response.status)
        const responseJSON = await response.json()
        console.log(responseJSON)
@@ -87,4 +87,4 @@ function VerContenido() {
   
 }
 
-export default VerContenido;
+export default VerContenidoDisponible;
