@@ -25,7 +25,9 @@ function Profile() {
         else 
             setedit(false)
     }
-    
+    function recarga(){
+        fetchApi();
+    }
     
     function editar (){
         if(nombre!= ""){
@@ -53,10 +55,13 @@ function Profile() {
                     else {
                         console.log("Ok", result);
                         Swal.fire('Precio editado con exito');
+                        setNombre("");
+                        serPass("");
                     }
                 }).catch(err => console.log(err));
         }
         fetchFunction('http://localhost:8080/usuarios/editarUsuario');
+        recarga();
         fetchApi();
     }
 
