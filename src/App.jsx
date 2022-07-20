@@ -37,14 +37,11 @@ import BloquearUsuario from "./views/admin/bloquearUsuario";
 import DesbloquearUsuario from "./views/admin/desbloquearUsuario";
 import Reportes from "./views/generador/reportes";
 import AltaPersona from "./views/admin/altaPersona";
-<<<<<<< HEAD
+
 import AgregarPersonas from "./views/generador/agregarElenco";
-=======
 import EliminarPersona from "./views/admin/eliminarPersona";
 import EditarPersona from "./views/admin/editarPersona";
 import VerContenidoDisponible from "./views/admin/reporte/verContenidoDisponible";
-
->>>>>>> db51ba285cb6eeb06f6312216e77f7887e2b1a15
 function App() {
   const [isLogged, setIsLogged] = useState(false);
   const [tipoUsuario, setTipoUsuario] = useState(false);
@@ -81,7 +78,6 @@ function App() {
             <Route path="/admin/gestionarContenido" element={<GestionarContenido />} />
             <Route path="/admin/todoContenido" element={<TodoContenido />} />
             <Route path="/admin/verContenidoDisponible/:id" element={<VerContenidoDisponible />} />
-            
             <Route path="/admin/contenidoDisponible" element={<ContenidoDisponible />} />
             <Route path="/admin/altaPersona" element={<AltaPersona />} />
             <Route path="/admin/eliminarPersona" element={<EliminarPersona />} />
