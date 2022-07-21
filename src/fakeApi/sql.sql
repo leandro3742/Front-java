@@ -25,25 +25,25 @@ INSERT INTO `generadores_contenidos` (`contrasenia`,`precio`, `email`, `metodo_p
 -- SELECT * FROM contenidos c JOIN contenidos_categoria cc ON c.id = cc.contenido_id JOIN categorias cat ON cat.id = cc.categoria_id WHERE cat.nombre = "Ciencia Ficción" && c.tipo_contenido="SERIE"
 -- PERSONAS ELENCO
 INSERT INTO `personas` (`nombre`, `tipo_elenco`) VALUES
-(1, 'Johnny Depp', 'ACTOR'),
-(2, 'Cillian Murphy', 'ACTOR'),
-(3, 'Millie Bobby Brown', 'ACTRIZ'),
-(4, 'Jennifer Lopez', 'ACTRIZ'),
-(5, 'Eduardo Franco', 'ACTOR'),
-(6, 'Sadie Sink', 'ACTRIZ'),
-(7, 'Clint Eastwood', 'DIRECTOR'),
-(8, 'Martin Scorsese', 'DIRECTOR'),
-(9, 'Carlos Rotenberg', 'PRODUCTOR');
+('Johnny Depp', 'ACTOR'),
+('Cillian Murphy', 'ACTOR'),
+('Millie Bobby Brown', 'ACTRIZ'),
+('Jennifer Lopez', 'ACTRIZ'),
+('Eduardo Franco', 'ACTOR'),
+('Sadie Sink', 'ACTRIZ'),
+('Clint Eastwood', 'DIRECTOR'),
+('Martin Scorsese', 'DIRECTOR'),
+('Carlos Rotenberg', 'PRODUCTOR');
 
 -- CATEGORIAS
-INSERT INTO `categorias` (`id`, `nombre`) VALUES
-(NULL, 'Acción'),
-(NULL, 'Aventuras'),
-(NULL, 'Ciencia Ficción'),
-(NULL, 'Comedia'),
-(NULL, 'Drama'),
-(NULL, 'Fantasía'),
-(NULL, 'Terror');
+INSERT INTO `categorias` (`nombre`) VALUES
+('Acción'),
+('Aventuras'),
+('Ciencia Ficción'),
+('Comedia'),
+('Drama'),
+('Fantasía'),
+('Terror');
 
 -- CONTENIDOS
 INSERT INTO `contenidos` (`id`, `activo`, `bloqueado`, `descripcion`, `destacado`, `duracion`, `foto_portada`, `nombre`, `precio`, `tipo_contenido`, `video`, `gc_id`) VALUES (NULL, '1', '0', 'Koaoa', '0', '02:05:56', 'https://imagenes.elpais.com/resizer/FlO3Q6Foq8OEJ08hJkTdyzeOUVg=/414x0/cloudfront-eu-central-1.images.arcpublishing.com/prisa/BG4MMMWM4JOPRSXMITTKA62MUY.jpg', 'COCO', '0', 'PELICULA', 'https://www.youtube.com/watch?v=A_g3lMcWVy0&list=RDA_g3lMcWVy0&start_radio=1', 1);
