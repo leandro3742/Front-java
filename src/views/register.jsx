@@ -1,16 +1,31 @@
 import React, { useState } from "react";
-import TextField from "@mui/material/TextField";
-import Paper from "@mui/material/Paper";
 import "../styles/register.css"
 import add from "../images/addretro.png";
+import { fetchFunction } from "../utils/fetch";
+import { buildHeader } from "../utils/fetch";
+import Swal from 'sweetalert2';
 function Register() {
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
-    const [lastName, setLastName] = useState("");
     const [password, setPassword] = useState("");
+    const saveElement = () => {
+        let url = "http://localhost:8080/usuarios/agregarUsuario";
+        fetchFunction(url, buildHeader("POST", {
+            "nombre": name,
+            "email":email,
+            "contrasenia":password
+        })).then(result => {
+                if (result == "ERROR") {
+                    Swal.fire("Error");
+                }
+                else {
+                    console.log("Ok", result);
+                    Swal.fire('Registro con exito');
+                    window.location.replace("/login");
+                }
+            }).catch(err => console.log(err));
+        };
 
-
-    const saveElement = () => { };
     return (
         <div style={{ height: "90vh" }} className="m-0 row ">
             <div className="m-auto col-10 col-lg-5 d-flex flex-column align-items-center0">
@@ -19,22 +34,10 @@ function Register() {
                     <img src={add} className="addimg"></img>
                 </div>
 
-                <form className="divGlobal margenb">
-                    <div>
-                        <input onChange={(e) => setEmail(e.target.value)} className="m-2 col-lg-5 col-md-5 col-11 fuente" placeholder="Email" />
-                    </div>
-                    <div>
-                        <input onChange={(e) => setName(e.target.value)} className="m-2 col-lg-5 col-md-5 col-11 fuente" placeholder="Nombre" />
-                    </div>
-                    <div>
-                        <input onChange={(e) => setLastName(e.target.value)} className="m-2 col-lg-5 col-md-5 col-11 fuente" placeholder="Apellido" />
-                    </div>
-                    <div>
-                        <input onChange={(e) => setPassword(e.target.value)} className="m-2 col-lg-5 col-md-5 col-11 fuente" placeholder="Contraseña" type='password' />
-                    </div>
-                    <div>
-                        <input className="m-2 col-lg-5 col-md-5 col-11 fuente" placeholder="Repetir contraseña" type='password' />
-                    </div>
+                <form className="divGlobal margenb">                
+                    <input type="text" onChange={(e) => setEmail(e.target.value)} className='inputs fuenteL' placeholder="Email"></input>
+                    <input type="text" onChange={(e) => setName(e.target.value)} className='inputs fuenteL' placeholder="Nombre"></input>
+                    <input type="text" onChange={(e) => setPassword(e.target.value)} className='inputs fuenteL' placeholder="Contraseña"></input>
                 </form>
                 <button onClick={saveElement} className="m-auto my-2 btn fuente btnConfirmar" type="submit">
                     Registrarme
