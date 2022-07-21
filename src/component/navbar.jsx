@@ -33,13 +33,13 @@ function NavbarComponent(props) {
                 </div>
             )}
             {props.isLogged && props.tipoUsuario === "CLIENTE" && (
-                <div className="col-lg-9">
+                <div className="col-lg-8 m-0 p-0">
                     <NavbarCliente setIsLogged={props.setIsLogged} />
                 </div>
             )}
            
             {props.isLogged && props.tipoUsuario === "ADMIN" && (
-                <div className="col-lg-9">
+                <div className="col-lg-8">
                     <NavbarAdmin setIsLogged={props.setIsLogged} />
                 </div>
             )}

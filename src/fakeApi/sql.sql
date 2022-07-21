@@ -16,10 +16,10 @@ INSERT INTO `usuarios` (`activo`, `bloqueado`, `contrasenia`, `email`, `nombre`,
 INSERT INTO `usuarios` (`activo`, `bloqueado`, `contrasenia`, `email`, `nombre`, `pago`, `tipo_usuario`) VALUES ( 1, 1, '123', 'cliente12@gmail.com', 'Sofia', 1, 'CLIENTE');
 
 -- GENERADOR CONTENIDO
-INSERT INTO `generadores_contenidos` (`contrasenia`,`precio`, `email`, `ganancia`, `metodo_pago`, `nombre`) VALUES ('123', 0,'generadorContenido@gmail.com', '0', 'Tarjeta ', 'generadorContenido1');
-INSERT INTO `generadores_contenidos` (`contrasenia`,`precio`, `email`, `ganancia`, `metodo_pago`, `nombre`) VALUES ('123', 0,'netflix@gmail.com', '0', 'Tarjeta', 'Netflix');
-INSERT INTO `generadores_contenidos` (`contrasenia`,`precio`, `email`, `ganancia`, `metodo_pago`, `nombre`) VALUES ('123', 0,'Disney@gmail.com', '0', 'Tarjeta', 'Disney+');
-INSERT INTO `generadores_contenidos` (`contrasenia`,`precio`, `email`, `ganancia`, `metodo_pago`, `nombre`) VALUES ('123', 0,'crunchyroll@gmail.com', '0', 'Tarjeta', 'Crunchyroll');
+INSERT INTO `generadores_contenidos` (`contrasenia`,`precio`, `email`, `metodo_pago`, `nombre`) VALUES ('123', 0,'generadorContenido@gmail.com', 'Tarjeta ', 'generadorContenido1');
+INSERT INTO `generadores_contenidos` (`contrasenia`,`precio`, `email`, `metodo_pago`, `nombre`) VALUES ('123', 0,'netflix@gmail.com', 'Tarjeta', 'Netflix');
+INSERT INTO `generadores_contenidos` (`contrasenia`,`precio`, `email`, `metodo_pago`, `nombre`) VALUES ('123', 0,'Disney@gmail.com', 'Tarjeta', 'Disney+');
+INSERT INTO `generadores_contenidos` (`contrasenia`,`precio`, `email`, `metodo_pago`, `nombre`) VALUES ('123', 0,'crunchyroll@gmail.com', 'Tarjeta', 'Crunchyroll');
 
 
 -- SELECT * FROM contenidos c JOIN contenidos_categoria cc ON c.id = cc.contenido_id JOIN categorias cat ON cat.id = cc.categoria_id WHERE cat.nombre = "Ciencia Ficción" && c.tipo_contenido="SERIE"

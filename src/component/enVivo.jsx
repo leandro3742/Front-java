@@ -200,8 +200,8 @@ function EnVivo(props){
         }
     }
     return (
-        <div style={{ width: "100%", height: "90vh" }} className="row m-0">
-            <div className="col-lg-9 col-md-9 col-12 p-0">
+        <div style={{ width: "100%", height: "90vh" }} className="row d-flex m-0">
+            <div className="col-lg-9 col-md-9 col-12 m-0 p-0">
                 <ReactPlayer
                   url={url}
                   width="100%"
@@ -214,7 +214,7 @@ function EnVivo(props){
                 />
             </div>
 
-            <div className="col-lg-3 col-md-3 col-12 p-0">
+            <div className="col-lg-3 col-md-3 col-12 p-3 m-auto m-0">
                 <div style={{height: "10vh", backgroundColor: "white"}} className="rounded-3 px-3 m-auto text-danger col-12 d-flex justify-content-between align-items-center">
                   <h3>{title}</h3>
                   <button className='btn btn-sm btn-primary' onClick={()=> setType(type === "Chats" ? "Comentarios" : "Chats" )}>{type}</button>

@@ -26,6 +26,12 @@ async function valorarContenido(url){
     }
     return "ERROR"
 }
+
+async function estaValorado(url){
+    const response = await fetch(url);
+    return await response
+}
+
 function MyList() {
     const [favs, setFavs] = useState([])
     
@@ -34,7 +40,6 @@ function MyList() {
             getFavs(`http://localhost:8080/usuarios/listarFavoritos/${JSON.parse(sessionStorage.getItem('usuario')).idUsuario}`)
             .then(res => {
                 if(res != "ERROR"){
-                    console.log(res)
                     setFavs(res)
                 }
             })
@@ -64,10 +69,19 @@ function MyList() {
                 console.log(res)
             })
     }
+    const mostrar = async(idContenido) => {
+        return await estaValorado(`http://localhost:8080/contenidos/esFavorito/${idContenido}/${JSON.parse(sessionStorage.getItem('usuario')).idUsuario}`)
+        .then(res => {
+            console.log(res)
+            if(res.status < 300)
+            return true
+            else return false
+        })
+    }
     return (
         <div className="row m-0">
-            {/* https://lumiere-a.akamaihd.net/v1/images/encanto_ka_las_pay1_92ad7410.jpeg */}
             {favs.map(data => {
+                mostrar(data.id)
                 return(
                     <div key={data.id} className="col-4">
                         <img src={data.fotoPortada} style={{width: '90%'}} />

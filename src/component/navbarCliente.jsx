@@ -18,20 +18,16 @@ function NavbarCliente(props) {
                 <div className="col-9 row m-0">
                     <div className="col-10 d-flex align-items-center justify-content-around">
                         <Link className="link d-flex align-items-center" to="/series">
-                            <img className="mx-1" style={{ width: "30px" }} src={series} alt="" />
+                            <img className="mx-1" style={{ width: "20px" }} src={series} alt="" />
                             Series
                         </Link>
                         <Link className="link d-flex align-items-center" to="/films">
-                            <img className="mx-1" style={{ width: "40px" }} src={film} alt="" />
+                            <img className="mx-1" style={{ width: "30px" }} src={film} alt="" />
                             Peliculas
                         </Link>
                         <Link className="link d-flex align-items-center" to="/myList">
-                            <img className="mx-1" style={{ width: "25px" }} src={add} alt="" />
+                            <img className="mx-1" style={{ width: "20px" }} src={add} alt="" />
                             Mi lista
-                        </Link>
-                        <Link className="link d-flex align-items-center" to="/pricings">
-                            <img className="mx-1" style={{ width: "25px" }} src={search} alt="" />
-                            Generadores
                         </Link>
                         <Link className="link d-flex align-items-center" to="/search">
                             <img className="mx-1" style={{ width: "25px" }} src={search} alt="" />
@@ -41,11 +37,10 @@ function NavbarCliente(props) {
                             <button className="dropbtn">
                                 <img style={{ width: "80px" }} className="rounded-circle" src={icon} alt="" />
                             </button>
-                            <div className="dropdown-content prioridad">
-                                <Link to='/profile' className="itemsdrop">Ver perfil</Link>
+                            <div style={{zIndex: '100'}} className="dropdown-content prioridad">
+                                <Link to='/profile'>Ver perfil</Link>
+                                <Link to="/pricings">Ver generadores</Link>
                                 <Link to='/subscriptions' className="itemsdrop">Ver suscripciones</Link>
-                                <a className="itemsdrop">Rankear contenido</a> {/*Solamente hay que mostrarle los contenidos que tiene como favoritos*/}
-                                <Link to="/" className="itemsdrop">Ver generadores</Link>
                                 <Link to="/" className="itemsdrop" onClick={cerrarSesion}>Cerrar sesión</Link>
                             </div>
                         </div>

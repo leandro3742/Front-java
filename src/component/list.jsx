@@ -34,7 +34,6 @@ function List () {
             setImageSize({ maxHeight: "175px", maxWidth: "150px" });
         }
     }, []);
-
   return (
     <div className="m-0 row d-flex justify-content-center">
        <div onClick={back} className="back col-1 d-flex align-items-center" style={{ zIndex: "1", cursor: "pointer" }}>
