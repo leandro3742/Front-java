@@ -38,12 +38,13 @@ function Search() {
             <input style={styleDiv} className="texto d-flex justify-content-center align-items-center rounded text-center" onChange={(e)=>setBuscar(e.target.value)} placeholder="Título o género" />
             {contenidos.length > 0 
                 ?
-                <div>
+                <div className="d-flex flex-wrap justify-content-center mt-2 ">
                 {contenidos.map((elem, index) => {
                     return (
-                        <div style={imageSize} key={index} className="m-2">
+                        <div style={imageSize} key={index} >
                             <Link to={`/detail/${elem.id}`} ><img style={imageSize} className="frontPage rounded" src={elem.fotoPortada} key={index} /></Link>
-                            <span>{elem.descripcion}</span>
+                            <br></br>
+                            <span>{elem.nombre}</span>
                         </div>
                     )
                 })}
