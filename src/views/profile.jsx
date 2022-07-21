@@ -1,21 +1,36 @@
 import React , { useState, useEffect }from "react";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import { Link } from "react-router-dom";
 
 function Profile() {
+    
+    const [Contenidos, setContenidos] = useState([]);
     const [usu,setusu] = useState()
     const [nombre, setNombre] = useState("")
     const [Pass, setPass] = useState("")
     const [Edit, setedit] = useState(false)
     const url = 'http://localhost:8080/usuarios/' + JSON.parse(sessionStorage.getItem("usuario")).idUsuario;
     const fetchApi = async () => {
-        const response = await fetch(url)
-        const responseJSON = await response.json()
-        setusu(responseJSON)
+        const response = await fetch(url);
+        const responseJSON = await response.json();
+        setusu(responseJSON);
+    }
+
+    function contenido() {
+        async function fetchFunction(url) {
+            const response = await fetch(url);
+            setContenidos(await response.json())
+        }
+        fetchFunction('http://localhost:8080/usuarios/listarContenidosVistos/' +JSON.parse(sessionStorage.getItem("usuario")).idUsuario);
     }
 
     useEffect(() => {
-        console.log(sessionStorage.getItem("usuario"))
         if (sessionStorage.getItem("usuario")) {
             fetchApi();
+            contenido();
         }
     }, [])
 
@@ -84,6 +99,22 @@ function Profile() {
                 </div>
             </div>
             }
+            <div>
+            {Contenidos.length > 0 ?
+                <div className="divGlobal">
+                {Contenidos.map((elem, index) => {
+                    return (
+                        <div key={index} className="m-2">
+                            <Link to={`/detail/${elem.id}`} >
+                                <img className="frontPage rounded" src={elem.fotoPortada} key={index} />
+                                </Link>
+                        </div>
+                    )
+                })}
+                </div>
+                : <span>Aun no ve contenidos</span>
+            }
+            </div>
         </div>
     )
 }
