@@ -21,15 +21,12 @@ const fetchPelicula = async (url) => {
 
 function Films() {
 
-    const url = "http://localhost:8080/categorias";
-    const [todos, setTodos] = useState();
     const [peliculas, setPeliculas] = useState([]);
     const [categories, setCategories] = useState([])
     const [imageSize, setImageSize] = useState({});
 
     const buscar = (e) => {
         console.log(e.target.value)
-
         const url = "http://localhost:8080/contenidos/listarPorTipoCat/"+e.target.value+"/PELICULA";
         fetchPelicula(url)
         .then(res => {
