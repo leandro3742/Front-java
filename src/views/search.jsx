@@ -45,6 +45,7 @@ function Search() {
                             <Link to={`/detail/${elem.id}`} ><img style={imageSize} className="frontPage rounded" src={elem.fotoPortada} key={index} /></Link>
                             <br></br>
                             <span>{elem.nombre}</span>
+                            <br></br>
                         </div>
                     )
                 })}

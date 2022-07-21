@@ -17,41 +17,43 @@ function HomeGenerador() {
     useEffect(() => {
         fetchApi()
     }, [])
-    function mes(x){
-        if (x==1) return "Enero";
-        if (x==2) return "Febrero";
-        if (x==3) return "Marzo";
-        if (x==4) return "Abril";
-        if (x==5) return "Mayo";
-        if (x==6) return "Junio";
-        if (x==7) return "Julio";
-        if (x==8) return "Agosto";
-        if (x==9) return "Septiembre";
-        if (x==10) return "Octubre";
-        if (x==11) return "Noviembre";
-        if (x==12) return "Diciembre";
+    function mes(x) {
+        if (x == 1) return "Enero";
+        if (x == 2) return "Febrero";
+        if (x == 3) return "Marzo";
+        if (x == 4) return "Abril";
+        if (x == 5) return "Mayo";
+        if (x == 6) return "Junio";
+        if (x == 7) return "Julio";
+        if (x == 8) return "Agosto";
+        if (x == 9) return "Septiembre";
+        if (x == 10) return "Octubre";
+        if (x == 11) return "Noviembre";
+        if (x == 12) return "Diciembre";
     }
 
     return (
         <div className='d-flex flex-column align-items-center '>
-            {!todos ? <div className='container'></div> : <div className='container'>
-                {todos.map((elem) => {
-                    return <div className="card">
-                    <div >
-                        <Accordion className="df" defaultActiveKey="0" flush>
-                            <Accordion.Item eventKey="0">
-                                <Accordion.Header ><h1 className="title">Mes: {mes(elem.mes)}</h1></Accordion.Header>
-                                <Accordion.Body>
-                                        <ul className="ul texto">Ganancias de Suscripciones mensuales:$ {elem.gananciaMensual}</ul>
-                                        <ul className="ul texto">Ganancias PPV:$ {elem.gananciaMensualPPV} </ul>
-                                </Accordion.Body>
-                            </Accordion.Item >
-                        </Accordion>
-                        </div>
-            </div>}
-            )}
-            </div>}
+            {!todos ? 'Cargando ...' :
+                <div>
+                    {todos.length > 0 ? 
+                        <div className='container'>
+                            {todos.map((elem) => {
+                                return <div className="card">
+                                    <Accordion className="df" defaultActiveKey="0" flush>
+                                        <Accordion.Item eventKey="0">
+                                            <Accordion.Header ><h1 className="title">Mes: {mes(elem.mes)}</h1></Accordion.Header>
+                                            <Accordion.Body>
+                                                <ul className="ul texto">Ganancias de Suscripciones mensuales:$ {elem.gananciaMensual}</ul>
+                                                <ul className="ul texto">Ganancias PPV:$ {elem.gananciaMensualPPV} </ul>
+                                            </Accordion.Body>
+                                        </Accordion.Item >
+                                    </Accordion>
+                                </div>
+                            })}
+                        </div>:<div className='container'> <h3 className="title">Aun no cuenta con Ganancias</h3> </div>}
+                </div>}
         </div>
-        )
+    )
 }
 export default HomeGenerador;
