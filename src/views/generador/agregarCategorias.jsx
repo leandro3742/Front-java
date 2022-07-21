@@ -133,7 +133,7 @@ function CategoriasContenido() {
                 </div>
             </div>
             <div>
-                <h4 className='title'>Categorias Agregadas</h4>
+                <h4 className='title'>Categorías Agregadas</h4>
                 {!catC ? <p></p> :
                     <div>
                             {catC.map((elem) => {

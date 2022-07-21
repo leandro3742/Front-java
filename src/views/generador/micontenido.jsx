@@ -55,7 +55,7 @@ function miContenido() {
             {mostrar ?
                 <div className='divGlobal'>
                     <div className='divTitle'>
-                        <h4 className='title'>Mi Contenidos</h4>
+                        <h4 className='title'>Mis Contenidos</h4>
                     </div>
                     {!todos ? 'Cargando ...' :
                         todos.map((todo, index) => {
@@ -65,7 +65,7 @@ function miContenido() {
                                     <img className="img" src={todo.fotoPortada}></img>
                                     <Accordion className="df" defaultActiveKey="0" flush>
                                         <Accordion.Item >
-                                            <Accordion.Header ><h5 className="h5">Descripción</h5></Accordion.Header>
+                                            <Accordion.Header ><h5 className="h5">Info</h5></Accordion.Header>
                                             <Accordion.Body>
                                                 <ul className="ul texto">Descripción: {todo.descripcion}</ul>
                                                 <ul className="ul texto">Duración: {todo.duracion}</ul>

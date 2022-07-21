@@ -66,7 +66,7 @@ function destacar() {
                                     <img className="img" src={todo.fotoPortada}></img>
                                     <Accordion className="df" defaultActiveKey="0" flush>
                                         <Accordion.Item >
-                                            <Accordion.Header ><h5 className="h5">Descripción</h5></Accordion.Header>
+                                            <Accordion.Header ><h5 className="h5">Info</h5></Accordion.Header>
                                             <Accordion.Body>
                                                 <ul className="ul texto">Descripción: {todo.descripcion}</ul>
                                                 <ul className="ul texto">Duración: {todo.duracion}</ul>

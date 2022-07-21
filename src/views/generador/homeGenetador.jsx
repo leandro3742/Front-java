@@ -42,7 +42,7 @@ function HomeGenerador() {
                             <Accordion.Item eventKey="0">
                                 <Accordion.Header ><h1 className="title">Mes: {mes(elem.mes)}</h1></Accordion.Header>
                                 <Accordion.Body>
-                                        <ul className="ul texto">Ganansias Subcripsiones:$ {elem.gananciaMensual}</ul>
+                                        <ul className="ul texto">Ganancias de Suscripciones mensuales:$ {elem.gananciaMensual}</ul>
                                         <ul className="ul texto">Ganancias PPV:$ {elem.gananciaMensualPPV} </ul>
                                 </Accordion.Body>
                             </Accordion.Item >

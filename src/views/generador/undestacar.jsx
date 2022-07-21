@@ -68,7 +68,7 @@ function undestacar() {
                                     <img className="img" src={todo.fotoPortada}></img>
                                     <Accordion className="df" defaultActiveKey="0" flush>
                                         <Accordion.Item >
-                                            <Accordion.Header ><h5 className="h5">Descripción</h5></Accordion.Header>
+                                            <Accordion.Header ><h5 className="h5">Info</h5></Accordion.Header>
                                             <Accordion.Body>
                                                 <ul className="ul texto">Descripción: {todo.descripcion}</ul>
                                                 <ul className="ul texto">Duración: {todo.duracion}</ul>
@@ -76,7 +76,7 @@ function undestacar() {
                                             </Accordion.Body>
                                         </Accordion.Item>
                                     </Accordion>
-                                    <button className="btnConfirmar" onClick={() => saveElement(todo.id)}> Qutar de destacados </button>
+                                    <button className="btnConfirmar" onClick={() => saveElement(todo.id)}> Quitar de destacados </button>
                                 </div>
                             </div>
 
