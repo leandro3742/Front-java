@@ -61,11 +61,12 @@ function Films() {
             </div>
             {peliculas.length > 0 
                 ?
-                <div>
+                <div className="d-flex flex-wrap justify-content-center mt-2 ">
                 {peliculas.map((elem, index) => {
                     return (
                         <div style={imageSize} key={index} className="m-2">
                             <Link to={`/detail/${elem.id}`} ><img style={imageSize} className="frontPage rounded" src={elem.fotoPortada} key={index} /></Link>
+                            <br></br>
                             <span>{elem.descripcion}</span>
                         </div>
                     )
