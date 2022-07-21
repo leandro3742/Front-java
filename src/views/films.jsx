@@ -5,6 +5,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import { Link } from "react-router-dom";
 import '../styles/films.css';
+import sr from '../images/peliculastitulo.png';
 
 const fetchCategories = async (url) => {
     const response = await fetch(url)
@@ -48,7 +49,7 @@ function Films() {
     return (
         <div className="mx-5 mt-3">
             <div className="d-flex align-items-center">
-                <h3>Peliculas</h3>
+                <h3 className="texto"><img src={sr} style={{width: "200px"}}/></h3>
                 <FormControl style={{ width: "300px", backgroundColor: "grey", color: "white", border: "white" }} className="mx-5 rounded">
                     <InputLabel className="texto">Categorías</InputLabel>
                     <Select style={{ color: "white" }} onChange={buscar}>

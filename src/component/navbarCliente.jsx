@@ -50,13 +50,17 @@ function NavbarCliente(props) {
 
             {window.screen.width <= 730 &&(
                 <div className="col-10 d-flex align-items-center justify-content-end">
-                    <Link className="mx-1 link d-flex align-items-center" to="/search">
-                        <img className="mx-1" style={{ width: "25px" }} src={search} alt="" />
-                        Búsqueda
-                    </Link>
-                    <Link className="link d-flex align-items-center" to="/profile">
-                        <img style={{ width: "50px" }} className="rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjak94qQLO299Y_05mEHWIB_S2mm3JGrYQkQ&usqp=CAU" alt="" />
-                    </Link>
+                    <div className="dropdown">
+                        <button className="dropbtn">
+                            <img style={{ width: "80px" }} className="rounded-circle" src={icon} alt="" />
+                        </button>
+                        <div style={{zIndex: '100'}} className="dropdown-content prioridad">
+                            <Link to='/profile'>Ver perfil</Link>
+                            <Link to="/pricings">Ver generadores</Link>
+                            <Link to='/subscriptions' className="itemsdrop">Ver suscripciones</Link>
+                            <Link to="/" className="itemsdrop" onClick={cerrarSesion}>Cerrar sesión</Link>
+                        </div>
+                    </div>
                 </div>
             )}
         </div>

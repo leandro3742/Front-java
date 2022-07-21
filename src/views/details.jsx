@@ -13,8 +13,22 @@ async function fetchAgregarFav(url){
             "Content-Type":"application/json"
         }
     });
-    console.log(await response)
+    await response
     alert("Se agrego a la lista de contenidos")
+}
+
+async function fetchValoracion(url){
+    const response = await fetch(url);
+    if(response.status < 300)
+        return await response.json()
+    return "ERROR"
+}
+
+async function getRelacionados(url){
+    const response = await fetch(url);
+    if(response.status < 300)
+        return await response.json()
+    return "ERROR"
 }
 
 
@@ -22,6 +36,11 @@ function Details() {
     const { id } = useParams();
     const [data, setData] = useState();
     const [pago, setPago] = useState(false);
+    const [directores, setDirectores] = useState([]);
+    const [elenco, setElenco] = useState([]);
+    const [valoracion, setValoracion] = useState("SV");
+    const [relacionados, setRelacionados] = useState([]);
+
     const currentDate = new Date();
 
     const usuario = JSON.parse(sessionStorage.getItem("usuario"))
@@ -30,12 +49,15 @@ function Details() {
             const response = await fetch(url);
             setData(await response.json())
         }
+        fetchValoracion(`http://localhost:8080/contenidos/obtenerPuntaje/${id}`)
+        .then(res => {
+            if(res !== "ERROR")
+                setValoracion(res.puntaje)
+        })
         fetchFunction('http://localhost:8080/contenidos/'+id);
     }, []);
 
     const pagarPPV = (elem) => {
-        alert("entra")
-        console.log(elem)
         async function subscribirse(url){
             const response = await fetch(url, {
                 method: "POST",
@@ -63,10 +85,29 @@ function Details() {
 
     useEffect(() => {
         if(data){
+            getRelacionados(`http://localhost:8080/contenidos/listarRelacionados/${id}`)
+            .then(res => {
+                console.log(res)
+                if(res !== "ERROR"){
+                    setRelacionados(res)
+                }
+            })
+            let auxDirector = []
+            let auxElenco = []
+
+            data.persona.map(elem => {
+                if(elem.tipoElenco === "PRODUCTOR"){
+                    auxDirector.push(elem.nombre)
+                }
+                else
+                    auxElenco.push(elem.nombre)
+            })
+            setElenco(auxElenco);
+            setDirectores(auxDirector);
             if(data.precio > 0 && usuario){
+
                 async function estaPago(url) {
                     const response = await fetch(url);
-                    console.log(response)
                     if ((await response.status) > 300) {
                       setPago(false);
                     } else setPago(true);
@@ -80,9 +121,7 @@ function Details() {
         let fecha = data.fecha_comienzo.split('/');
         let hora = data.comienzo.split(":");
         if(currentDate.getFullYear() == fecha[0] && currentDate.getMonth()+1 == fecha[1] && currentDate.getDate() == fecha[2]){
-            console.log(currentDate.getMinutes())
             if(currentDate.getHours() >= hora[0]){
-                console.log("entra")
                 if(currentDate.getHours() == hora[0] && currentDate.getMinutes() >= hora[1] ){
                     return true
                 }
@@ -103,7 +142,12 @@ function Details() {
                     <div>
                         <span><b>Titulo</b> : {data.nombre}</span> <br />
                         <span><b>Descripcion</b> : {data.descripcion}</span> <br />                        
-                        <span><b>Generador</b> : {data.generadorContenidoid.nombre}</span> <br />                        
+                        <span><b>Generador</b> : {data.generadorContenidoid.nombre}</span> <br />  
+                        <span><b>Directores</b>: {directores.map(elem => {return <span key={elem}>{elem} , </span>})}</span><br />                    
+                        <span><b>Elenco</b>: {elenco.map(elem => {return <span key={elem}>{elem},</span>})}</span><br />      
+                        <span><b>Valoracion</b>: {valoracion}/5</span><br />
+                        <span><b>Relacionados</b>: {relacionados.map(elem => {return <a href={`/detail/${elem.id}`}><img src={elem.fotoPortada} style={{width: '50px'}} /></a>})}</span><br />
+                        
                         {data.precio > 0 && <span><b>Precio</b> : {data.precio}</span>}
                         {sessionStorage.getItem("usuario") &&
                             <div className="d-flex justify-content-center">

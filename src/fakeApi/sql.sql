@@ -46,9 +46,9 @@ INSERT INTO `categorias` (`nombre`) VALUES
 ('Terror');
 
 -- CONTENIDOS
-INSERT INTO `contenidos` (`id`, `activo`, `bloqueado`, `descripcion`, `destacado`, `duracion`, `foto_portada`, `nombre`, `precio`, `tipo_contenido`, `video`, `gc_id`) VALUES (NULL, '1', '0', 'Koaoa', '0', '02:05:56', 'https://imagenes.elpais.com/resizer/FlO3Q6Foq8OEJ08hJkTdyzeOUVg=/414x0/cloudfront-eu-central-1.images.arcpublishing.com/prisa/BG4MMMWM4JOPRSXMITTKA62MUY.jpg', 'COCO', '0', 'PELICULA', 'https://www.youtube.com/watch?v=A_g3lMcWVy0&list=RDA_g3lMcWVy0&start_radio=1', 1);
-INSERT INTO `contenidos` (`id`, `activo`, `bloqueado`, `descripcion`, `destacado`, `duracion`, `foto_portada`, `nombre`, `precio`, `tipo_contenido`, `video`, `gc_id`) VALUES (NULL, '1', '0', 'Koaoa', '0', '02:05:56', 'https://es.web.img2.acsta.net/c_310_420/pictures/22/05/14/13/26/5638861.jpg', 'Stranger Things', '0','SERIE', 'https://www.youtube.com/watch?v=A_g3lMcWVy0&list=RDA_g3lMcWVy0&start_radio=1', 2);
-INSERT INTO `contenidos` (`id`, `activo`, `bloqueado`, `descripcion`, `destacado`, `duracion`, `foto_portada`, `nombre`, `precio`, `tipo_contenido`, `video`, `gc_id`) VALUES (NULL, '1', '0', 'Dinosaurios', '0', '02:05:56', 'https://static.cinepolis.com/resources/mx/movies/posters/264x386/39182-772229-20220531044140.jpg', 'Dinosaurios', '0','PELICULA', 'https://www.youtube.com/watch?v=A_g3lMcWVy0&list=RDA_g3lMcWVy0&start_radio=1', 1);
+INSERT INTO `contenidos` (`id`, `activo`, `bloqueado`, `descripcion`, `destacado`, `duracion`, `foto_portada`, `nombre`, `precio`, `tipo_contenido`, `video`, `gc_id`) VALUES (NULL, '1', '0', 'Koaoa', '0', '02:05:56', 'https://imagenes.elpais.com/resizer/FlO3Q6Foq8OEJ08hJkTdyzeOUVg=/414x0/cloudfront-eu-central-1.images.arcpublishing.com/prisa/BG4MMMWM4JOPRSXMITTKA62MUY.jpg', 'COCO', '0', 'PELICULA', 'https://www.youtube.com/watch?v=A_g3lMcWVy0', 1);
+INSERT INTO `contenidos` (`id`, `activo`, `bloqueado`, `descripcion`, `destacado`, `duracion`, `foto_portada`, `nombre`, `precio`, `tipo_contenido`, `video`, `gc_id`) VALUES (NULL, '1', '0', 'Koaoa', '0', '02:05:56', 'https://es.web.img2.acsta.net/c_310_420/pictures/22/05/14/13/26/5638861.jpg', 'Stranger Things', '0','SERIE', 'https://www.youtube.com/watch?v=A_g3lMcWVy0', 2);
+INSERT INTO `contenidos` (`id`, `activo`, `bloqueado`, `descripcion`, `destacado`, `duracion`, `foto_portada`, `nombre`, `precio`, `tipo_contenido`, `video`, `gc_id`) VALUES (NULL, '1', '0', 'Dinosaurios', '0', '02:05:56', 'https://static.cinepolis.com/resources/mx/movies/posters/264x386/39182-772229-20220531044140.jpg', 'Dinosaurios', '0','PELICULA', 'https://www.youtube.com/watch?v=A_g3lMcWVy0', 1);
 INSERT INTO `contenidos` (`id`, `activo`, `bloqueado`, `comienzo`, `descripcion`, `destacado`, `duracion`, `foto_portada`, `nombre`, `precio`, `tipo_contenido`, `video`, `gc_id`) VALUES (NULL, '0', '0', NULL, 'El Dr. Stephen Strange abre un portal al multiverso al utilizar un hechizo prohibido. Ahora, su equipo debe enfrentarse a una amenaza que podría destruirlo todo.', '0', '02:05:56', 'https://static.wikia.nocookie.net/marvel/images/2/29/Doctor_Strange_en_el_Multiverso_de_la_Locura_P%C3%B3ster_003.jpg/revision/latest?cb=20220406150939&path-prefix=es', 'Doctor Strange', '0','PELICULA', 'https://youtu.be/mCg0V88W0Xw', 1);
 INSERT INTO `contenidos` (`id`, `activo`, `bloqueado`, `comienzo`, `descripcion`, `destacado`, `duracion`, `foto_portada`, `nombre`, `precio`, `tipo_contenido`, `video`, `gc_id`) VALUES (NULL, '0', '0', NULL, 'El Dr. Stephen Strange abre un portal al multiverso al utilizar un hechizo prohibido. Ahora, su equipo debe enfrentarse a una amenaza que podría destruirlo todo.', '0', '02:05:56', 'https://static.wikia.nocookie.net/marveldatabase/images/4/41/Death_of_Doctor_Strange_Vol_1_4.jpg/revision/latest?cb=20211208004254','Dr. Stephen Strange', '0','PELICULA', 'https://youtu.be/mCg0V88W0Xw', 1);
 
@@ -89,17 +89,17 @@ INSERT INTO `rankings` (`id_contenido`, `id_usuario`, `puntaje`) VALUES
 INSERT INTO `visualizaciones` (`terminado`, `time`, `contenido_id`, `usuario_id`) VALUES (1, 20, '1', '1'), (1, 20, '1', '2');
 
 -- CONTENIDO PERSONA
-INSERT INTO `contenidos_persona` (`contenido_id`, `persona_id`) VALUES ('1', '9');
-INSERT INTO `contenidos_persona` (`contenido_id`, `persona_id`) VALUES ('1', '8');
-INSERT INTO `contenidos_persona` (`contenido_id`, `persona_id`) VALUES ('2', '1');
-INSERT INTO `contenidos_persona` (`contenido_id`, `persona_id`) VALUES ('2', '7');
-INSERT INTO `contenidos_persona` (`contenido_id`, `persona_id`) VALUES ('3', '7');
-INSERT INTO `contenidos_persona` (`contenido_id`, `persona_id`) VALUES ('3', '1');
-INSERT INTO `contenidos_persona` (`contenido_id`, `persona_id`) VALUES ('3', '5');
-INSERT INTO `contenidos_persona` (`contenido_id`, `persona_id`) VALUES ('4', '5');
-INSERT INTO `contenidos_persona` (`contenido_id`, `persona_id`) VALUES ('4', '9');
-INSERT INTO `contenidos_persona` (`contenido_id`, `persona_id`) VALUES ('5', '9');
-INSERT INTO `contenidos_persona` (`contenido_id`, `persona_id`) VALUES ('5', '1');
-INSERT INTO `contenidos_persona` (`contenido_id`, `persona_id`) VALUES ('5', '6');
-INSERT INTO `contenidos_persona` (`contenido_id`, `persona_id`) VALUES ('6', '3');
-INSERT INTO `contenidos_persona` (`contenido_id`, `persona_id`) VALUES ('6', '9');
+INSERT INTO `contenido_personas` (`contenido_id`, `persona_id`) VALUES ('1', '9');
+INSERT INTO `contenido_personas` (`contenido_id`, `persona_id`) VALUES ('1', '8');
+INSERT INTO `contenido_personas` (`contenido_id`, `persona_id`) VALUES ('2', '1');
+INSERT INTO `contenido_personas` (`contenido_id`, `persona_id`) VALUES ('2', '7');
+INSERT INTO `contenido_personas` (`contenido_id`, `persona_id`) VALUES ('3', '7');
+INSERT INTO `contenido_personas` (`contenido_id`, `persona_id`) VALUES ('3', '1');
+INSERT INTO `contenido_personas` (`contenido_id`, `persona_id`) VALUES ('3', '5');
+INSERT INTO `contenido_personas` (`contenido_id`, `persona_id`) VALUES ('4', '5');
+INSERT INTO `contenido_personas` (`contenido_id`, `persona_id`) VALUES ('4', '9');
+INSERT INTO `contenido_personas` (`contenido_id`, `persona_id`) VALUES ('5', '9');
+INSERT INTO `contenido_personas` (`contenido_id`, `persona_id`) VALUES ('5', '1');
+INSERT INTO `contenido_personas` (`contenido_id`, `persona_id`) VALUES ('5', '6');
+INSERT INTO `contenido_personas` (`contenido_id`, `persona_id`) VALUES ('6', '3');
+INSERT INTO `contenido_personas` (`contenido_id`, `persona_id`) VALUES ('6', '9');
