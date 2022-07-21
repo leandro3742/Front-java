@@ -34,7 +34,7 @@ function HomeGenerador() {
 
     return (
         <div className='d-flex flex-column align-items-center '>
-            {!todos ? <div className='container'></div> : <div className='container'>
+            {todos.length > 0  ? <div className='container'>
                 {todos.map((elem) => {
                     return <div className="card">
                     <div >
@@ -50,7 +50,7 @@ function HomeGenerador() {
                         </div>
             </div>}
             )}
-            </div>}
+            </div>:<div className='container'> <h3 className="title">Aun no cuenta con Ganancias</h3> </div> }
         </div>
         )
 }
