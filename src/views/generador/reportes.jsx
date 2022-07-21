@@ -43,6 +43,8 @@ function reportes() {
                                             <Accordion.Body>
                                                 <ul className="ul texto">Puntaje: {todo.puntaje}</ul>
                                                 <ul className="ul texto">Visualizaciones: {todo.visualizaciones}</ul>
+                                                <ul className="ul texto">Cantidad de Comenterios: {todo.comentarios}</ul>
+                                                <ul className="ul texto">cantidad de Compartidos: {todo.compartidos}</ul>
                                             </Accordion.Body>
                                         </Accordion.Item>
                                     </Accordion>
