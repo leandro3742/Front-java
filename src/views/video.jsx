@@ -44,22 +44,6 @@ function Video() {
     }
   }, [mostrar]);
 
-  const saveDuration = (time, id) => {
-    async function guardarTiempo(url) {
-        const response = await fetch(url, {
-            method: "POST",
-            headers: {
-                "Content-Type":"application/json"
-            },
-            body: JSON.stringify({
-                time: time.toString()
-            })
-        });
-        await response
-      }
-      guardarTiempo(`http://localhost:8080/visualizacion/agregarTiempoVisualizacion/1/${id}`);
-  };
-
   useEffect(() => {
     if(time.time > 5){
         time.time -= 5 
