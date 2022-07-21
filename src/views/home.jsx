@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "../styles/home.css";
-
-
 import PaypalCheckoutButton from "../component/paypalCheckoutButton";
 import { getContents } from "../fakeApi";
 import List from "../component/list";
-
 function Home() {
     const [index, setIndex] = useState(0);
 
