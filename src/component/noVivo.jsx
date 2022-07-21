@@ -1,8 +1,21 @@
 import React,  { useState, useEffect } from 'react'
 import ReactPlayer from "react-player";
 
+async function agregarVisualizacion(url) {
+    const response = await fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type":"application/json"
+        },
+        body: JSON.stringify({
+            time: 0
+        })
+    });
+    await response
+}
+
 function NoVivo (props) {
-  const {id } = props
+    const {id } = props
     const usuario = JSON.parse(sessionStorage.getItem("usuario"))
 
     const [progress, setProgress] = useState(0);
@@ -19,6 +32,7 @@ function NoVivo (props) {
           setMostrar(false);
         } else setMostrar(true);
       }
+      agregarVisualizacion(`http://localhost:8080/visualizacion/agregarVisualizacion/${id}/${usuario.idUsuario}`)
       estaPago(`http://localhost:8080/contenidos/estaPago/${id}/${usuario.idUsuario}`);
     }, []);
   
@@ -37,7 +51,7 @@ function NoVivo (props) {
                 setTime(0);
               } else setTime(await response.json());
           }
-          getTime(`http://localhost:8080/visualizacion/obtenerVisualizacion/${id}/${usuario.idUsuario}`)
+          getTime(`http://localhost:8080/visualizacion/obtenerVisualizacion/${usuario.idUsuario}/${id}`)
           getContenido(`http://localhost:8080/contenidos/${id}`);
       }
     }, [mostrar]);
@@ -55,7 +69,7 @@ function NoVivo (props) {
           });
           await response
         }
-        guardarTiempo(`http://localhost:8080/visualizacion/agregarTiempoVisualizacion/1/${id}`);
+        guardarTiempo(`http://localhost:8080/visualizacion/agregarTiempoVisualizacion/${usuario.idUsuario}/${id}`);
     };
   
     useEffect(() => {
@@ -69,9 +83,6 @@ function NoVivo (props) {
     const [type, setType] = useState("Chats");
     const [comentarios, setComentarios] = useState([]);
     const [message, setMessage] = useState("");
-    const [chats, setChats] = useState([]);
-    const [conversacion, setConversacion] = useState([]);
-    const [usuario2, setUsuario2] = useState("");
 
     useEffect(() => {
         setTitle(type === "Comentarios" ? "Chats" : "Comentarios");
@@ -87,70 +98,12 @@ function NoVivo (props) {
             });
         },5000);
 
-        const timerChats = setInterval(()=>{        
-            if(hacerPeticion){
-                getChats(`http://localhost:8080/comentarios/listaUsuariosConversacion/${usuario.idUsuario}`)
-                .then(res => {
-                    setChats(res)
-                })
-                .catch(err =>{
-                    console.log("Error", err)
-                    setHacerPeticion(false)
-                })
-            }
-        },5000);
-
         return () => {
             clearInterval(timerComentarios)
-            clearInterval(timerChats) 
         }
     }, []);
-    
+ 
 
-    const saveComentario = () => {
-        postComentario(`http://localhost:8080/contenidos/comentarContenido/${id}/${usuario.idUsuario}`, message)
-            .then(res => {
-                if(res.status === 201) 
-                    setMessage("")
-                else{
-                    alert("Hubo un error en enviar el comentario")
-                }
-            });
-    }
-
-    const crearChat = (idUser) => {
-        if(idUser !== usuario.idUsuario){
-            postComentarioIndividual(`http://localhost:8080/comentarios/agregarComentarioIndividual/${usuario.idUsuario}/${idUser}`, '')
-            .then(res => {
-                console.log(res)
-                if(res.status === 200){
-                    setType("Comentarios");
-                }
-            })
-        }
-    }
-
-    const nuevoMensaje = () => {
-        postComentarioIndividual(`http://localhost:8080/comentarios/agregarComentarioIndividual/${usuario.idUsuario}/${usuario2}`, message)
-        .then(res => {
-            if(res.status === 200){
-                fetchConversacion(`http://localhost:8080/comentarios/listarMensajesEntreUsuarios/${usuario.idUsuario}/${usuario2}`)
-                .then(res => {
-                    setConversacion(res)
-                })
-            }
-        })
-        setMessage("");
-    }
-    const traerConversacion = (e) => {
-        if(e.target.value){
-            setUsuario2(e.target.value)
-            fetchConversacion(`http://localhost:8080/comentarios/listarMensajesEntreUsuarios/${usuario.idUsuario}/${e.target.value}`)
-            .then(res => {
-                setConversacion(res)
-            })
-        }
-    }
     return (
         <div style={{ width: "100%", height: "90vh" }} className="row d-flex m-0">
             <div className="col-lg-9 col-md-9 col-12 m-0 p-0">
@@ -178,7 +131,6 @@ function NoVivo (props) {
                             <div style={{backgroundColor: color}} key={elem.id} className="px-4 py-1 d-flex flex-column">
                                 <span>{elem.texto}</span>
                                 <div className='d-flex justify-content-end'>
-                                    <button className=' mx-3 btn btn-sm btn-success' onClick={()=> crearChat(elem.usuario.id)}>Responder</button>
                                     <button className='btn btn-sm btn-danger'>Reportar</button>
                                 </div>
                             </div>

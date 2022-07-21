@@ -47,6 +47,20 @@ async function fetchConversacion(url) {
     }
     return await response
 }
+
+async function agregarVisualizacion(url) {
+    const response = await fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type":"application/json"
+        },
+        body: JSON.stringify({
+            time: 0
+        })
+    });
+    await response
+}
+
 //   TERMINA FUNCIONES
 
 function EnVivo(props){
@@ -68,6 +82,7 @@ function EnVivo(props){
         } else setMostrar(true);
       }
       estaPago(`http://localhost:8080/contenidos/estaPago/${id}/${usuario.idUsuario}`);
+      agregarVisualizacion(`http://localhost:8080/visualizacion/agregarVisualizacion/${id}/${usuario.idUsuario}`)
     }, []);
   
     useEffect(() => {
@@ -85,7 +100,7 @@ function EnVivo(props){
                 setTime(0);
               } else setTime(await response.json());
           }
-          getTime(`http://localhost:8080/visualizacion/obtenerVisualizacion/${id}/${usuario.idUsuario}`)
+          getTime(`http://localhost:8080/visualizacion/obtenerVisualizacion/${usuario.idUsuario}/${id}`)
           getContenido(`http://localhost:8080/contenidos/${id}`);
       }
     }, [mostrar]);
@@ -103,7 +118,7 @@ function EnVivo(props){
           });
           await response
         }
-        guardarTiempo(`http://localhost:8080/visualizacion/agregarTiempoVisualizacion/1/${id}`);
+        guardarTiempo(`http://localhost:8080/visualizacion/agregarTiempoVisualizacion/${usuario.idUsuario}/${id}`);
     };
   
     useEffect(() => {
@@ -199,6 +214,20 @@ function EnVivo(props){
             })
         }
     }
+
+    const reportar = async (elem) => {
+        async function fetchReportar(url){
+            const response = await fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type":"application/json"
+                },
+                body: JSON.stringify({})
+            });
+            console.log(await response)
+        }
+        await fetchReportar(`http://localhost:8080/comentarios/marcarComentarioSpoiler/${elem.id}`)
+    }
     return (
         <div style={{ width: "100%", height: "90vh" }} className="row d-flex m-0">
             <div className="col-lg-9 col-md-9 col-12 m-0 p-0">
@@ -225,13 +254,15 @@ function EnVivo(props){
                     <div style={{height: "70vh", overflowY: "scroll"}}>
                         {comentarios.map((elem, index) => {
                             let color;
+                            
                             index % 2 === 0 ? color = "#212529" : color = "black"
+                            if(!elem.spoiler)
                             return (
                                 <div style={{backgroundColor: color}} key={elem.id} className="px-4 py-1 d-flex flex-column">
                                     <span>{elem.texto}</span>
                                     <div className='d-flex justify-content-end'>
-                                        <button className=' mx-3 btn btn-sm btn-success' onClick={()=> crearChat(elem.usuario.id)}>Responder</button>
-                                        <button className='btn btn-sm btn-danger'>Reportar</button>
+                                        {elem.usuario.id !== usuario.idUsuario && <button className=' mx-3 btn btn-sm btn-success' onClick={()=> crearChat(elem.usuario.id)}>Responder</button>}
+                                        <button className='btn btn-sm btn-danger' onClick={()=> reportar(elem)}>Reportar</button>
                                     </div>
                                 </div>
                             )
