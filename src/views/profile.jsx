@@ -106,7 +106,7 @@ function Profile() {
                     return (
                         <div key={index} className="m-2">
                             <Link to={`/detail/${elem.id}`} >
-                                <img className="frontPage rounded" src={elem.fotoPortada} key={index} />
+                                <img style={{ maxWidth: "300px"}} className="frontPage rounded" src={elem.fotoPortada} key={index} />
                                 </Link>
                         </div>
                     )
